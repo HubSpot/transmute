@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset='utf-8' />
-  <title>transmute 1.0.0 | Documentation</title>
+  <title>@hs/transmute 1.0.0 | Documentation</title>
   <meta name='viewport' content='width=device-width,initial-scale=1'>
   <link href='assets/bass.css' type='text/css' rel='stylesheet' />
   <link href='assets/style.css' type='text/css' rel='stylesheet' />
@@ -13,7 +13,7 @@
     <div class='clearfix md-mxn2'>
       <div class='fixed xs-hide fix-3 overflow-auto max-height-100'>
         <div class='py1 px2'>
-          <h3 class='mb0 no-anchor'>transmute</h3>
+          <h3 class='mb0 no-anchor'>@hs/transmute</h3>
           <div class='mb1'><code>1.0.0</code></div>
           <input
             placeholder='Filter'
@@ -1678,7 +1678,7 @@ flatten(List.of(List.of(<span class="hljs-number">1</span>, List.of(<span class=
   <p>Flattens an iterable <code>depth</code> levels.</p>
 
 
-  <div class='pre p1 fill-light mt0'>flattenN(depth: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, subject: Iterable): Iterable</div>
+  <div class='pre p1 fill-light mt0'>flattenN(depth: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, subject: Iterable&#x3C;any, any>)</div>
   
   
 
@@ -1696,15 +1696,14 @@ flatten(List.of(List.of(<span class="hljs-number">1</span>, List.of(<span class=
         <div class='space-bottom0'>
           <div>
             <span class='code bold'>depth</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
-	    levels to flatten subject
-
+	    
           </div>
           
         </div>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>subject</span> <code class='quiet'>(Iterable)</code>
+            <span class='code bold'>subject</span> <code class='quiet'>(Iterable&#x3C;any, any>)</code>
 	    
           </div>
           
@@ -1715,14 +1714,6 @@ flatten(List.of(List.of(<span class="hljs-number">1</span>, List.of(<span class=
 
   
 
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>Iterable</code>:
-        
-
-      
-    
   
 
   
@@ -3400,9 +3391,6 @@ add11(7); // returns 18</p>
 to <code>operation</code> rather than a dynamic number of args. Unlike <code>partial</code> it is
 curried.</p>
 <p>partial : partialApply :: Function.prototype.call : Function.prototype.apply</p>
-<p>const add = (a, b, c) => a + b + c;
-const add11 = partialApply(add, [5, 6]);
-add11(7); // returns 18</p>
 
 
   <div class='pre p1 fill-light mt0'>partialApply(operation: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>, args: (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> | Iterable)): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a></div>
@@ -3457,6 +3445,14 @@ add11(7); // returns 18</p>
 
   
 
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> add = <span class="hljs-function">(<span class="hljs-params">a, b, c</span>) =&gt;</span> a + b + c;
+<span class="hljs-keyword">const</span> add11 = partialApply(add, [<span class="hljs-number">5</span>, <span class="hljs-number">6</span>]);
+add11(<span class="hljs-number">7</span>); <span class="hljs-comment">// returns 18</span></pre>
+    
   
 
   
