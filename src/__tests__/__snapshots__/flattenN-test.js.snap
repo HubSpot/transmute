@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`transmute/flattenN flattens Lists to depth 1`] = `
+Immutable.List [
+  1,
+  Immutable.List [
+    2,
+    3,
+  ],
+  4,
+  5,
+  6,
+]
+`;
+
+exports[`transmute/flattenN flattens Seqs to depth 1`] = `
+Array [
+  1,
+  Array [
+    2,
+    3,
+  ],
+  4,
+  5,
+  6,
+]
+`;

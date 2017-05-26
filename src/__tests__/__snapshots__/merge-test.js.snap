@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`transmute/merge merges a Map 1`] = `
+Immutable.Map {
+  one: 3,
+  two: 2,
+  three: 1,
+}
+`;
+
+exports[`transmute/merge merges an Object 1`] = `
+Immutable.Map {
+  one: 3,
+  two: 2,
+  three: 1,
+}
+`;

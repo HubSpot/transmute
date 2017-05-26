@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`transmute/entrySeq gets the entries from an Object 1`] = `
+Array [
+  Array [
+    "one",
+    1,
+  ],
+  Array [
+    "two",
+    2,
+  ],
+  Array [
+    "three",
+    3,
+  ],
+]
+`;
+
+exports[`transmute/entrySeq gets the values from a Map 1`] = `
+Array [
+  Array [
+    "one",
+    1,
+  ],
+  Array [
+    "two",
+    2,
+  ],
+  Array [
+    "three",
+    3,
+  ],
+]
+`;

@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`transmute/filter filters Lists 1`] = `
+Immutable.List [
+  2,
+]
+`;
+
+exports[`transmute/filter filters Maps 1`] = `
+Immutable.Map {
+  two: 2,
+}
+`;

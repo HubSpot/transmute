@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`transmute/where matches maps 1`] = `
+Immutable.Map {
+  jill: Immutable.Map {
+    name: "Jill",
+    age: 23,
+  },
+  shaun: Immutable.Map {
+    name: "Shaun",
+    age: 23,
+  },
+}
+`;
+
+exports[`transmute/where matches multiple items 1`] = `
+Immutable.List [
+  Immutable.Map {
+    name: "Jill",
+    age: 23,
+  },
+  Immutable.Map {
+    name: "Shaun",
+    age: 23,
+  },
+]
+`;
+
+exports[`transmute/where matches one item 1`] = `
+Immutable.List [
+  Immutable.Map {
+    name: "Colby",
+    age: 24,
+  },
+]
+`;

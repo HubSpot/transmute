@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`transmute/updateIn updates a nested Map 1`] = `
+Immutable.Map {
+  one: Immutable.Map {
+    two: 3,
+  },
+}
+`;

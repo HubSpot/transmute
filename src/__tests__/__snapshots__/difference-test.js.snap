@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`transmute/difference returns differences for Map with key from subject 1`] = `
+Immutable.Map {
+  a2: "a",
+}
+`;
+
+exports[`transmute/difference returns differences for Seq 1`] = `
+Array [
+  "a",
+]
+`;
+
+exports[`transmute/difference returns differences for Set 1`] = `
+Immutable.Set [
+  "a",
+]
+`;
+
+exports[`transmute/difference returns differences for list 1`] = `
+Immutable.List [
+  "a",
+]
+`;
+
+exports[`transmute/difference returns empty iterable when no differences 1`] = `
+Immutable.List [
+]
+`;
+
+exports[`transmute/difference returns full iterable when no toRemove given 1`] = `
+Immutable.List [
+  "a",
+  "b",
+]
+`;

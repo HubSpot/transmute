@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`transmute/without drops unwanted values 1`] = `
+Immutable.List [
+  "two",
+]
+`;

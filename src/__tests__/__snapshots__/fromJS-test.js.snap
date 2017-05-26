@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`transmute/fromJS converts json to Immutable 1`] = `
+Immutable.Map {
+  nums: Immutable.List [
+    1,
+    2,
+    3,
+  ],
+}
+`;
+
+exports[`transmute/fromJS works with \`map\` 1`] = `
+Immutable.List [
+  Immutable.Map {
+    one: 1,
+  },
+  Immutable.Map {
+    two: 2,
+  },
+  Immutable.Map {
+    three: 3,
+  },
+]
+`;

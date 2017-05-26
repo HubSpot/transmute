@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`transmute/flatten deeply flattens Lists 1`] = `
+Immutable.List [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+]
+`;
+
+exports[`transmute/flatten deeply flattens Seq 1`] = `
+Array [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+]
+`;

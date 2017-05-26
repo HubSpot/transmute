@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`transmute/sortBy sorts a List 1`] = `
+Immutable.List [
+  2,
+  1,
+  3,
+]
+`;
+
+exports[`transmute/sortBy sorts a Map into an OrderedMap 1`] = `
+Immutable.OrderedMap {
+  two: 2,
+  one: 1,
+  three: 3,
+}
+`;

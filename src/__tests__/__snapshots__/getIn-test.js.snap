@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`transmute/getIn gets a keyPath from Immutables in JS Objects 1`] = `
+Object {
+  "three": 3,
+}
+`;
+
+exports[`transmute/getIn gets a keyPath from JS Objects within immutables 1`] = `
+Object {
+  "three": 3,
+}
+`;
+
+exports[`transmute/getIn gets a keyPath from a Map 1`] = `
+Immutable.Map {
+  three: 3,
+}
+`;
+
+exports[`transmute/getIn gets a keyPath from an Object 1`] = `
+Object {
+  "three": 3,
+}
+`;

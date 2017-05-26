@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`transmute/reduce reduces a List 1`] = `
+Immutable.List [
+  2,
+  3,
+  4,
+]
+`;
+
+exports[`transmute/reduce reduces a Map 1`] = `
+Immutable.Map {
+  one: 2,
+  two: 3,
+  three: 4,
+}
+`;
+
+exports[`transmute/reduce reduces a Seq 1`] = `
+Array [
+  2,
+  3,
+  4,
+]
+`;
+
+exports[`transmute/reduce reduces a Set 1`] = `
+Immutable.Set [
+  2,
+  3,
+  4,
+]
+`;
+
+exports[`transmute/reduce reduces to a primitive 1`] = `6`;

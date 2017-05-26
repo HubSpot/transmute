@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`transmute/valueSeq gets the values from a Map 1`] = `
+Array [
+  1,
+  2,
+  3,
+]
+`;
+
+exports[`transmute/valueSeq gets the values from an Array 1`] = `
+Array [
+  1,
+  2,
+  3,
+]
+`;
+
+exports[`transmute/valueSeq gets the values from an Object 1`] = `
+Array [
+  1,
+  2,
+  3,
+]
+`;

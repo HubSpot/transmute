@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`transmute/translate applies functions to the key 1`] = `
+Immutable.Map {
+  second: 2,
+}
+`;
+
+exports[`transmute/translate renames keys with string values 1`] = `
+Immutable.Map {
+  first: 1,
+}
+`;
+
+exports[`transmute/translate takes keys flagged \`true\` 1`] = `
+Immutable.Map {
+  one: 1,
+}
+`;

@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`transmute/omit drops keys from Maps 1`] = `
+Immutable.Map {
+  two: 2,
+}
+`;
+
+exports[`transmute/omit drops keys from Records 1`] = `
+Immutable.Map {
+  two: 2,
+}
+`;
