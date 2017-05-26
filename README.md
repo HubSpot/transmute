@@ -1,12 +1,8 @@
 # transmute
 
-[![transmute build status](https://private.hubapi.com/blazar/v2/branches/state/24425/shield?1470423940130)](https://private.hubteam.com/blazar/builds/branch/24425)
-
-Questions can be directed to the [#transmute](https://hubspot.slack.com/messages/transmute/) channel on slack and issues filed on the [issues tab](https://git.hubteam.com/HubSpot/transmute/issues).
-
 ## Getting started
 
-`transmute` is meant to provide convenient, composable utility functions for transforming [Immutable.js](http://facebook.github.io/immutable-js/) data structures.
+`transmute` provides convenient, composable functions for transforming [Immutable.js](http://facebook.github.io/immutable-js/) data structures.
 
 ```javascript
 import { Map } from 'immutable';
