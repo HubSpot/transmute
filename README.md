@@ -1,12 +1,16 @@
 # transmute
 
+`transmute` provides convenient, composable functions for transforming [Immutable.js](http://facebook.github.io/immutable-js/) data structures.
+
 ## Getting started
 
-`transmute` provides convenient, composable functions for transforming [Immutable.js](http://facebook.github.io/immutable-js/) data structures.
+```
+npm install @hs/transmute
+```
 
 ```javascript
 import { Map } from 'immutable';
-import pick from '../.*';
+import pick from 'transmute/pick';
 
 // returns Map { one => 1, three => 3 }
 pick(['one', 'three'], Map({one: 1, two: 2, three: 3}));
@@ -16,7 +20,7 @@ Most of the function (with the execption of some of the composition functions li
 
 ```javascript
 import { Map } from 'immutable';
-import pick from '../.*';
+import pick from 'transmute/pick';
 
 const pickTwo = pick(['two']);
 // returns Map { two => 2 }
@@ -38,10 +42,6 @@ const setOfKeysWithEvenValues = t.pipe(
 // returns Set { 'two', 'four' }
 takeEvenValues(Map({one: 1, two: 2, three: 3, four: 4}));
 ```
-
-## Available on npm
-
-    npm install --save @hs/transmute
 
 ## API
 
