@@ -4,6 +4,8 @@
 
 ## Getting started
 
+Transmute can be installed with `npm` or `yarn`.
+
 ```
 npm install @hs/transmute
 ```
