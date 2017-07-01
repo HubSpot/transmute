@@ -1,4 +1,13 @@
 import { Iterable, Seq } from "immutable";
+import { keySeq } from "./protocols/Keyed";
+
+keySeq.implement(Iterable, subject => {
+  return subject.keySeq();
+});
+
+keySeq.implement(Object, subject => {
+  return Seq(subject).keySeq();
+});
 
 /**
  * Get a Seq of the keys in `value`.
@@ -6,11 +15,4 @@ import { Iterable, Seq } from "immutable";
  * @param  {Iterable|Object|Array} value
  * @return {Seq}
  */
-export default function keySeq<K>(
-  value: Array<*> | Iterable<K, *> | { [key: K]: * }
-) {
-  if (!Iterable.isIterable(value)) {
-    value = Seq(value);
-  }
-  return value.keySeq();
-}
+export default keySeq;

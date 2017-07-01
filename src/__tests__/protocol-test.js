@@ -85,10 +85,10 @@ describe("protocol", () => {
     });
 
     it("passes through the correct args", () => {
-      const incrementAll = map(n => n + 1);
-      expect(incrementAll([1, 2, 3])).toEqual([2, 3, 4]);
-      expect(incrementAll(List.of(1, 2, 3))).toEqual(List.of(2, 3, 4));
-      expect(incrementAll({ one: 1, two: 2, three: 3 })).toEqual({
+      const inc = n => n + 1;
+      expect(map(inc, [1, 2, 3])).toEqual([2, 3, 4]);
+      expect(map(inc, List.of(1, 2, 3))).toEqual(List.of(2, 3, 4));
+      expect(map(inc, { one: 1, two: 2, three: 3 })).toEqual({
         one: 2,
         two: 3,
         three: 4

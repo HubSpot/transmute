@@ -2,10 +2,16 @@ import { Map, Record } from "immutable";
 import omit from "../omit";
 
 describe("transmute/omit", () => {
+  const dropOneAndThree = omit(["one", "three"]);
+
   it("drops keys from Maps", () => {
     expect(
-      omit(["one", "three"], Map({ one: 1, two: 2, three: 3 }))
+      dropOneAndThree(Map({ one: 1, two: 2, three: 3 }))
     ).toMatchSnapshot();
+  });
+
+  it("drops keys from Objects", () => {
+    expect(dropOneAndThree({ one: 1, two: 2, three: 3 })).toMatchSnapshot();
   });
 
   it("drops keys from Records", () => {
@@ -17,6 +23,6 @@ describe("transmute/omit", () => {
       },
       "TestRecord"
     );
-    expect(omit(["one", "three"], TestRecord())).toMatchSnapshot();
+    expect(dropOneAndThree(TestRecord())).toMatchSnapshot();
   });
 });

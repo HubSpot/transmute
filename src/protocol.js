@@ -1,5 +1,5 @@
 // @flow
-import curryN from "./curryN";
+import _setArity from "./internal/_setArity";
 import uniqueId from "./uniqueId";
 
 type ProtocolDefinition = {
@@ -24,6 +24,17 @@ function getKey(id, value) {
   }
 }
 
+function makeKey(Type) {
+  switch (Type) {
+    case null:
+      return "null";
+    case undefined:
+      return "undefined";
+    default:
+      return uniqueId();
+  }
+}
+
 class Protocol {
   name: string;
 
@@ -41,7 +52,7 @@ class Protocol {
     this.name = name;
     this.methods = {};
     this.implementations = {};
-    const idName = `__PROTOCOL_${name}`;
+    const idName = `__p_${name}`;
     this.id = typeof Symbol === "function" ? Symbol(idName) : uniqueId(idName);
   }
 
@@ -49,9 +60,7 @@ class Protocol {
     if (this.methods[name]) {
       throw new Error(`defineMethod: \`${name}\` is already defined.`);
     }
-    const method = curryN.operation(arity, (...args) =>
-      this.dispatch(name, args)
-    );
+    const method = _setArity(arity, (...args) => this.dispatch(name, args));
     this.methods[name] = method;
     this.implementations[name] = {};
     if (typeof fallback === "function") {
@@ -74,15 +83,14 @@ class Protocol {
   }
 
   implement(name: string, Type: ?Function, implementation: Function) {
-    const isEmpty = Type === null || Type === undefined;
-    const key = isEmpty ? `${Type}` : uniqueId();
-    if (!isEmpty) {
+    const key = makeKey(Type);
+    if (Type !== undefined && Type !== null) {
       Type[this.id] = key;
       Object.defineProperty(Type.prototype, this.id, {
         configurable: false,
         enumerable: false,
         value: key,
-        writable: false
+        writable: true
       });
     }
     this.implementations[name][key] = implementation;

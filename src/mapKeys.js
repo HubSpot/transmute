@@ -1,5 +1,38 @@
 import curry from "./curry";
-import { Iterable, Seq } from "immutable";
+import { Collection, Iterable, Seq } from "immutable";
+import { mapKeys } from "./protocols/Keyed";
+
+mapKeys.implement(Collection.Keyed, (keyMapper, subject) => {
+  const nextEntries = subject
+    .entrySeq()
+    .map(([key, value]) => [keyMapper(key, value, subject), value]);
+  return new subject.constructor(nextEntries);
+});
+
+mapKeys.implement(Object, (keyMapper, subject) => {
+  const keys = Object.keys(subject);
+  const len = keys.length;
+  const result = {};
+  for (let i = 0; i < len; i++) {
+    const key = keys[i];
+    const value = subject[key];
+    result[keyMapper(key, value, subject)] = value;
+  }
+  return result;
+});
+
+mapKeys.implement(Iterable, (keyMapper, subject) => {
+  throw new Error(
+    `expected \`subject\` to be a KeyedIterable but got \`${subject}\``
+  );
+});
+
+mapKeys.implement(Seq.Keyed, (keyMapper, subject) => {
+  const nextEntries = subject
+    .entrySeq()
+    .map(([key, value]) => [keyMapper(key, value, subject), value]);
+  return Seq.Keyed(nextEntries);
+});
 
 /**
  * Like `map` but transforms an Iterable's keys rather than its values.
@@ -14,20 +47,4 @@ import { Iterable, Seq } from "immutable";
  * @param  {KeyedIterable} subject
  * @return {KeyedIterable}
  */
-function mapKeys(keyMapper, subject) {
-  if (!Iterable.isKeyed(subject)) {
-    throw new Error(
-      `expected \`subject\` to be a KeyedIterable but got \`${subject}\``
-    );
-  }
-
-  const nextEntries = subject
-    .entrySeq()
-    .map(([key, value]) => [keyMapper(key, value, subject), value]);
-  if (Seq.isSeq(subject)) {
-    return Seq.Keyed(nextEntries);
-  }
-  return new subject.constructor(nextEntries);
-}
-
 export default curry(mapKeys);

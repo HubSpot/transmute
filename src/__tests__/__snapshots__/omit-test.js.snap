@@ -6,6 +6,12 @@ Immutable.Map {
 }
 `;
 
+exports[`transmute/omit drops keys from Objects 1`] = `
+Object {
+  "undefined": undefined,
+}
+`;
+
 exports[`transmute/omit drops keys from Records 1`] = `
 Immutable.Map {
   two: 2,

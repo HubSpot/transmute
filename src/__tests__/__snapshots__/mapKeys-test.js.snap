@@ -16,6 +16,14 @@ Object {
 }
 `;
 
+exports[`transmute/mapKeys maps Objects 1`] = `
+Object {
+  "test-1": 1,
+  "test-2": 2,
+  "test-3": 3,
+}
+`;
+
 exports[`transmute/mapKeys maps OrderedMap keys 1`] = `
 Immutable.OrderedMap {
   test-1: 1,

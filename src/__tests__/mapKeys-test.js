@@ -27,6 +27,11 @@ describe("transmute/mapKeys", () => {
     expect(prependTest(original)).toMatchSnapshot();
   });
 
+  it("maps Objects", () => {
+    const original = { 1: 1, 2: 2, 3: 3 };
+    expect(prependTest(original)).toMatchSnapshot();
+  });
+
   it("maps OrderedMap keys", () => {
     const original = OrderedMap([[1, 1], [2, 2], [3, 3]]);
     expect(prependTest(original)).toMatchSnapshot();
