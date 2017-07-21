@@ -1,5 +1,7 @@
 // @flow
+import _makeSymbol from "./internal/_makeSymbol";
 import _setArity from "./internal/_setArity";
+import isArray from "./isArray";
 import uniqueId from "./uniqueId";
 
 type ProtocolDefinition = {
@@ -8,11 +10,12 @@ type ProtocolDefinition = {
 
 type MethodDefinition = {
   name: string,
-  arity?: number,
+  args: Array<Function | Symbol | string>,
   fallback?: Function
 };
 
 const DEFAULT_KEY = "__DEFAULT_IMPLMENTATION";
+const DISPATCH_TYPE = _makeSymbol("protocolType");
 
 function getKey(id, value) {
   switch (value) {
@@ -20,7 +23,7 @@ function getKey(id, value) {
     case undefined:
       return `${value}`;
     default:
-      return value[id];
+      return value.constructor[id] || value[id];
   }
 }
 
@@ -53,20 +56,28 @@ class Protocol {
     this.methods = {};
     this.implementations = {};
     const idName = `__p_${name}`;
-    this.id = typeof Symbol === "function" ? Symbol(idName) : uniqueId(idName);
+    this.id = _makeSymbol(idName);
   }
 
-  defineMethod({ arity = 1, name, fallback }: MethodDefinition) {
+  defineMethod({ args, name, fallback }: MethodDefinition) {
     if (this.methods[name]) {
       throw new Error(`defineMethod: \`${name}\` is already defined.`);
     }
-    const method = _setArity(arity, (...args) => this.dispatch(name, args));
+    if (!isArray(args) && args[0] !== DISPATCH_TYPE) {
+      throw new Error(
+        `defineMethod: expected \`args\` to be an array but got \`${args.toString()}\`.`
+      );
+    }
+    const method = _setArity(args.length, (...input) =>
+      this.dispatch(name, input)
+    );
     this.methods[name] = method;
     this.implementations[name] = {};
     if (typeof fallback === "function") {
       this.implementations[name][DEFAULT_KEY] = fallback;
     }
     method.implement = this.implement.bind(this, name);
+    method.implementInherited = this.implementInherited.bind(this, name);
     return method;
   }
 
@@ -86,6 +97,21 @@ class Protocol {
     const key = makeKey(Type);
     if (Type !== undefined && Type !== null) {
       Type[this.id] = key;
+      Object.defineProperty(Type.constructor, this.id, {
+        configurable: false,
+        enumerable: false,
+        value: key,
+        writable: true
+      });
+    }
+    this.implementations[name][key] = implementation;
+    return implementation;
+  }
+
+  implementInherited(name: string, Type: ?Function, implementation: Function) {
+    const key = makeKey(Type);
+    if (Type !== undefined && Type !== null) {
+      Type[this.id] = key;
       Object.defineProperty(Type.prototype, this.id, {
         configurable: false,
         enumerable: false,
@@ -101,3 +127,5 @@ class Protocol {
 export default function protocol(name: string) {
   return new Protocol({ name });
 }
+
+protocol.TYPE = DISPATCH_TYPE;

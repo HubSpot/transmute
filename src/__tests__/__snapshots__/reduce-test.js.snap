@@ -32,4 +32,20 @@ Immutable.Set [
 ]
 `;
 
+exports[`transmute/reduce reduces an Array 1`] = `
+Immutable.List [
+  2,
+  3,
+  4,
+]
+`;
+
+exports[`transmute/reduce reduces an Object 1`] = `
+Immutable.List [
+  2,
+  3,
+  4,
+]
+`;
+
 exports[`transmute/reduce reduces to a primitive 1`] = `6`;

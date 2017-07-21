@@ -1,5 +1,25 @@
 import curry from "./curry";
-import { Iterable, Seq } from "immutable";
+import { Iterable } from "immutable";
+import { reduce } from "./protocols/Reducable";
+
+reduce.implement(Array, (into, operation, arr) => {
+  return arr.reduce(operation, into);
+});
+
+reduce.implementInherited(Iterable, (into, operation, iter) => {
+  return iter.reduce(operation, into);
+});
+
+reduce.implement(Object, (into, operation, obj) => {
+  const keys = Object.keys(obj);
+  const len = keys.length;
+  let acc = into;
+  for (let i = 0; i < len; i++) {
+    const key = keys[i];
+    acc = operation(acc, obj[key], key, obj);
+  }
+  return acc;
+});
 
 /**
  * Transform the contents of `subject` to `into` by applying `operation` to each
@@ -10,11 +30,4 @@ import { Iterable, Seq } from "immutable";
  * @param  {Iterable} subject   [description]
  * @return {Iterable}
  */
-function reduce(into, operation, subject) {
-  if (!Iterable.isIterable(into) || Seq.isSeq(into)) {
-    return subject.reduce(operation, into);
-  }
-  return into.withMutations(result => subject.reduce(operation, result));
-}
-
 export default curry(reduce);

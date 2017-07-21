@@ -1,4 +1,5 @@
 import curry from "./curry";
+import filter from "./filter";
 
 /**
  * Remove values for which `predicate` returns `true`.
@@ -14,8 +15,6 @@ import curry from "./curry";
  * @param {Iterable} subject to filter.
  * @return {Iterable} without values that matched `predicate`.
  */
-function filterNot(predicate, subject) {
-  return subject.filterNot(predicate);
-}
-
-export default curry(filterNot);
+export default curry((predicate, subject) => {
+  return filter.operation((...args) => !predicate(...args), subject);
+});
