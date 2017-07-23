@@ -1,16 +1,48 @@
 import get from "../get";
-import { List, Map } from "immutable";
+import { List, Map, Seq } from "immutable";
 
 describe("transmute/get", () => {
-  it("gets a property from a List", () => {
-    expect(get(1, List.of(1, 2, 3))).toEqual(2);
+  describe("empty types", () => {
+    const getTest = get("test");
+
+    it("null", () => {
+      expect(getTest(null)).toBe(undefined);
+    });
+
+    it("undefined", () => {
+      expect(getTest(undefined)).toBe(undefined);
+    });
   });
 
-  it("gets a property from a Map", () => {
-    expect(get("two", Map.of("one", 1, "two", 2, "three", 3))).toEqual(2);
+  describe("indexed types", () => {
+    const getSecond = get(1);
+
+    it("gets a property from an Array", () => {
+      expect(getSecond([1, 2, 3])).toEqual(2);
+    });
+
+    it("gets a property from a List", () => {
+      expect(getSecond(List.of(1, 2, 3))).toEqual(2);
+    });
+
+    it("gets an item from a Seq", () => {
+      expect(getSecond(Seq.of(1, 2, 3))).toEqual(2);
+    });
   });
 
-  it("gets a property from an Object", () => {
-    expect(get("two", { one: 1, two: 2, three: 3 })).toEqual(2);
+  describe("keyed types", () => {
+    const getTwo = get("two");
+
+    it("gets a property from a Map", () => {
+      expect(getTwo(Map.of("one", 1, "two", 2, "three", 3))).toEqual(2);
+    });
+
+    it("gets a property from an Object", () => {
+      expect(getTwo({ one: 1, two: 2, three: 3 })).toEqual(2);
+    });
+
+    it("gets a property from a Seq", () => {
+      expect(getTwo(Seq({ one: 1, two: 2, three: 3 }))).toEqual(2);
+    });
   });
 });

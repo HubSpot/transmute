@@ -1,5 +1,16 @@
 import curry from "./curry";
 import { Iterable } from "immutable";
+import { get } from "./protocols/Gettable";
+
+function empty() {
+  return undefined;
+}
+
+get.implement(undefined, empty);
+
+get.implement(null, empty);
+
+get.implementInherited(Iterable, (key, subject) => subject.get(key));
 
 /**
  * Retrieve the value at `key` from `subject`.
@@ -12,14 +23,4 @@ import { Iterable } from "immutable";
  * @param  {Iterable|Object} subject in which to look up `key`.
  * @return {any} the value at `key`.
  */
-function get(key, subject) {
-  if (subject === null || subject === undefined) {
-    return undefined;
-  }
-  if (Iterable.isIterable(subject)) {
-    return subject.get(key);
-  }
-  return subject[key];
-}
-
 export default curry(get);

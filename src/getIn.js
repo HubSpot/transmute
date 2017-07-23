@@ -1,9 +1,5 @@
 import curry from "./curry";
-import get from "./get";
-
-// This is the un-curried version of `get`.
-// Figured since we aren't using it here it's worth avioding the overhead.
-const getBase = get.operation;
+import { get } from "./protocols/Gettable";
 
 /**
  * Retrieve a `keyPath` from a nested Immutable or JS structure.
@@ -30,7 +26,7 @@ function getIn(keyPath, subject) {
     if (value === undefined) {
       break;
     }
-    value = getBase(keyPath[i], value);
+    value = get(keyPath[i], value);
   }
   return value;
 }
