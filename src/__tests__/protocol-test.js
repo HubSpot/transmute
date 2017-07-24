@@ -1,4 +1,5 @@
-import { List, Map, OrderedSet, Set } from "immutable";
+import { Iterable, List, Map, OrderedSet, Set } from "immutable";
+import isFunction from "../isFunction";
 import protocol from "../protocol";
 
 describe("protocol", () => {
@@ -7,7 +8,7 @@ describe("protocol", () => {
       const Testable = protocol("Testable");
       const isTestable = Testable.defineMethod({
         name: "isTestable",
-        arity: 1
+        args: [protocol.TYPE]
       });
       expect(() => isTestable({})).toThrow();
     });
@@ -16,7 +17,7 @@ describe("protocol", () => {
       const Stringable = protocol("Stringable");
       const stringify = Stringable.defineMethod({
         name: "stringify",
-        arity: 1,
+        args: [protocol.TYPE],
         fallback: thing => thing.toString()
       });
       expect(stringify({})).toBe("[object Object]");
@@ -27,7 +28,7 @@ describe("protocol", () => {
     const Stringable = protocol("Stringable");
     const stringify = Stringable.defineMethod({
       name: "stringify",
-      arity: 1,
+      args: [protocol.TYPE],
       fallback: thing => thing.toString()
     });
 
@@ -45,13 +46,16 @@ describe("protocol", () => {
 
   describe("constructor types", () => {
     const Countable = protocol("Countable");
-    const count = Countable.defineMethod({ name: "count" });
+    const count = Countable.defineMethod({
+      name: "count",
+      args: [protocol.TYPE]
+    });
 
     count.implement(Array, arr => arr.length);
     count.implement(Map, map => map.size);
     count.implement(Number, n => n);
-    count.implement(Set, iter => iter.count());
     count.implement(String, str => str.length);
+    count.implementInherited(Iterable, iter => iter.count());
 
     it("dispatches based on the values type", () => {
       expect(count([1, 2, 3])).toBe(3);
@@ -71,7 +75,7 @@ describe("protocol", () => {
     const Mappable = protocol("Mappable");
     const map = Mappable.defineMethod({
       name: "map",
-      arity: 2,
+      args: [isFunction, protocol.TYPE],
       fallback: (mapper, iter) => iter.map(mapper)
     });
 
@@ -89,6 +93,15 @@ describe("protocol", () => {
       expect(map(inc, [1, 2, 3])).toEqual([2, 3, 4]);
       expect(map(inc, List.of(1, 2, 3))).toEqual(List.of(2, 3, 4));
       expect(map(inc, { one: 1, two: 2, three: 3 })).toEqual({
+        one: 2,
+        two: 3,
+        three: 4
+      });
+    });
+
+    it("ignores extraneous args", () => {
+      const inc = n => n + 1;
+      expect(map(inc, { one: 1, two: 2, three: 3 }, "test", 123)).toEqual({
         one: 2,
         two: 3,
         three: 4

@@ -85,7 +85,7 @@ class Protocol {
     const dispatchValue = args[dispatchValueIndex];
     const dispatchKey = getKey(this.id, dispatchValue);
     const implementations = this.implementations[name];
-    if (!dispatchKey && !implementations[DEFAULT_KEY]) {
+    if (!implementations[dispatchKey] && !implementations[DEFAULT_KEY]) {
       throw new Error(
         `${this.name}.${name}: not implmented for type \`${dispatchValue}\``
       );

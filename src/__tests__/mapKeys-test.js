@@ -44,7 +44,6 @@ describe("transmute/mapKeys", () => {
 
   it("transform an API response", () => {
     const indexWorkflows = pipe(
-      Seq,
       indexBy(get("id")),
       mapKeys(toString),
       map(v => fromJS(v))
@@ -59,6 +58,6 @@ describe("transmute/mapKeys", () => {
         name: "test 2"
       }
     ];
-    expect(indexWorkflows(original).toMap()).toMatchSnapshot();
+    expect(indexWorkflows(original)).toMatchSnapshot();
   });
 });

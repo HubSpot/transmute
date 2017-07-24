@@ -35,7 +35,7 @@ describe("transmute/reduce", () => {
 
   it("reduces a Seq", () => {
     expect(
-      reduce(Seq(), (acc, n) => acc.concat([n + 1]), Seq.of(1, 2, 3))
+      reduce(Seq(), (acc, n) => acc.concat([n + 1]), Seq([1, 2, 3]))
     ).toMatchSnapshot();
   });
 

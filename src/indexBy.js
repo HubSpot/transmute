@@ -2,16 +2,10 @@ import curry from "./curry";
 import { Iterable, Map, OrderedMap } from "immutable";
 import reduce from "./reduce";
 
-/**
- * Create a Map, or OrderedMap from `subject` with a key for each item
- * returned by `keyMapper`.
- *
- * @param  {Function} keyMapper generates keys for each item
- * @param  {Iterable} subject to index
- * @return {KeyedIterable}
- */
+const reduceOperation = reduce.operation;
+
 function indexBy(keyMapper, subject) {
-  return reduce(
+  return reduceOperation(
     Iterable.isOrdered(subject) || !Iterable.isIterable(subject)
       ? OrderedMap()
       : Map(),
@@ -20,4 +14,12 @@ function indexBy(keyMapper, subject) {
   );
 }
 
+/**
+ * Create a Map, or OrderedMap from `subject` with a key for each item
+ * returned by `keyMapper`.
+ *
+ * @param  {Function} keyMapper generates keys for each item
+ * @param  {Iterable} subject to index
+ * @return {KeyedIterable}
+ */
 export default curry(indexBy);

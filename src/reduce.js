@@ -6,10 +6,6 @@ reduce.implement(Array, (into, operation, arr) => {
   return arr.reduce(operation, into);
 });
 
-reduce.implementInherited(Iterable, (into, operation, iter) => {
-  return iter.reduce(operation, into);
-});
-
 reduce.implement(Object, (into, operation, obj) => {
   const keys = Object.keys(obj);
   const len = keys.length;
@@ -19,6 +15,10 @@ reduce.implement(Object, (into, operation, obj) => {
     acc = operation(acc, obj[key], key, obj);
   }
   return acc;
+});
+
+reduce.implementInherited(Iterable, (into, operation, iter) => {
+  return iter.reduce(operation, into);
 });
 
 /**
