@@ -1,13 +1,6 @@
 import curry from "./curry";
-import { Collection, Iterable, Seq } from "immutable";
+import { Collection, Seq } from "immutable";
 import { mapKeys } from "./protocols/Keyed";
-
-mapKeys.implement(Collection.Keyed, (keyMapper, subject) => {
-  const nextEntries = subject
-    .entrySeq()
-    .map(([key, value]) => [keyMapper(key, value, subject), value]);
-  return new subject.constructor(nextEntries);
-});
 
 mapKeys.implement(Object, (keyMapper, subject) => {
   const keys = Object.keys(subject);
@@ -21,13 +14,14 @@ mapKeys.implement(Object, (keyMapper, subject) => {
   return result;
 });
 
-mapKeys.implement(Iterable, (keyMapper, subject) => {
-  throw new Error(
-    `expected \`subject\` to be a KeyedIterable but got \`${subject}\``
-  );
+mapKeys.implementInherited(Collection.Keyed, (keyMapper, subject) => {
+  const nextEntries = subject
+    .entrySeq()
+    .map(([key, value]) => [keyMapper(key, value, subject), value]);
+  return new subject.constructor(nextEntries);
 });
 
-mapKeys.implement(Seq.Keyed, (keyMapper, subject) => {
+mapKeys.implementInherited(Seq.Keyed, (keyMapper, subject) => {
   const nextEntries = subject
     .entrySeq()
     .map(([key, value]) => [keyMapper(key, value, subject), value]);
