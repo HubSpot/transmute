@@ -1,5 +1,7 @@
 import curry from "./curry";
-import { get } from "./protocols/Gettable";
+import get from "./get";
+
+const getOperation = get.operation;
 
 /**
  * Retrieve a `keyPath` from a nested Immutable or JS structure.
@@ -26,7 +28,7 @@ function getIn(keyPath, subject) {
     if (value === undefined) {
       break;
     }
-    value = get(keyPath[i], value);
+    value = getOperation(keyPath[i], value);
   }
   return value;
 }
