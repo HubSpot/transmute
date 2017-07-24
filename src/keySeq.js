@@ -1,7 +1,12 @@
 import { Iterable, Seq } from "immutable";
 import { keySeq } from "./protocols/Keyed";
 
-keySeq.implementInherited(Object, subject => Seq(subject).keySeq());
+function fromJS(subject) {
+  return Seq(subject).keySeq();
+}
+
+keySeq.implement(Array, fromJS);
+keySeq.implement(Object, fromJS);
 
 keySeq.implementInherited(Iterable, subject => subject.keySeq());
 
