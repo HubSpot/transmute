@@ -1,10 +1,5 @@
-import get from "../get";
-import { fromJS, List, Map, OrderedMap, Seq, Set } from "immutable";
-import indexBy from "../indexBy";
-import map from "../map";
+import { List, Map, OrderedMap, Seq, Set } from "immutable";
 import mapKeys from "../mapKeys";
-import pipe from "../pipe";
-import toString from "../toString";
 
 describe("transmute/mapKeys", () => {
   const prependTest = mapKeys(key => `test-${key}`);
@@ -40,24 +35,5 @@ describe("transmute/mapKeys", () => {
   it("maps ObjectSeq keys", () => {
     const original = Seq({ 1: 1, 2: 2, 3: 3 });
     expect(prependTest(original)).toMatchSnapshot();
-  });
-
-  it("transform an API response", () => {
-    const indexWorkflows = pipe(
-      indexBy(get("id")),
-      mapKeys(toString),
-      map(v => fromJS(v))
-    );
-    const original = [
-      {
-        id: 1,
-        name: "test"
-      },
-      {
-        id: 2,
-        name: "test 2"
-      }
-    ];
-    expect(indexWorkflows(original)).toMatchSnapshot();
   });
 });
