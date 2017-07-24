@@ -3,12 +3,12 @@ import indexBy from "../indexBy";
 import get from "../get";
 
 describe("transmute/indexBy", () => {
-  const indexById = indexBy(get("id"));
+  const getId = get("id");
+  const indexById = indexBy(getId);
 
   it("indexes an Array", () => {
-    expect(
-      indexById([Map({ id: "123" }), Map({ id: "456" })])
-    ).toMatchSnapshot();
+    const input = [Map({ id: "123" }), Map({ id: "456" })];
+    expect(indexById(input)).toMatchSnapshot();
   });
 
   it("indexes a List", () => {
@@ -25,6 +25,15 @@ describe("transmute/indexBy", () => {
           two: Map({ id: "456" })
         })
       )
+    ).toMatchSnapshot();
+  });
+
+  it("indexes an Object", () => {
+    expect(
+      indexById({
+        one: { id: "123" },
+        two: { id: "456" }
+      })
     ).toMatchSnapshot();
   });
 });

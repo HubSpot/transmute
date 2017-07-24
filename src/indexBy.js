@@ -12,7 +12,7 @@ import reduce from "./reduce";
  */
 function indexBy(keyMapper, subject) {
   return reduce(
-    Iterable.isOrdered(subject) || Array.isArray(subject)
+    Iterable.isOrdered(subject) || !Iterable.isIterable(subject)
       ? OrderedMap()
       : Map(),
     (acc, v, k) => acc.set(keyMapper(v, k, subject), v),

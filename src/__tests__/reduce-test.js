@@ -3,9 +3,12 @@ import reduce from "../reduce";
 
 describe("transmute/reduce", () => {
   it("reduces an Array", () => {
-    expect(
-      reduce(List(), (acc, n) => acc.push(n + 1), [1, 2, 3])
-    ).toMatchSnapshot();
+    const reducer = jest.fn((acc, n) => acc.push(n + 1));
+    expect(reduce(List(), reducer, [1, 2, 3])).toMatchSnapshot();
+    expect(reducer.mock.calls.length).toBe(3);
+    expect(reducer.mock.calls[0]).toEqual([List(), 1, 0, [1, 2, 3]]);
+    expect(reducer.mock.calls[1]).toEqual([List.of(2), 2, 1, [1, 2, 3]]);
+    expect(reducer.mock.calls[2]).toEqual([List.of(2, 3), 3, 2, [1, 2, 3]]);
   });
 
   it("reduces a List", () => {

@@ -2,6 +2,10 @@ import get from "../get";
 import { List, Map, Seq } from "immutable";
 
 describe("transmute/get", () => {
+  it("works with extra arguemtns", () => {
+    expect(get("id")({ id: "123" }, "random", [1, 2, 3])).toEqual("123");
+  });
+
   describe("empty types", () => {
     const getTest = get("test");
 

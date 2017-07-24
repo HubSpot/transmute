@@ -69,7 +69,7 @@ class Protocol {
       );
     }
     const method = _setArity(args.length, (...input) =>
-      this.dispatch(name, input)
+      this.dispatch(name, args.indexOf(DISPATCH_TYPE), input)
     );
     this.methods[name] = method;
     this.implementations[name] = {};
@@ -81,8 +81,8 @@ class Protocol {
     return method;
   }
 
-  dispatch(name: string, args: Array<any>) {
-    const dispatchValue = args[args.length - 1];
+  dispatch(name: string, dispatchValueIndex: number, args: Array<any>) {
+    const dispatchValue = args[dispatchValueIndex];
     const dispatchKey = getKey(this.id, dispatchValue);
     const implementations = this.implementations[name];
     if (!dispatchKey && !implementations[DEFAULT_KEY]) {
