@@ -1,25 +1,13 @@
 import curry from "./curry";
-import { Collection, Map, Record, Seq } from "immutable";
-import { pick } from "./protocols/Keyed";
+import { Seq } from "immutable";
+import filter from "./filter";
 
-pick.implement(Collection.Keyed, (keys, subject) => {
+const filterOperation = filter.operation;
+
+function pick(keys, subject) {
   const keySet = Seq.Set(keys);
-  return subject.filter((_, key) => keySet.contains(key));
-});
-
-pick.implement(Object, (keys, subject) => {
-  const len = keys.length;
-  const result = {};
-  for (let i = 0; i < len; i++) {
-    result[keys[i]] = subject[keys[i]];
-  }
-  return result;
-});
-
-pick.implement(Record, (keys, subject) => {
-  const keySet = Seq.Set(keys);
-  return keySet.reduce((acc, key) => acc.set(key, subject.get(key)), Map());
-});
+  return filterOperation((value, key) => keySet.contains(key), subject);
+}
 
 /**
  * Select specified keys from a KeyedIterable (e.g. a `Map` or `OrderedMap`).

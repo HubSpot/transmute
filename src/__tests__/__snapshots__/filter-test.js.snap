@@ -23,3 +23,9 @@ Object {
   "two": 2,
 }
 `;
+
+exports[`transmute/filter filters Records into Maps 1`] = `
+Immutable.Map {
+  two: 2,
+}
+`;

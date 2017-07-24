@@ -1,5 +1,5 @@
 import filterNot from "../filterNot";
-import { List, Map } from "immutable";
+import { List, Map, Record } from "immutable";
 
 describe("transmute/filterNot", () => {
   const takeOdd = filterNot(n => n % 2 === 0);
@@ -18,5 +18,10 @@ describe("transmute/filterNot", () => {
 
   it("filterNots Objects", () => {
     expect(takeOdd({ one: 1, two: 2, three: 3 })).toMatchSnapshot();
+  });
+
+  it("filters Records into Maps", () => {
+    const Test = Record({ one: 1, two: 2, three: 3 }, "Test");
+    expect(takeOdd(Test())).toMatchSnapshot();
   });
 });

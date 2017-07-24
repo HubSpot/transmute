@@ -27,3 +27,10 @@ Object {
   "three": 3,
 }
 `;
+
+exports[`transmute/filterNot filters Records into Maps 1`] = `
+Immutable.Map {
+  one: 1,
+  three: 3,
+}
+`;

@@ -1,5 +1,5 @@
 import curry from "./curry";
-import { Iterable } from "immutable";
+import { Iterable, Map, Record } from "immutable";
 import { filter } from "./protocols/Reducable";
 
 filter.implement(Array, (test, arr) => arr.filter(test));
@@ -18,6 +18,15 @@ filter.implement(Object, (test, obj) => {
     }
   }
   return result;
+});
+
+filter.implementInherited(Record, (test, rec) => {
+  return rec.reduce((acc, val, key) => {
+    if (!test(val, key, rec)) {
+      return acc;
+    }
+    return acc.set(key, val);
+  }, Map());
 });
 
 /**

@@ -8,7 +8,7 @@ Immutable.Map {
 
 exports[`transmute/omit drops keys from Objects 1`] = `
 Object {
-  "undefined": undefined,
+  "two": 2,
 }
 `;
 

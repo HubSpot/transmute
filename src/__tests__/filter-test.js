@@ -1,5 +1,5 @@
 import filter from "../filter";
-import { List, Map } from "immutable";
+import { List, Map, Record } from "immutable";
 
 describe("transmute/filter", () => {
   const takeEven = filter(n => n % 2 === 0);
@@ -18,5 +18,10 @@ describe("transmute/filter", () => {
 
   it("filters Objects", () => {
     expect(takeEven({ one: 1, two: 2, three: 3 })).toMatchSnapshot();
+  });
+
+  it("filters Records into Maps", () => {
+    const Test = Record({ one: 1, two: 2, three: 3 }, "Test");
+    expect(takeEven(Test())).toMatchSnapshot();
   });
 });
