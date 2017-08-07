@@ -1,4 +1,5 @@
 // @flow
+import always from "../always";
 import isFunction from "../isFunction";
 import protocol from "../protocol";
 
@@ -15,6 +16,6 @@ export const map = Reducable.defineMethod({
 });
 
 export const reduce = Reducable.defineMethod({
-  args: [() => true, isFunction, protocol.TYPE],
+  args: [always(true), isFunction, protocol.TYPE],
   name: "reduce"
 });
