@@ -1,4 +1,5 @@
 // @flow
+import always from "../always";
 import isFunction from "../isFunction";
 import protocol from "../protocol";
 
@@ -12,4 +13,9 @@ export const keySeq = Keyed.defineMethod({
 export const mapKeys = Keyed.defineMethod({
   args: [isFunction, protocol.TYPE],
   name: "mapKeys"
+});
+
+export const merge = Keyed.defineMethod({
+  args: [always(true), protocol.TYPE],
+  name: "merge"
 });

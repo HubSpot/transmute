@@ -1,10 +1,9 @@
+import always from "./always";
 import curry from "./curry";
-import { Iterable } from "immutable";
 import { get } from "./protocols/Gettable";
+import { Iterable } from "immutable";
 
-function empty() {
-  return undefined;
-}
+const empty = always(undefined);
 
 get.implement(Array, (key, subject) => subject[key]);
 get.implement(null, empty);

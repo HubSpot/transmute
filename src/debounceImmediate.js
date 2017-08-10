@@ -2,14 +2,6 @@ import curry from "./curry";
 import enforceFunction from "./enforce/enforceFunction";
 import enforceInterval from "./enforce/enforceInterval";
 
-/**
- * `operation` is called immediately and then `interval` milliseconds after the most
- * recent call.
- *
- * @param  {number} interval of milliseconds
- * @param  {Function} operation
- * @return {any} the most recent result of `operation`
- */
 function debounceImmediate(interval, operation) {
   enforceInterval(interval);
   enforceFunction(operation);
@@ -49,4 +41,12 @@ function debounceImmediate(interval, operation) {
   return immediatelyDebounced;
 }
 
+/**
+ * `operation` is called immediately and then `interval` milliseconds after the most
+ * recent call.
+ *
+ * @param  {number} interval of milliseconds
+ * @param  {Function} operation
+ * @return {any} the most recent result of `operation`
+ */
 export default curry(debounceImmediate);

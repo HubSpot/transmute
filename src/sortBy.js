@@ -1,5 +1,9 @@
 import curry from "./curry";
 
+function sortBy(getSortValue, subject) {
+  return subject.sortBy(getSortValue);
+}
+
 /**
  * Sort `subject` according to the value returned by `getSortValue`.
  *
@@ -21,8 +25,4 @@ import curry from "./curry";
  * @param  {Iterable} subject the thing to sort.
  * @return {Iterable} an ordered version of `subject` (e.g. sorting a `Map` returns an `OrderedMap`).
  */
-function sortBy(getSortValue, subject) {
-  return subject.sortBy(getSortValue);
-}
-
 export default curry(sortBy);

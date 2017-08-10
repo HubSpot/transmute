@@ -2,13 +2,6 @@ import curry from "./curry";
 import enforceFunction from "./enforce/enforceFunction";
 import enforceInterval from "./enforce/enforceInterval";
 
-/**
- * Ensures `operation` is only called once every `interval` milliseconds.
- *
- * @param  {number} interval of milliseconds
- * @param  {Function} operation
- * @return {any} the most recent result of `operation`
- */
 function throttle(interval, operation) {
   enforceInterval(interval);
   enforceFunction(operation);
@@ -44,4 +37,11 @@ function throttle(interval, operation) {
   return throttled;
 }
 
+/**
+ * Ensures `operation` is only called once every `interval` milliseconds.
+ *
+ * @param  {number} interval of milliseconds
+ * @param  {Function} operation
+ * @return {any} the most recent result of `operation`
+ */
 export default curry(throttle);

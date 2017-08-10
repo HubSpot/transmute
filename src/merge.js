@@ -1,4 +1,24 @@
 import curry from "./curry";
+import { Iterable } from "immutable";
+import { merge } from "./protocols/Keyed";
+import reduce from "./reduce";
+
+// TODO colby
+merge.implement(Object, (updates, obj) => {
+  const result = Object.assign({}, obj);
+  return reduce.operation(
+    result,
+    (acc, val, key) => {
+      acc[key] = val;
+      return result;
+    },
+    updates
+  );
+});
+
+merge.implementInherited(Iterable, (updates, subject) =>
+  subject.merge(updates)
+);
 
 /**
  * Takes each entry of `updates` and sets it on `subject`.
@@ -14,8 +34,4 @@ import curry from "./curry";
  * @param  {Iterable} subject the thing to update.
  * @return {Iterable} with each key-value of `updates` merged into `subject`.
  */
-function merge(updates, subject) {
-  return subject.merge(updates);
-}
-
 export default curry(merge);

@@ -1,3 +1,4 @@
+export { default as always } from "./always";
 export { default as both } from "./both";
 export { default as compose } from "./compose";
 export { default as curry } from "./curry";

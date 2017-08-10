@@ -1,5 +1,10 @@
 import curry from "./curry";
+import filter from "./filter";
 import match from "./match";
+
+function where(pattern, subject) {
+  return filter(match(pattern), subject);
+}
 
 /**
  * Takes items in `subject` that match `pattern`.
@@ -8,8 +13,4 @@ import match from "./match";
  * @param  {Iterable} subject
  * @return {Iterable}
  */
-function where(pattern, subject) {
-  return subject.filter(match(pattern));
-}
-
 export default curry(where);

@@ -3,6 +3,17 @@ import get from "./get";
 
 const getOperation = get.operation;
 
+function getIn(keyPath, subject) {
+  let value = subject;
+  for (let i = 0; i < keyPath.length; i++) {
+    if (value === undefined) {
+      break;
+    }
+    value = getOperation(keyPath[i], value);
+  }
+  return value;
+}
+
 /**
  * Retrieve a `keyPath` from a nested Immutable or JS structure.
  *
@@ -22,15 +33,4 @@ const getOperation = get.operation;
  * @param  {Array|Iterable|Object} subject
  * @return {any}
  */
-function getIn(keyPath, subject) {
-  let value = subject;
-  for (let i = 0; i < keyPath.length; i++) {
-    if (value === undefined) {
-      break;
-    }
-    value = getOperation(keyPath[i], value);
-  }
-  return value;
-}
-
 export default curry(getIn);

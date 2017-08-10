@@ -22,6 +22,10 @@ function curryInternal(operation, arity, prevArgs, ...nextArgs) {
   return bindWithArity(operation, remainingArity, args);
 }
 
+function curryN(arity, operation) {
+  return bindWithArity(enforceFunction(operation), enforceArity(arity), []);
+}
+
 /**
  * Create a curried version of `operation` that expects `arity` arguments.
  * Inception-ally, `curryN` is also curried.
@@ -34,8 +38,4 @@ function curryInternal(operation, arity, prevArgs, ...nextArgs) {
  * @param  {Function} operation to curry
  * @return {Function}
  */
-function curryN(arity, operation) {
-  return bindWithArity(enforceFunction(operation), enforceArity(arity), []);
-}
-
 export default curryN(2, curryN);

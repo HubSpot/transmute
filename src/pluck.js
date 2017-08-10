@@ -1,5 +1,10 @@
 import curry from "./curry";
 import get from "./get";
+import map from "./map";
+
+function pluck(key, subject) {
+  return map.operation(get(key), subject);
+}
 
 /**
  * Select `key` from each item in `subject`.
@@ -12,8 +17,4 @@ import get from "./get";
  * @param  {Iterable} subject
  * @return {Iterable}
  */
-function pluck(key, subject) {
-  return subject.map(get(key));
-}
-
 export default curry(pluck);

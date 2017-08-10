@@ -20,4 +20,14 @@ describe("transmute/toJS", () => {
       three: 3
     });
   });
+
+  it("converts something with a toJSON method", () => {
+    class Test {
+      toJSON() {
+        return { test: true };
+      }
+    }
+
+    expect(toJS(new Test())).toEqual({ test: true });
+  });
 });
