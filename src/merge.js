@@ -3,7 +3,6 @@ import { Iterable } from "immutable";
 import { merge } from "./protocols/Keyed";
 import reduce from "./reduce";
 
-// TODO colby
 merge.implement(Object, (updates, obj) => {
   const result = Object.assign({}, obj);
   return reduce.operation(

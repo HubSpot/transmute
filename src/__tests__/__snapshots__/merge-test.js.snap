@@ -15,3 +15,19 @@ Immutable.Map {
   three: 1,
 }
 `;
+
+exports[`transmute/merge Object merges with a Map 1`] = `
+Object {
+  "one": 3,
+  "three": 1,
+  "two": 2,
+}
+`;
+
+exports[`transmute/merge Object merges with an Object 1`] = `
+Object {
+  "one": 3,
+  "three": 1,
+  "two": 2,
+}
+`;
