@@ -1,6 +1,7 @@
 export { default as always } from "./always";
 export { default as both } from "./both";
 export { default as compose } from "./compose";
+export { default as count } from "./count";
 export { default as curry } from "./curry";
 export { default as curryN } from "./curryN";
 export { default as debounce } from "./debounce";
@@ -13,6 +14,7 @@ export { default as filter } from "./filter";
 export { default as filterNot } from "./filterNot";
 export { default as flatten } from "./flatten";
 export { default as flattenN } from "./flattenN";
+export { default as forEach } from "./forEach";
 export { default as fromJS } from "./fromJS";
 export { default as get } from "./get";
 export { default as getIn } from "./getIn";
