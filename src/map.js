@@ -1,6 +1,6 @@
 import curry from "./curry";
 import { Iterable } from "immutable";
-import { map } from "./protocols/Reducable";
+import { map } from "./protocols/Iterable";
 
 map.implement(Array, (mapper, arr) => arr.map(mapper));
 

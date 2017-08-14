@@ -1,6 +1,6 @@
 import curry from "./curry";
 import { Iterable } from "immutable";
-import { some } from "./protocols/Reducable";
+import { some } from "./protocols/Iterable";
 
 some.implement(Array, (predicate, arr) => {
   return arr.some(predicate);

@@ -3,7 +3,7 @@ import always from "../always";
 import isFunction from "../isFunction";
 import protocol from "../protocol";
 
-export const Reducable = protocol("Reducable");
+export const Iterable = protocol("Iterable");
 
 /**
  * Returns true if `predicate` returns `true` for _all_ items in `subject`.
@@ -12,7 +12,7 @@ export const Reducable = protocol("Reducable");
  * @param {TYPE} subject
  * @return {bool}
  */
-export const every = Reducable.defineMethod({
+export const every = Iterable.defineMethod({
   args: [
     isFunction, // predicate
     protocol.TYPE // subject
@@ -27,7 +27,7 @@ export const every = Reducable.defineMethod({
  * @param {TYPE} subject
  * @return {bool}
  */
-export const some = Reducable.defineMethod({
+export const some = Iterable.defineMethod({
   args: [
     isFunction, // predicate
     protocol.TYPE // subject
@@ -41,12 +41,20 @@ export const some = Reducable.defineMethod({
  * @param {Function} predicate
  * @param {TYPE} subject
  */
-export const filter = Reducable.defineMethod({
+export const filter = Iterable.defineMethod({
   args: [
     isFunction, // predicate
     protocol.TYPE // subject
   ],
   name: "filter"
+});
+
+export const forEach = Iterable.defineMethod({
+  args: [
+    isFunction, // effect
+    protocol.TYPE // subject
+  ],
+  name: "forEach"
 });
 
 /**
@@ -56,7 +64,7 @@ export const filter = Reducable.defineMethod({
  * @param {TYPE} subject
  * @return {TYPE}
  */
-export const map = Reducable.defineMethod({
+export const map = Iterable.defineMethod({
   args: [
     isFunction, // mapper
     protocol.TYPE // subject
@@ -71,7 +79,7 @@ export const map = Reducable.defineMethod({
  * @param {TYPE} subject
  * @return {TYPE}
  */
-export const reduce = Reducable.defineMethod({
+export const reduce = Iterable.defineMethod({
   args: [
     always(true), // accumulator
     isFunction, // reducer

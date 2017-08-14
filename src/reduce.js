@@ -1,6 +1,6 @@
 import curry from "./curry";
 import { Iterable } from "immutable";
-import { reduce } from "./protocols/Reducable";
+import { reduce } from "./protocols/Iterable";
 
 reduce.implement(Array, (into, operation, arr) => {
   return arr.reduce(operation, into);

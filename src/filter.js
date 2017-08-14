@@ -1,6 +1,6 @@
 import curry from "./curry";
 import { Iterable, Map, Record } from "immutable";
-import { filter } from "./protocols/Reducable";
+import { filter } from "./protocols/Iterable";
 
 filter.implement(Array, (test, arr) => arr.filter(test));
 
