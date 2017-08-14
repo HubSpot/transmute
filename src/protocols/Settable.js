@@ -6,6 +6,14 @@ const any = always(true);
 
 export const Settable = protocol("Settable");
 
+/**
+ * Set the `value` of `key` in `subject`.
+ *
+ * @param {any} value
+ * @param {any} key
+ * @param {TYPE} subject
+ * @return {TYPE}
+ */
 export const set = Settable.defineMethod({
   args: [
     any, // value
