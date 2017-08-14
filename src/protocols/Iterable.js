@@ -6,6 +6,19 @@ import protocol from "../protocol";
 export const Iterable = protocol("Iterable");
 
 /**
+ * Returns the number of values in `subject`.
+ * 
+ * @param {TYPE} subject
+ * @return {number}
+ */
+export const count = Iterable.defineMethod({
+  args: [
+    protocol.TYPE // subject
+  ],
+  name: "count"
+});
+
+/**
  * Returns true if `predicate` returns `true` for _all_ items in `subject`.
  *
  * @param {Function} predicate
