@@ -1,7 +1,7 @@
 // @flow
-import protocol from '../protocol';
+import protocol from "../protocol";
 
-export const Countable = protocol('Countable');
+export const Countable = protocol("Countable");
 
 /**
  * Returns the number of values in `subject`.
@@ -11,7 +11,7 @@ export const Countable = protocol('Countable');
  */
 export const count = Countable.defineMethod({
   args: [
-    protocol.TYPE, // subject
+    protocol.TYPE // subject
   ],
-  name: 'count',
+  name: "count"
 });
