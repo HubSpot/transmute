@@ -19,3 +19,11 @@ export const get = Gettable.defineMethod({
   name: "get",
   fallback: (key, obj) => obj[key]
 });
+
+export const has = Gettable.defineMethod({
+  args: [
+    always(true), // key
+    protocol.TYPE
+  ],
+  name: "has"
+});

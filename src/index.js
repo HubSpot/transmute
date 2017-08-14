@@ -18,6 +18,7 @@ export { default as forEach } from "./forEach";
 export { default as fromJS } from "./fromJS";
 export { default as get } from "./get";
 export { default as getIn } from "./getIn";
+export { default as has } from "./has";
 export { default as identity } from "./identity";
 export { default as indexBy } from "./indexBy";
 export { default as isArray } from "./isArray";
