@@ -20,6 +20,8 @@ export { default as get } from "./get";
 export { default as getIn } from "./getIn";
 export { default as has } from "./has";
 export { default as identity } from "./identity";
+export { default as ifElse } from "./ifElse";
+export { default as ifThen } from "./ifThen";
 export { default as indexBy } from "./indexBy";
 export { default as isArray } from "./isArray";
 export { default as isEmpty } from "./isEmpty";
