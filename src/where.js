@@ -3,7 +3,7 @@ import filter from "./filter";
 import match from "./match";
 
 function where(pattern, subject) {
-  return filter(match(pattern), subject);
+  return filter.operation(match(pattern), subject);
 }
 
 /**

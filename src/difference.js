@@ -1,10 +1,11 @@
 import curry from "./curry";
+import filter from "./filter";
 
 function difference(toRemove, subject) {
   if (!toRemove) {
     return subject;
   }
-  return subject.filter(value => !toRemove.contains(value));
+  return filter.operation(value => !toRemove.contains(value), subject);
 }
 
 /**

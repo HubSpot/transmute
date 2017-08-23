@@ -24,4 +24,10 @@ set.implement(Object, (value, key, obj) => {
   return result;
 });
 
+/**
+ * @param {any} value
+ * @param {any} key
+ * @param {Array|Iterable|Object} subject
+ * @return {Array|Iterable|Object}
+ */
 export default curry(set);

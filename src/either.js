@@ -1,5 +1,9 @@
 import curry from "./curry";
 
+function either(first, second, arg) {
+  return first(arg) || second(arg);
+}
+
 /**
  * Returns true if the results of `arg` applied to either `first` or `second`
  * are truthy.
@@ -9,8 +13,4 @@ import curry from "./curry";
  * @param  {any} arg
  * @return {boolean}
  */
-function either(first, second, arg) {
-  return first(arg) || second(arg);
-}
-
 export default curry(either);
