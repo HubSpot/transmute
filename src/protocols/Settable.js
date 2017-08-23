@@ -22,3 +22,18 @@ export const set = Settable.defineMethod({
   ],
   name: "set"
 });
+
+/**
+ * Creates a new value by setting each key-value pair in updates into `subject`.
+ *
+ * @param {any} updates
+ * @param {TYPE} subject
+ * @return {TYPE}
+ */
+export const merge = Settable.defineMethod({
+  args: [
+    always(true), // updates
+    protocol.TYPE // subject
+  ],
+  name: "merge"
+});

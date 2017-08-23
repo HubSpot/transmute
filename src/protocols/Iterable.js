@@ -7,7 +7,7 @@ export const Iterable = protocol("Iterable");
 
 /**
  * Returns the number of values in `subject`.
- * 
+ *
  * @param {TYPE} subject
  * @return {number}
  */
@@ -16,6 +16,45 @@ export const count = Iterable.defineMethod({
     protocol.TYPE // subject
   ],
   name: "count"
+});
+
+/**
+ * Returns a Seq of key,value tuples (in JS Array)
+ *
+ * @param {TYPE}
+ * @return {Seq<[any, any]>}
+ */
+export const entrySeq = Iterable.defineMethod({
+  args: [
+    protocol.TYPE // subject
+  ],
+  name: "entrySeq"
+});
+
+/**
+ * Return a `Seq` of the keys in `subject`.
+ *
+ * @param {TYPE<K, _>} subject
+ * @return {Seq<K>}
+ */
+export const keySeq = Iterable.defineMethod({
+  args: [
+    protocol.TYPE // subject
+  ],
+  name: "keySeq"
+});
+
+/**
+ * Return a `Seq` of the values in `subject`.
+ *
+ * @param {TYPE<_, V>} subject
+ * @return {Seq<K>}
+ */
+export const valueSeq = Iterable.defineMethod({
+  args: [
+    protocol.TYPE // subject
+  ],
+  name: "valueSeq"
 });
 
 /**
@@ -83,6 +122,21 @@ export const map = Iterable.defineMethod({
     protocol.TYPE // subject
   ],
   name: "map"
+});
+
+/**
+ * Creates a new value by applying `mapper` to each _key_ in `subject`.
+ *
+ * @param {Function} mapper
+ * @param {TYPE} subject
+ * @return {TYPE}
+ */
+export const mapKeys = Iterable.defineMethod({
+  args: [
+    isFunction, // mapper
+    protocol.TYPE // subject
+  ],
+  name: "mapKeys"
 });
 
 /**

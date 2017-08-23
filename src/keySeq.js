@@ -1,19 +1,16 @@
 import { Iterable, Seq } from "immutable";
-import { keySeq } from "./protocols/Keyed";
+import { keySeq } from "./protocols/Iterable";
 
-function fromJS(subject) {
-  return Seq(subject).keySeq();
-}
+const jsToKeySeq = subject => Seq(subject).keySeq();
 
-keySeq.implement(Array, fromJS);
-keySeq.implement(Object, fromJS);
-
+keySeq.implement(Array, jsToKeySeq);
 keySeq.implementInherited(Iterable, subject => subject.keySeq());
+keySeq.implement(Object, jsToKeySeq);
 
 /**
- * Get a Seq of the keys in `value`.
+ * Get a Seq of the keys in `subject`.
  *
- * @param  {Iterable|Object|Array} value
+ * @param  {Iterable|Object|Array} subject
  * @return {Seq}
  */
 export default keySeq;

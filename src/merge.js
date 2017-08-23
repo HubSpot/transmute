@@ -1,7 +1,7 @@
 import curry from "./curry";
 import { Iterable } from "immutable";
-import { merge } from "./protocols/Keyed";
 import reduce from "./reduce";
+import { merge } from "./protocols/Settable";
 
 merge.implement(Object, (updates, obj) => {
   const result = Object.assign({}, obj);

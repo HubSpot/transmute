@@ -1,13 +1,16 @@
 import { Iterable, Seq } from "immutable";
+import { valueSeq } from "./protocols/Iterable";
+
+const jsToValueSeq = subject => Seq(subject).valueSeq();
+
+valueSeq.implement(Array, jsToValueSeq);
+valueSeq.implementInherited(Iterable, subject => subject.valueSeq());
+valueSeq.implement(Object, jsToValueSeq);
 
 /**
- * Get a Seq of the values in `value`.
+ * Get a Seq of the values in `subject`.
+ *
+ * @param  {Iterable|Object|Array} subject
+ * @return {Seq}
  */
-export default function valueSeq<V>(
-  value: Array<V> | Iterable<any, V> | { [key: any]: V }
-) {
-  if (!Iterable.isIterable(value)) {
-    value = Seq(value);
-  }
-  return value.valueSeq();
-}
+export default valueSeq;
