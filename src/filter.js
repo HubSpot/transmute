@@ -39,6 +39,13 @@ filter.implementInherited(Record, (test, rec) => {
  *   List.of(1, 2, 3)
  * );
  *
+ * @example <caption>`Record`s have a fixed set of keys, so filter returns a Map instead.</caption>
+ * // returns Map { 'one' => 1, 'three' => 3 }
+ * filter(
+ *   (n) => n % 2 === 0,
+ *   ThreeRecord({one: 1, two: 2, three: 3})
+ * );
+ *
  * @param {Function} predicate returns `true` if a value should be included.
  * @param {Iterable} subject to filter.
  * @return {Iterable} without values that didn't match `predicate`.
