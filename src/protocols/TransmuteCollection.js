@@ -84,6 +84,14 @@ export const forEach = TransmuteCollection.defineMethod({
   name: "forEach"
 });
 
+export const has = TransmuteCollection.defineMethod({
+  args: [
+    always(true), // key
+    protocol.TYPE
+  ],
+  name: "has"
+});
+
 /**
  * Return a `Seq` of the keys in `subject`.
  *
