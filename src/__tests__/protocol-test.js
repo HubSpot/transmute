@@ -57,6 +57,17 @@ describe("protocol", () => {
     count.implement(String, str => str.length);
     count.implementInherited(Iterable, iter => iter.count());
 
+    const isEmpty = Countable.defineMethod({
+      name: "isEmpty",
+      args: [protocol.TYPE]
+    });
+
+    isEmpty.implement(Array, arr => arr.length === 0);
+    isEmpty.implement(Map, map => map.size === 0);
+    isEmpty.implement(Number, n => n === 0);
+    isEmpty.implement(String, str => str.length === 0);
+    isEmpty.implementInherited(Iterable, iter => iter.count() === 0);
+
     it("dispatches based on the values type", () => {
       expect(count([1, 2, 3])).toBe(3);
       expect(count(Map({ one: 1, two: 2 }))).toBe(2);

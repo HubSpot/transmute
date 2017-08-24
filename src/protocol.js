@@ -17,7 +17,7 @@ type MethodDefinition = {
 const DEFAULT_KEY = "__DEFAULT_IMPLMENTATION";
 const DISPATCH_TYPE = _makeSymbol("protocolType");
 
-function getKey(id, value) {
+function getValueKey(id, value) {
   switch (value) {
     case null:
     case undefined:
@@ -27,14 +27,25 @@ function getKey(id, value) {
   }
 }
 
-function makeKey(Type) {
+function makeKey(id, Type) {
   switch (Type) {
     case null:
       return "null";
     case undefined:
       return "undefined";
     default:
-      return uniqueId();
+      return Type[id] || uniqueId();
+  }
+}
+
+function makeKeyInherited(id, Type) {
+  switch (Type) {
+    case null:
+      return "null";
+    case undefined:
+      return "undefined";
+    default:
+      return Type.prototype[id] || uniqueId();
   }
 }
 
@@ -83,7 +94,7 @@ class Protocol {
 
   dispatch(name: string, dispatchValueIndex: number, args: Array<any>) {
     const dispatchValue = args[dispatchValueIndex];
-    const dispatchKey = getKey(this.id, dispatchValue);
+    const dispatchKey = getValueKey(this.id, dispatchValue);
     const implementations = this.implementations[name];
     if (!implementations[dispatchKey] && !implementations[DEFAULT_KEY]) {
       throw new Error(
@@ -94,10 +105,9 @@ class Protocol {
   }
 
   implement(name: string, Type: ?Function, implementation: Function) {
-    const key = makeKey(Type);
-    if (Type !== undefined && Type !== null) {
-      Type[this.id] = key;
-      Object.defineProperty(Type.constructor, this.id, {
+    const key = makeKey(this.id, Type);
+    if (Type !== undefined && Type !== null && !Type[this.id]) {
+      Object.defineProperty(Type, this.id, {
         configurable: false,
         enumerable: false,
         value: key,
@@ -109,9 +119,8 @@ class Protocol {
   }
 
   implementInherited(name: string, Type: ?Function, implementation: Function) {
-    const key = makeKey(Type);
-    if (Type !== undefined && Type !== null) {
-      Type[this.id] = key;
+    const key = makeKeyInherited(this.id, Type);
+    if (Type !== undefined && Type !== null && !Type.prototype[this.id]) {
       Object.defineProperty(Type.prototype, this.id, {
         configurable: false,
         enumerable: false,
