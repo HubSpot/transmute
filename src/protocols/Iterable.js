@@ -163,3 +163,18 @@ export const reduce = Iterable.defineMethod({
   ],
   name: "reduce"
 });
+
+/**
+ * Returns a copy of `subject` sorted according to `getSortValue`.
+ *
+ * @param {Function} getSortValue
+ * @param {TYPE} subject
+ * @return {TYPE}
+ */
+export const sortBy = Iterable.defineMethod({
+  args: [
+    isFunction, // getSortValue
+    protocol.TYPE // subject
+  ],
+  name: "sortBy"
+});

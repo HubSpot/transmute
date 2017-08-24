@@ -1,8 +1,10 @@
 import curry from "./curry";
+import { Iterable } from "immutable";
+import { sortBy } from "./protocols/Iterable";
 
-function sortBy(getSortValue, subject) {
-  return subject.sortBy(getSortValue);
-}
+sortBy.implementInherited(Iterable, (getSortValue, subject) =>
+  subject.sortBy(getSortValue)
+);
 
 /**
  * Sort `subject` according to the value returned by `getSortValue`.
