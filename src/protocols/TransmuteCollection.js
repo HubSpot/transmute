@@ -40,32 +40,6 @@ export const entrySeq = TransmuteCollection.defineMethod({
 });
 
 /**
- * Return a `Seq` of the keys in `subject`.
- *
- * @param {TYPE<K, _>} subject
- * @return {Seq<K>}
- */
-export const keySeq = TransmuteCollection.defineMethod({
-  args: [
-    protocol.TYPE // subject
-  ],
-  name: "keySeq"
-});
-
-/**
- * Return a `Seq` of the values in `subject`.
- *
- * @param {TYPE<_, V>} subject
- * @return {Seq<K>}
- */
-export const valueSeq = TransmuteCollection.defineMethod({
-  args: [
-    protocol.TYPE // subject
-  ],
-  name: "valueSeq"
-});
-
-/**
  * Returns true if `predicate` returns `true` for _all_ items in `subject`.
  *
  * @param {Function} predicate
@@ -78,21 +52,6 @@ export const every = TransmuteCollection.defineMethod({
     protocol.TYPE // subject
   ],
   name: "every"
-});
-
-/**
- * Returns true if `predicate` returns `true` for _any_ items in `subject`.
- *
- * @param {Function} predicate
- * @param {TYPE} subject
- * @return {bool}
- */
-export const some = TransmuteCollection.defineMethod({
-  args: [
-    isFunction, // predicate
-    protocol.TYPE // subject
-  ],
-  name: "some"
 });
 
 /**
@@ -123,6 +82,19 @@ export const forEach = TransmuteCollection.defineMethod({
     protocol.TYPE // subject
   ],
   name: "forEach"
+});
+
+/**
+ * Return a `Seq` of the keys in `subject`.
+ *
+ * @param {TYPE<K, _>} subject
+ * @return {Seq<K>}
+ */
+export const keySeq = TransmuteCollection.defineMethod({
+  args: [
+    protocol.TYPE // subject
+  ],
+  name: "keySeq"
 });
 
 /**
@@ -172,6 +144,21 @@ export const reduce = TransmuteCollection.defineMethod({
 });
 
 /**
+ * Returns true if `predicate` returns `true` for _any_ items in `subject`.
+ *
+ * @param {Function} predicate
+ * @param {TYPE} subject
+ * @return {bool}
+ */
+export const some = TransmuteCollection.defineMethod({
+  args: [
+    isFunction, // predicate
+    protocol.TYPE // subject
+  ],
+  name: "some"
+});
+
+/**
  * Returns a copy of `subject` sorted according to `getSortValue`.
  *
  * @param {Function} getSortValue
@@ -184,4 +171,17 @@ export const sortBy = TransmuteCollection.defineMethod({
     protocol.TYPE // subject
   ],
   name: "sortBy"
+});
+
+/**
+ * Return a `Seq` of the values in `subject`.
+ *
+ * @param {TYPE<_, V>} subject
+ * @return {Seq<K>}
+ */
+export const valueSeq = TransmuteCollection.defineMethod({
+  args: [
+    protocol.TYPE // subject
+  ],
+  name: "valueSeq"
 });
