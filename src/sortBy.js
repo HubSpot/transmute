@@ -1,6 +1,6 @@
 import curry from "./curry";
 import { Iterable } from "immutable";
-import { sortBy } from "./protocols/Iterable";
+import { sortBy } from "./protocols/Collection";
 
 sortBy.implementInherited(Iterable, (getSortValue, subject) =>
   subject.sortBy(getSortValue)

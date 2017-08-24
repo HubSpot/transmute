@@ -1,7 +1,7 @@
 // @flow
 import curry from "./curry";
 import { Iterable } from "immutable";
-import { flattenN } from "./protocols/Iterable";
+import { flattenN } from "./protocols/Collection";
 
 flattenN.implementInherited(Iterable, (depth, subject) =>
   subject.flatten(depth)

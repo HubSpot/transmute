@@ -1,6 +1,6 @@
 import curry from "./curry";
 import { Iterable } from "immutable";
-import { every } from "./protocols/Iterable";
+import { every } from "./protocols/Collection";
 
 every.implement(Array, (predicate, arr) => {
   return arr.every(predicate);

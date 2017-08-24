@@ -4,9 +4,9 @@ import isFunction from "../isFunction";
 import isNumber from "../isNumber";
 import protocol from "../protocol";
 
-export const Iterable = protocol("Iterable");
+export const Collection = protocol("Collection");
 
-export const clear = Iterable.defineMethod({
+export const clear = Collection.defineMethod({
   args: [
     protocol.TYPE // subject
   ],
@@ -19,7 +19,7 @@ export const clear = Iterable.defineMethod({
  * @param {TYPE} subject
  * @return {number}
  */
-export const count = Iterable.defineMethod({
+export const count = Collection.defineMethod({
   args: [
     protocol.TYPE // subject
   ],
@@ -32,7 +32,7 @@ export const count = Iterable.defineMethod({
  * @param {TYPE}
  * @return {Seq<[any, any]>}
  */
-export const entrySeq = Iterable.defineMethod({
+export const entrySeq = Collection.defineMethod({
   args: [
     protocol.TYPE // subject
   ],
@@ -45,7 +45,7 @@ export const entrySeq = Iterable.defineMethod({
  * @param {TYPE<K, _>} subject
  * @return {Seq<K>}
  */
-export const keySeq = Iterable.defineMethod({
+export const keySeq = Collection.defineMethod({
   args: [
     protocol.TYPE // subject
   ],
@@ -58,7 +58,7 @@ export const keySeq = Iterable.defineMethod({
  * @param {TYPE<_, V>} subject
  * @return {Seq<K>}
  */
-export const valueSeq = Iterable.defineMethod({
+export const valueSeq = Collection.defineMethod({
   args: [
     protocol.TYPE // subject
   ],
@@ -72,7 +72,7 @@ export const valueSeq = Iterable.defineMethod({
  * @param {TYPE} subject
  * @return {bool}
  */
-export const every = Iterable.defineMethod({
+export const every = Collection.defineMethod({
   args: [
     isFunction, // predicate
     protocol.TYPE // subject
@@ -87,7 +87,7 @@ export const every = Iterable.defineMethod({
  * @param {TYPE} subject
  * @return {bool}
  */
-export const some = Iterable.defineMethod({
+export const some = Collection.defineMethod({
   args: [
     isFunction, // predicate
     protocol.TYPE // subject
@@ -101,7 +101,7 @@ export const some = Iterable.defineMethod({
  * @param {Function} predicate
  * @param {TYPE} subject
  */
-export const filter = Iterable.defineMethod({
+export const filter = Collection.defineMethod({
   args: [
     isFunction, // predicate
     protocol.TYPE // subject
@@ -109,7 +109,7 @@ export const filter = Iterable.defineMethod({
   name: "filter"
 });
 
-export const flattenN = Iterable.defineMethod({
+export const flattenN = Collection.defineMethod({
   args: [
     isNumber, // depth
     protocol.TYPE // subject
@@ -117,7 +117,7 @@ export const flattenN = Iterable.defineMethod({
   name: "flattenN"
 });
 
-export const forEach = Iterable.defineMethod({
+export const forEach = Collection.defineMethod({
   args: [
     isFunction, // effect
     protocol.TYPE // subject
@@ -132,7 +132,7 @@ export const forEach = Iterable.defineMethod({
  * @param {TYPE} subject
  * @return {TYPE}
  */
-export const map = Iterable.defineMethod({
+export const map = Collection.defineMethod({
   args: [
     isFunction, // mapper
     protocol.TYPE // subject
@@ -147,7 +147,7 @@ export const map = Iterable.defineMethod({
  * @param {TYPE} subject
  * @return {TYPE}
  */
-export const mapKeys = Iterable.defineMethod({
+export const mapKeys = Collection.defineMethod({
   args: [
     isFunction, // mapper
     protocol.TYPE // subject
@@ -162,7 +162,7 @@ export const mapKeys = Iterable.defineMethod({
  * @param {TYPE} subject
  * @return {TYPE}
  */
-export const reduce = Iterable.defineMethod({
+export const reduce = Collection.defineMethod({
   args: [
     always(true), // accumulator
     isFunction, // reducer
@@ -178,7 +178,7 @@ export const reduce = Iterable.defineMethod({
  * @param {TYPE} subject
  * @return {TYPE}
  */
-export const sortBy = Iterable.defineMethod({
+export const sortBy = Collection.defineMethod({
   args: [
     isFunction, // getSortValue
     protocol.TYPE // subject

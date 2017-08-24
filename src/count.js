@@ -1,4 +1,4 @@
-import { count } from "./protocols/Iterable";
+import { count } from "./protocols/Collection";
 import { Iterable } from "immutable";
 
 count.implement(Array, arr => arr.length);
