@@ -6,6 +6,30 @@ Immutable.Map {
 }
 `;
 
+exports[`transmute/translate compatibility works with Maps 1`] = `
+Immutable.Map {
+  one: 1,
+  second: 2,
+  three: 4,
+}
+`;
+
+exports[`transmute/translate compatibility works with Objects 1`] = `
+Object {
+  "one": 1,
+  "second": 2,
+  "three": 4,
+}
+`;
+
+exports[`transmute/translate compatibility works with OrderedMaps 1`] = `
+Immutable.OrderedMap {
+  one: 1,
+  second: 2,
+  three: 4,
+}
+`;
+
 exports[`transmute/translate renames keys with string values 1`] = `
 Immutable.Map {
   first: 1,
