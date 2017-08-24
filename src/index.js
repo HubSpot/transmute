@@ -1,6 +1,7 @@
 export { default as always } from "./always";
 export { default as bind } from "./bind";
 export { default as both } from "./both";
+export { default as clear } from "./clear";
 export { default as compose } from "./compose";
 export { default as count } from "./count";
 export { default as curry } from "./curry";

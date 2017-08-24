@@ -6,6 +6,13 @@ import protocol from "../protocol";
 
 export const Iterable = protocol("Iterable");
 
+export const clear = Iterable.defineMethod({
+  args: [
+    protocol.TYPE // subject
+  ],
+  name: "clear"
+});
+
 /**
  * Returns the number of values in `subject`.
  *
