@@ -73,6 +73,8 @@ describe("protocol", () => {
       expect(count(Map({ one: 1, two: 2 }))).toBe(2);
       expect(count(10)).toBe(10);
       expect(count("omg123")).toBe(6);
+      expect(isEmpty([])).toBe(true);
+      expect(isEmpty([1, 2, 3])).toBe(false);
     });
 
     it("dispatches based on a values super type", () => {
