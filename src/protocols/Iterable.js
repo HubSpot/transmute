@@ -1,6 +1,7 @@
 // @flow
 import always from "../always";
 import isFunction from "../isFunction";
+import isNumber from "../isNumber";
 import protocol from "../protocol";
 
 export const Iterable = protocol("Iterable");
@@ -99,6 +100,14 @@ export const filter = Iterable.defineMethod({
     protocol.TYPE // subject
   ],
   name: "filter"
+});
+
+export const flattenN = Iterable.defineMethod({
+  args: [
+    isNumber, // depth
+    protocol.TYPE // subject
+  ],
+  name: "flattenN"
 });
 
 export const forEach = Iterable.defineMethod({
