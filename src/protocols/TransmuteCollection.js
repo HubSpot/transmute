@@ -4,6 +4,8 @@ import isFunction from "../isFunction";
 import isNumber from "../isNumber";
 import protocol from "../protocol";
 
+const isAnyValue = always(true);
+
 export const TransmuteCollection = protocol("TransmuteCollection");
 
 export const clear = TransmuteCollection.defineMethod({
@@ -86,7 +88,7 @@ export const forEach = TransmuteCollection.defineMethod({
 
 export const has = TransmuteCollection.defineMethod({
   args: [
-    always(true), // key
+    isAnyValue, // key
     protocol.TYPE
   ],
   name: "has"
@@ -144,7 +146,7 @@ export const mapKeys = TransmuteCollection.defineMethod({
  */
 export const reduce = TransmuteCollection.defineMethod({
   args: [
-    always(true), // accumulator
+    isAnyValue, // accumulator
     isFunction, // reducer
     protocol.TYPE // subject
   ],
