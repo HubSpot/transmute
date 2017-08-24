@@ -1,23 +1,17 @@
 import curry from "./curry";
-import { Iterable } from "immutable";
 import reduce from "./reduce";
-import { merge } from "./protocols/Settable";
+import set from "./set";
 
-merge.implement(Object, (updates, obj) => {
-  const result = Object.assign({}, obj);
-  return reduce.operation(
-    result,
-    (acc, val, key) => {
-      acc[key] = val;
-      return result;
-    },
+const reduceOp = reduce.operation;
+const setOp = set.operation;
+
+function merge(updates, subject) {
+  return reduceOp(
+    subject,
+    (acc, value, key) => setOp(value, key, acc),
     updates
   );
-});
-
-merge.implementInherited(Iterable, (updates, subject) =>
-  subject.merge(updates)
-);
+}
 
 /**
  * Takes each entry of `updates` and sets it on `subject`.
