@@ -4,9 +4,9 @@ import isFunction from "../isFunction";
 import isNumber from "../isNumber";
 import protocol from "../protocol";
 
-export const Collection = protocol("Collection");
+export const TransmuteCollection = protocol("TransmuteCollection");
 
-export const clear = Collection.defineMethod({
+export const clear = TransmuteCollection.defineMethod({
   args: [
     protocol.TYPE // subject
   ],
@@ -19,7 +19,7 @@ export const clear = Collection.defineMethod({
  * @param {TYPE} subject
  * @return {number}
  */
-export const count = Collection.defineMethod({
+export const count = TransmuteCollection.defineMethod({
   args: [
     protocol.TYPE // subject
   ],
@@ -32,7 +32,7 @@ export const count = Collection.defineMethod({
  * @param {TYPE}
  * @return {Seq<[any, any]>}
  */
-export const entrySeq = Collection.defineMethod({
+export const entrySeq = TransmuteCollection.defineMethod({
   args: [
     protocol.TYPE // subject
   ],
@@ -45,7 +45,7 @@ export const entrySeq = Collection.defineMethod({
  * @param {TYPE<K, _>} subject
  * @return {Seq<K>}
  */
-export const keySeq = Collection.defineMethod({
+export const keySeq = TransmuteCollection.defineMethod({
   args: [
     protocol.TYPE // subject
   ],
@@ -58,7 +58,7 @@ export const keySeq = Collection.defineMethod({
  * @param {TYPE<_, V>} subject
  * @return {Seq<K>}
  */
-export const valueSeq = Collection.defineMethod({
+export const valueSeq = TransmuteCollection.defineMethod({
   args: [
     protocol.TYPE // subject
   ],
@@ -72,7 +72,7 @@ export const valueSeq = Collection.defineMethod({
  * @param {TYPE} subject
  * @return {bool}
  */
-export const every = Collection.defineMethod({
+export const every = TransmuteCollection.defineMethod({
   args: [
     isFunction, // predicate
     protocol.TYPE // subject
@@ -87,7 +87,7 @@ export const every = Collection.defineMethod({
  * @param {TYPE} subject
  * @return {bool}
  */
-export const some = Collection.defineMethod({
+export const some = TransmuteCollection.defineMethod({
   args: [
     isFunction, // predicate
     protocol.TYPE // subject
@@ -101,7 +101,7 @@ export const some = Collection.defineMethod({
  * @param {Function} predicate
  * @param {TYPE} subject
  */
-export const filter = Collection.defineMethod({
+export const filter = TransmuteCollection.defineMethod({
   args: [
     isFunction, // predicate
     protocol.TYPE // subject
@@ -109,7 +109,7 @@ export const filter = Collection.defineMethod({
   name: "filter"
 });
 
-export const flattenN = Collection.defineMethod({
+export const flattenN = TransmuteCollection.defineMethod({
   args: [
     isNumber, // depth
     protocol.TYPE // subject
@@ -117,7 +117,7 @@ export const flattenN = Collection.defineMethod({
   name: "flattenN"
 });
 
-export const forEach = Collection.defineMethod({
+export const forEach = TransmuteCollection.defineMethod({
   args: [
     isFunction, // effect
     protocol.TYPE // subject
@@ -132,7 +132,7 @@ export const forEach = Collection.defineMethod({
  * @param {TYPE} subject
  * @return {TYPE}
  */
-export const map = Collection.defineMethod({
+export const map = TransmuteCollection.defineMethod({
   args: [
     isFunction, // mapper
     protocol.TYPE // subject
@@ -147,7 +147,7 @@ export const map = Collection.defineMethod({
  * @param {TYPE} subject
  * @return {TYPE}
  */
-export const mapKeys = Collection.defineMethod({
+export const mapKeys = TransmuteCollection.defineMethod({
   args: [
     isFunction, // mapper
     protocol.TYPE // subject
@@ -162,7 +162,7 @@ export const mapKeys = Collection.defineMethod({
  * @param {TYPE} subject
  * @return {TYPE}
  */
-export const reduce = Collection.defineMethod({
+export const reduce = TransmuteCollection.defineMethod({
   args: [
     always(true), // accumulator
     isFunction, // reducer
@@ -178,7 +178,7 @@ export const reduce = Collection.defineMethod({
  * @param {TYPE} subject
  * @return {TYPE}
  */
-export const sortBy = Collection.defineMethod({
+export const sortBy = TransmuteCollection.defineMethod({
   args: [
     isFunction, // getSortValue
     protocol.TYPE // subject

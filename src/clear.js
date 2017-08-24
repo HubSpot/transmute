@@ -1,5 +1,5 @@
 import { Collection } from "immutable";
-import { clear } from "./protocols/Collection";
+import { clear } from "./protocols/TransmuteCollection";
 
 clear.implement(Array, () => []);
 clear.implementInherited(Collection, subject => subject.clear());

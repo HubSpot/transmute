@@ -1,6 +1,6 @@
 import curry from "./curry";
 import { Collection, Seq } from "immutable";
-import { mapKeys } from "./protocols/Collection";
+import { mapKeys } from "./protocols/TransmuteCollection";
 
 mapKeys.implement(Object, (keyMapper, subject) => {
   const keys = Object.keys(subject);
