@@ -31,9 +31,4 @@ describe("transmute/mapKeys", () => {
     const original = OrderedMap([[1, 1], [2, 2], [3, 3]]);
     expect(prependTest(original)).toMatchSnapshot();
   });
-
-  it("maps ObjectSeq keys", () => {
-    const original = Seq({ 1: 1, 2: 2, 3: 3 });
-    expect(prependTest(original)).toMatchSnapshot();
-  });
 });

@@ -39,7 +39,9 @@ function makeKeyInherited(id, Type) {
     case undefined:
       return "undefined";
     default:
-      return Type.prototype[id] || uniqueId();
+      return Type.prototype.hasOwnProperty(id)
+        ? Type.prototype[id]
+        : uniqueId();
   }
 }
 
@@ -79,7 +81,11 @@ export default function protocol({ args, name, fallback }: ProtocolDefinition) {
 
   dispatch.implementInherited = (Type: Function, implementation: Function) => {
     const key = makeKeyInherited(id, Type);
-    if (Type !== undefined && Type !== null && !Type.prototype[id]) {
+    if (
+      Type !== undefined &&
+      Type !== null &&
+      !Type.prototype.hasOwnProperty(id)
+    ) {
       setKey(Type.prototype, id, key);
     }
     implementations[key] = implementation;

@@ -1,5 +1,5 @@
 import clear from "../clear";
-import { List, Map, Record, Set } from "immutable";
+import { List, Map, Record, Seq, Set } from "immutable";
 
 describe("transmute/clear", () => {
   it("clears an Array", () => {
@@ -21,6 +21,18 @@ describe("transmute/clear", () => {
   it("clears a Record to into a Map", () => {
     const TestRecord = Record({ one: 1 });
     expect(clear(TestRecord({ one: 2 }))).toEqual(TestRecord());
+  });
+
+  it("clears a Seq.Indexed", () => {
+    expect(clear(Seq.Indexed.of(1, 2, 3))).toEqual(Seq.Indexed());
+  });
+
+  it("clears a Seq.Keyed", () => {
+    expect(clear(Seq.Keyed({ one: 1, two: 2, three: 3 }))).toEqual(Seq.Keyed());
+  });
+
+  it("clears a Seq.Set", () => {
+    expect(clear(Seq.Set.of(1, 2, 3))).toEqual(Seq.Set());
   });
 
   it("clears a Set", () => {

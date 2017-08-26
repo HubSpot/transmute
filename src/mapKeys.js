@@ -1,22 +1,22 @@
 import clear from "./clear";
 import curry from "./curry";
 import { Iterable } from "immutable";
-import isObject from "./isObject";
 import reduce from "./reduce";
 import set from "./set";
-import { TransmuteCollection } from "./protocols/TransmuteCollection";
-console.info(TransmuteCollection);
 
 const reduceOp = reduce.operation;
 const setOp = set.operation;
 
 function mapKeys(keyMapper, subject) {
-  if (!Iterable.isKeyed(subject) && !isObject(subject)) {
+  const isIterable = Iterable.isIterable(subject);
+  if (
+    (isIterable && !Iterable.isKeyed(subject)) ||
+    (!isIterable && subject.constructor !== Object)
+  ) {
     throw new Error(
       `expected an Object or other Keyed Collection but got \`${subject}\``
     );
   }
-  console.info(TransmuteCollection);
   return reduceOp(
     clear(subject),
     (acc, value, key) => setOp(value, keyMapper(key, value, subject), acc),
