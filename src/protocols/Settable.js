@@ -4,8 +4,6 @@ import protocol from "../protocol";
 
 const any = always(true);
 
-export const Settable = protocol("Settable");
-
 /**
  * Set the `value` of `key` in `subject`.
  *
@@ -14,7 +12,7 @@ export const Settable = protocol("Settable");
  * @param {TYPE} subject
  * @return {TYPE}
  */
-export const set = Settable.defineMethod({
+export const set = protocol({
   args: [
     any, // value
     any, // key

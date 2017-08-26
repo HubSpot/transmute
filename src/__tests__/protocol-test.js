@@ -5,8 +5,7 @@ import protocol from "../protocol";
 describe("protocol", () => {
   describe("unimplmented types", () => {
     it("throws if no implementation is defined", () => {
-      const Testable = protocol("Testable");
-      const isTestable = Testable.defineMethod({
+      const isTestable = protocol({
         name: "isTestable",
         args: [protocol.TYPE]
       });
@@ -14,8 +13,7 @@ describe("protocol", () => {
     });
 
     it("uses the fallback if available", () => {
-      const Stringable = protocol("Stringable");
-      const stringify = Stringable.defineMethod({
+      const stringify = protocol({
         name: "stringify",
         args: [protocol.TYPE],
         fallback: thing => thing.toString()
@@ -25,8 +23,7 @@ describe("protocol", () => {
   });
 
   describe("empty types", () => {
-    const Stringable = protocol("Stringable");
-    const stringify = Stringable.defineMethod({
+    const stringify = protocol({
       name: "stringify",
       args: [protocol.TYPE],
       fallback: thing => thing.toString()
@@ -45,8 +42,7 @@ describe("protocol", () => {
   });
 
   describe("constructor types", () => {
-    const Countable = protocol("Countable");
-    const count = Countable.defineMethod({
+    const count = protocol({
       name: "count",
       args: [protocol.TYPE]
     });
@@ -57,7 +53,7 @@ describe("protocol", () => {
     count.implement(String, str => str.length);
     count.implementInherited(Iterable, iter => iter.count());
 
-    const isEmpty = Countable.defineMethod({
+    const isEmpty = protocol({
       name: "isEmpty",
       args: [protocol.TYPE]
     });
@@ -85,8 +81,7 @@ describe("protocol", () => {
   });
 
   describe("additional arguments", () => {
-    const Mappable = protocol("Mappable");
-    const map = Mappable.defineMethod({
+    const map = protocol({
       name: "map",
       args: [isFunction, protocol.TYPE],
       fallback: (mapper, iter) => iter.map(mapper)

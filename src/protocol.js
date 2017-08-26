@@ -1,20 +1,14 @@
 // @flow
 import _makeSymbol from "./internal/_makeSymbol";
 import _setArity from "./internal/_setArity";
-import isArray from "./isArray";
 import uniqueId from "./uniqueId";
 
 type ProtocolDefinition = {
-  name: string
-};
-
-type MethodDefinition = {
   name: string,
   args: Array<Function | Symbol | string>,
   fallback?: Function
 };
 
-const DEFAULT_KEY = "__DEFAULT_IMPLMENTATION";
 const DISPATCH_TYPE = _makeSymbol("protocolType");
 
 function getValueKey(id, value) {
@@ -49,92 +43,50 @@ function makeKeyInherited(id, Type) {
   }
 }
 
-class Protocol {
-  name: string;
-
-  id: string | Symbol;
-
-  methods: {
-    [key: string]: MethodDefinition
-  };
-
-  implementations: {
-    [key: string]: { [key: string]: Function }
-  };
-
-  constructor({ name }: ProtocolDefinition) {
-    this.name = name;
-    this.methods = {};
-    this.implementations = {};
-    const idName = `__p_${name}`;
-    this.id = _makeSymbol(idName);
-  }
-
-  defineMethod({ args, name, fallback }: MethodDefinition) {
-    if (this.methods[name]) {
-      throw new Error(`defineMethod: \`${name}\` is already defined.`);
-    }
-    if (!isArray(args) && args[0] !== DISPATCH_TYPE) {
-      throw new Error(
-        `defineMethod: expected \`args\` to be an array but got \`${args.toString()}\`.`
-      );
-    }
-    const method = _setArity(args.length, (...input) =>
-      this.dispatch(name, args.indexOf(DISPATCH_TYPE), input)
-    );
-    this.methods[name] = method;
-    this.implementations[name] = {};
-    if (typeof fallback === "function") {
-      this.implementations[name][DEFAULT_KEY] = fallback;
-    }
-    method.implement = this.implement.bind(this, name);
-    method.implementInherited = this.implementInherited.bind(this, name);
-    return method;
-  }
-
-  dispatch(name: string, dispatchValueIndex: number, args: Array<any>) {
-    const dispatchValue = args[dispatchValueIndex];
-    const dispatchKey = getValueKey(this.id, dispatchValue);
-    const implementations = this.implementations[name];
-    if (!implementations[dispatchKey] && !implementations[DEFAULT_KEY]) {
-      throw new Error(
-        `${this.name}.${name}: not implmented for type \`${dispatchValue}\``
-      );
-    }
-    return implementations[dispatchKey || DEFAULT_KEY](...args);
-  }
-
-  implement(name: string, Type: ?Function, implementation: Function) {
-    const key = makeKey(this.id, Type);
-    if (Type !== undefined && Type !== null && !Type[this.id]) {
-      Object.defineProperty(Type, this.id, {
-        configurable: false,
-        enumerable: false,
-        value: key,
-        writable: true
-      });
-    }
-    this.implementations[name][key] = implementation;
-    return implementation;
-  }
-
-  implementInherited(name: string, Type: ?Function, implementation: Function) {
-    const key = makeKeyInherited(this.id, Type);
-    if (Type !== undefined && Type !== null && !Type.prototype[this.id]) {
-      Object.defineProperty(Type.prototype, this.id, {
-        configurable: false,
-        enumerable: false,
-        value: key,
-        writable: true
-      });
-    }
-    this.implementations[name][key] = implementation;
-    return implementation;
-  }
+function setKey(subject: Object, id, key) {
+  Object.defineProperty(subject, id, {
+    configurable: false,
+    enumerable: false,
+    value: key,
+    writable: true
+  });
+  return subject;
 }
 
-export default function protocol(name: string) {
-  return new Protocol({ name });
+export default function protocol({ args, name, fallback }: ProtocolDefinition) {
+  const dispatchValueIndex = args.indexOf(DISPATCH_TYPE);
+  const id = _makeSymbol(`__p_${name}`);
+  const implementations: { [key: string]: Function } = {};
+
+  const dispatch = _setArity(args.length, (...argValues) => {
+    const value = argValues[dispatchValueIndex];
+    const key = getValueKey(id, value);
+    const implementation = implementations[key] || fallback;
+    if (!implementation) {
+      throw new Error(`${name}: not implmented for type \`${value}\``);
+    }
+    return implementation(...argValues);
+  });
+
+  dispatch.implement = (Type: Function, implementation: Function) => {
+    const key = makeKey(id, Type);
+    if (Type !== undefined && Type !== null && !Type[id]) {
+      setKey(Type, id, key);
+    }
+    implementations[key] = implementation;
+    return implementation;
+  };
+
+  dispatch.implementInherited = (Type: Function, implementation: Function) => {
+    const key = makeKeyInherited(id, Type);
+    if (Type !== undefined && Type !== null && !Type.prototype[id]) {
+      setKey(Type.prototype, id, key);
+    }
+    implementations[key] = implementation;
+    return implementation;
+  };
+
+  return dispatch;
 }
 
 protocol.TYPE = DISPATCH_TYPE;
