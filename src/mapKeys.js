@@ -1,32 +1,28 @@
+import clear from "./clear";
 import curry from "./curry";
-import { Collection, Seq } from "immutable";
-import { mapKeys } from "./protocols/TransmuteCollection";
+import { Iterable } from "immutable";
+import isObject from "./isObject";
+import reduce from "./reduce";
+import set from "./set";
+import { TransmuteCollection } from "./protocols/TransmuteCollection";
+console.info(TransmuteCollection);
 
-mapKeys.implement(Object, (keyMapper, subject) => {
-  const keys = Object.keys(subject);
-  const len = keys.length;
-  const result = {};
-  for (let i = 0; i < len; i++) {
-    const key = keys[i];
-    const value = subject[key];
-    result[keyMapper(key, value, subject)] = value;
+const reduceOp = reduce.operation;
+const setOp = set.operation;
+
+function mapKeys(keyMapper, subject) {
+  if (!Iterable.isKeyed(subject) && !isObject(subject)) {
+    throw new Error(
+      `expected an Object or other Keyed Collection but got \`${subject}\``
+    );
   }
-  return result;
-});
-
-mapKeys.implementInherited(Collection.Keyed, (keyMapper, subject) => {
-  const nextEntries = subject
-    .entrySeq()
-    .map(([key, value]) => [keyMapper(key, value, subject), value]);
-  return new subject.constructor(nextEntries);
-});
-
-mapKeys.implementInherited(Seq.Keyed, (keyMapper, subject) => {
-  const nextEntries = subject
-    .entrySeq()
-    .map(([key, value]) => [keyMapper(key, value, subject), value]);
-  return Seq.Keyed(nextEntries);
-});
+  console.info(TransmuteCollection);
+  return reduceOp(
+    clear(subject),
+    (acc, value, key) => setOp(value, keyMapper(key, value, subject), acc),
+    subject
+  );
+}
 
 /**
  * Like `map` but transforms an Iterable's keys rather than its values.
