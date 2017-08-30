@@ -19,7 +19,7 @@ describe("transmute/curryN", () => {
     expect(() => curryN(0, () => {})).not.toThrow();
   });
 
-  it("it\s curried", () => {
+  it("it's curried", () => {
     expect(curryN(1)(a => a)(1)).toEqual(1);
   });
 
