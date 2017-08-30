@@ -33,6 +33,20 @@ filter.implementInherited(Record, (test, rec) => {
  * Remove values for which `predicate` returns `false`.
  *
  * @example
+ * // returns [ 2 ]
+ * filter(
+ *   (n) => n % 2 === 0,
+ *   [1, 2, 3]
+ * );
+ *
+ * @param {Function} predicate returns `true` if a value should be included.
+ * @param {Array} subject to filter.
+ * @return {Array} without values that didn't match `predicate`.
+ */
+/**
+ * Remove values for which `predicate` returns `false`.
+ *
+ * @example
  * // returns List [ 2 ]
  * filter(
  *   (n) => n % 2 === 0,
@@ -48,6 +62,20 @@ filter.implementInherited(Record, (test, rec) => {
  *
  * @param {Function} predicate returns `true` if a value should be included.
  * @param {Iterable} subject to filter.
+ * @return {Iterable} without values that didn't match `predicate`.
+ */
+/**
+ * Remove values for which `predicate` returns `false`.
+ *
+ * @example
+ * // returns {two: 2}
+ * filter(
+ *   (n) => n % 2 === 0,
+ *   {one: 1, two: 2, three: 3}
+ * );
+ *
+ * @param {Function} predicate returns `true` if a value should be included.
+ * @param {Object} subject to filter.
  * @return {Iterable} without values that didn't match `predicate`.
  */
 export default curry(filter);

@@ -14,6 +14,7 @@ export const clear = protocol({
 });
 
 /**
+ * @private
  * Returns the number of values in `subject`.
  *
  * @param {TYPE} subject
@@ -27,6 +28,7 @@ export const count = protocol({
 });
 
 /**
+ * @private
  * Returns a Seq of key,value tuples (in JS Array)
  *
  * @param {TYPE}
@@ -40,6 +42,7 @@ export const entrySeq = protocol({
 });
 
 /**
+ * @private
  * Returns true if `predicate` returns `true` for _all_ items in `subject`.
  *
  * @param {Function} predicate
@@ -55,6 +58,7 @@ export const every = protocol({
 });
 
 /**
+ * @private
  * Returns a new value of items in `subject` for which `predicate` returns `true`.
  *
  * @param {Function} predicate
@@ -93,6 +97,7 @@ export const has = protocol({
 });
 
 /**
+ * @private
  * Return a `Seq` of the keys in `subject`.
  *
  * @param {TYPE<K, _>} subject
@@ -106,6 +111,7 @@ export const keySeq = protocol({
 });
 
 /**
+ * @private
  * Returns a new value by applying `mapper` to each item in `subject`.
  *
  * @param {Function} mapper
@@ -121,6 +127,7 @@ export const map = protocol({
 });
 
 /**
+ * @private
  * Creates a new value by applying `mapper` to each _key_ in `subject`.
  *
  * @param {Function} mapper
@@ -136,6 +143,7 @@ export const mapKeys = protocol({
 });
 
 /**
+ * @private
  * Returns a new value by applying `mapper` to each item in `subject`.
  *
  * @param {Function} mapper
@@ -152,6 +160,7 @@ export const reduce = protocol({
 });
 
 /**
+ * @private
  * Returns true if `predicate` returns `true` for _any_ items in `subject`.
  *
  * @param {Function} predicate
@@ -167,6 +176,7 @@ export const some = protocol({
 });
 
 /**
+ * @private
  * Returns a copy of `subject` sorted according to `getSortValue`.
  *
  * @param {Function} getSortValue
@@ -182,6 +192,7 @@ export const sortBy = protocol({
 });
 
 /**
+ * @private
  * Return a `Seq` of the values in `subject`.
  *
  * @param {TYPE<_, V>} subject
