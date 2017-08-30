@@ -21,6 +21,7 @@ export { default as fromJS } from "./fromJS";
 export { default as get } from "./get";
 export { default as getIn } from "./getIn";
 export { default as has } from "./has";
+export { default as hasIn } from "./hasIn";
 export { default as identity } from "./identity";
 export { default as ifElse } from "./ifElse";
 export { default as ifThen } from "./ifThen";
