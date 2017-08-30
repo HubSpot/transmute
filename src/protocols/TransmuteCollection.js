@@ -88,6 +88,31 @@ export const forEach = protocol({
   name: "forEach"
 });
 
+/**
+ * @private
+ * Return the value of `key` in `subject`.
+ *
+ * @param {any} key
+ * @param {TYPE} subject
+ * @return {any}
+ */
+export const get = protocol({
+  args: [
+    isAnyValue, // key
+    protocol.TYPE // subject
+  ],
+  name: "get",
+  fallback: (key, obj) => obj[key]
+});
+
+/**
+ * @private
+ * Returns `true` if `key` is in `subject`'s keys.
+ *
+ * @param {any} key
+ * @param {TYPE} subject
+ * @return {any}
+ */
 export const has = protocol({
   args: [
     isAnyValue, // key
@@ -157,6 +182,24 @@ export const reduce = protocol({
     protocol.TYPE // subject
   ],
   name: "reduce"
+});
+
+/**
+ * @private
+ * Set the `value` of `key` in `subject`.
+ *
+ * @param {any} value
+ * @param {any} key
+ * @param {TYPE} subject
+ * @return {TYPE}
+ */
+export const set = protocol({
+  args: [
+    isAnyValue, // value
+    isAnyValue, // key
+    protocol.TYPE // subject
+  ],
+  name: "set"
 });
 
 /**
