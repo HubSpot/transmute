@@ -47,6 +47,7 @@
     "lint:all": "eslint src",
     "precommit": "lint-staged",
     "prepublishOnly": "npm run flow:check && npm run lint:all && npm run test && npm run build",
+    "postPublishOnly": "npm run build:clean",
     "prepush": "npm run lint:all && npm run flow:check && npm run test",
     "prettier": "prettier",
     "prettier:write": "npm run prettier -- --write \"src/**/*.js\"",
