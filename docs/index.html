@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset='utf-8' />
-  <title>@hs/transmute 1.0.0 | Documentation</title>
+  <title>@hs/transmute 1.3.0 | Documentation</title>
   <meta name='viewport' content='width=device-width,initial-scale=1'>
   <link href='assets/bass.css' type='text/css' rel='stylesheet' />
   <link href='assets/style.css' type='text/css' rel='stylesheet' />
@@ -14,7 +14,7 @@
       <div id='split-left' class='overflow-auto fs0 height-viewport-100'>
         <div class='py1 px2'>
           <h3 class='mb0 no-anchor'>@hs/transmute</h3>
-          <div class='mb1'><code>1.0.0</code></div>
+          <div class='mb1'><code>1.3.0</code></div>
           <input
             placeholder='Filter'
             id='filter-input'
@@ -2180,14 +2180,6 @@ flattenN(<span class="hljs-number">1</span>, List.of(List.of(<span class="hljs-n
   
 
   <p>Executes <code>effect</code> for each value in <code>subject</code>, then returns <code>subject</code>.</p>
-<p>forEach(
-v => console.log(v),
-Map({ one: 1, two: 2, three: 3 })
-);</p>
-<p>// prints...
-// 1
-// 2
-// 3</p>
 
 
   <div class='pre p1 fill-light mt0'>forEach</div>
@@ -2238,6 +2230,20 @@ Map({ one: 1, two: 2, three: 3 })
 
   
 
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>forEach(
+  <span class="hljs-function"><span class="hljs-params">v</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(v),
+  <span class="hljs-built_in">Map</span>({ <span class="hljs-attr">one</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">two</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">three</span>: <span class="hljs-number">3</span> })
+);
+
+<span class="hljs-comment">// prints...</span>
+<span class="hljs-comment">// 1</span>
+<span class="hljs-comment">// 2</span>
+<span class="hljs-comment">// 3</span></pre>
+    
   
 
   
