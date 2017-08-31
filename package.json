@@ -36,7 +36,7 @@
   },
   "scripts": {
     "build": "npm run build:clean || npm run build:commonjs",
-    "build:clean": "rm *.js",
+    "build:clean": "rm *.js || rm -r internal",
     "build:commonjs": "BABEL_ENV=commonjs babel src --ignore *-test.js --out-dir .",
     "docs": "npm run docs:html && npm run docs:readme",
     "docs:html": "documentation build src/** -f html -o docs",
