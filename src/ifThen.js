@@ -1,4 +1,3 @@
-// @flow
 import curry from './curry';
 import identity from './identity';
 import ifElse from './ifElse';

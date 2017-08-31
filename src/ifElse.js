@@ -1,4 +1,3 @@
-// @flow
 import curry from './curry';
 
 function ifElse(predicate, affimative, negative, subject) {
