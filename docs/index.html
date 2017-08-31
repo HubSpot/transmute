@@ -5899,7 +5899,7 @@ where({<span class="hljs-attr">name</span>: <span class="hljs-string">'Jack'</sp
   </div>
   
 
-  <p>Removes items in <code>unwanted</code> from <code>subject</code>.</p>
+  <p>Removes values in <code>unwanted</code> from <code>subject</code>.</p>
 
 
   <div class='pre p1 fill-light mt0'>without</div>
@@ -5950,6 +5950,14 @@ where({<span class="hljs-attr">name</span>: <span class="hljs-string">'Jack'</sp
 
   
 
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> removeOne = without(<span class="hljs-built_in">Set</span>.of(<span class="hljs-number">1</span>));
+
+removeOne(<span class="hljs-built_in">Set</span>.of(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>)) <span class="hljs-comment">// returns Set { 2, 3 }</span></pre>
+    
   
 
   
