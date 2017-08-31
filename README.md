@@ -1,6 +1,6 @@
-# transmute
+# @hs/transmute
 
-`transmute` provides convenient, composable functions for transforming [Immutable.js](http://facebook.github.io/immutable-js/) data structures.
+`@hs/transmute` provides convenient, composable functions for transforming [Immutable.js](http://facebook.github.io/immutable-js/) data structures.
 
 ## Getting started
 
