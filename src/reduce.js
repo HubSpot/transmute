@@ -1,5 +1,5 @@
-import curry from "./curry";
-import { Iterable, Seq } from "immutable";
+import curry from './curry';
+import _reduce from './internal/_reduce';
 
 /**
  * Transform the contents of `subject` to `into` by applying `operation` to each
@@ -10,11 +10,4 @@ import { Iterable, Seq } from "immutable";
  * @param  {Iterable} subject   [description]
  * @return {Iterable}
  */
-function reduce(into, operation, subject) {
-  if (!Iterable.isIterable(into) || Seq.isSeq(into)) {
-    return subject.reduce(operation, into);
-  }
-  return into.withMutations(result => subject.reduce(operation, result));
-}
-
-export default curry(reduce);
+export default curry(_reduce);

@@ -1,5 +1,11 @@
-import curry from "./curry";
-import { Seq } from "immutable";
+import _filter from './internal/_filter';
+import curry from './curry';
+import { Seq } from 'immutable';
+
+function without(unwanted, subject) {
+  unwanted = Seq.Set(unwanted);
+  return _filter(value => !unwanted.includes(value), subject);
+}
 
 /**
  * Removes items in `unwanted` from `subject`.
@@ -8,9 +14,4 @@ import { Seq } from "immutable";
  * @param  {Iterable} subject
  * @return {Iterable}
  */
-function without(unwanted, subject) {
-  unwanted = Seq.Set(unwanted);
-  return subject.filterNot(value => unwanted.includes(value));
-}
-
 export default curry(without);

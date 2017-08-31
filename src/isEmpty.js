@@ -1,22 +1,16 @@
 // @flow
-import { Iterable } from "immutable";
+import count from './count';
 
 /**
  * Returns true if `value` is "empty".
  * If given null, undefined, isEmpty will return true.
+ * 
+ * @param {any} value
+ * @return {boolean}
  */
 export default function isEmpty(value: any): boolean {
   if (!value) {
     return true;
   }
-  if (Iterable.isIterable(value)) {
-    return value.size === 0;
-  }
-  if (Array.isArray(value)) {
-    return value.length === 0;
-  }
-  if (value.constructor === Object) {
-    return Object.keys(value).length === 0;
-  }
-  return false;
+  return count(value) === 0;
 }

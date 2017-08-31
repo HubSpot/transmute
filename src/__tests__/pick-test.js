@@ -1,22 +1,33 @@
-import { Map, Record } from "immutable";
-import pick from "../pick";
+import { Map, Record } from 'immutable';
+import pick from '../pick';
 
-describe("transmute/pick", () => {
-  it("selects keys from Maps", () => {
+describe('transmute/pick', () => {
+  const takeOneAndThree = pick(['one', 'three']);
+
+  it('selects keys from Maps', () => {
     expect(
-      pick(["one", "three"], Map({ one: 1, two: 2, three: 3 }))
+      takeOneAndThree(Map({ one: 1, two: 2, three: 3 }))
     ).toMatchSnapshot();
   });
 
-  it("selects keys from Records", () => {
+  it('selects keys from Object', () => {
+    const testObject = {
+      one: 1,
+      two: 2,
+      three: 3,
+    };
+    expect(takeOneAndThree(testObject)).toMatchSnapshot();
+  });
+
+  it('selects keys from Records', () => {
     const TestRecord = Record(
       {
         one: 1,
         two: 2,
-        three: 3
+        three: 3,
       },
-      "TestRecord"
+      'TestRecord'
     );
-    expect(pick(["one", "three"], TestRecord())).toMatchSnapshot();
+    expect(takeOneAndThree(TestRecord())).toMatchSnapshot();
   });
 });

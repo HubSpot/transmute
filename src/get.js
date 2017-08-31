@@ -1,5 +1,5 @@
-import curry from "./curry";
-import { Iterable } from "immutable";
+import curry from './curry';
+import _get from './internal/_get';
 
 /**
  * Retrieve the value at `key` from `subject`.
@@ -12,14 +12,4 @@ import { Iterable } from "immutable";
  * @param  {Iterable|Object} subject in which to look up `key`.
  * @return {any} the value at `key`.
  */
-function get(key, subject) {
-  if (subject === null || subject === undefined) {
-    return undefined;
-  }
-  if (Iterable.isIterable(subject)) {
-    return subject.get(key);
-  }
-  return subject[key];
-}
-
-export default curry(get);
+export default curry(_get);

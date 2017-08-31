@@ -1,4 +1,12 @@
-import curry from "./curry";
+import _filter from './internal/_filter';
+import curry from './curry';
+
+function difference(toRemove, subject) {
+  if (!toRemove) {
+    return subject;
+  }
+  return _filter(value => !toRemove.contains(value), subject);
+}
 
 /**
  * Take the difference between one iterable and another iterable.
@@ -8,11 +16,4 @@ import curry from "./curry";
  * @param  {Iterable} subject
  * @return {Iterable}
  */
-function difference(toRemove, subject) {
-  if (!toRemove) {
-    return subject;
-  }
-  return subject.filter(value => !toRemove.contains(value));
-}
-
 export default curry(difference);

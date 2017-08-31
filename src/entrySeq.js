@@ -1,4 +1,4 @@
-import { Iterable, Seq } from "immutable";
+import _entrySeq from './internal/_entrySeq';
 
 /**
  * Get a Seq of the entries (i.e. [key, value] tuples) in `subject`.
@@ -6,9 +6,4 @@ import { Iterable, Seq } from "immutable";
  * @param  {Array|Iterable|Object} subject
  * @return {Seq}
  */
-export default function entrySeq(subject) {
-  if (!Iterable.isIterable(subject)) {
-    subject = Seq(subject);
-  }
-  return subject.entrySeq();
-}
+export default _entrySeq;

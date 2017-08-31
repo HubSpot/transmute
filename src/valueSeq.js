@@ -1,13 +1,9 @@
-import { Iterable, Seq } from "immutable";
+import _valueSeq from './internal/_valueSeq';
 
 /**
- * Get a Seq of the values in `value`.
+ * Get a Seq of the values in `subject`.
+ *
+ * @param  {Iterable|Object|Array} subject
+ * @return {Seq}
  */
-export default function valueSeq<V>(
-  value: Array<V> | Iterable<any, V> | { [key: any]: V }
-) {
-  if (!Iterable.isIterable(value)) {
-    value = Seq(value);
-  }
-  return value.valueSeq();
-}
+export default _valueSeq;

@@ -1,28 +1,28 @@
-import debounceImmediate from "../debounceImmediate";
+import debounceImmediate from '../debounceImmediate';
 
 jest.useFakeTimers();
 
-describe("transmute/debounceImmediate", () => {
+describe('transmute/debounceImmediate', () => {
   const debounceImmediate100 = debounceImmediate(100);
 
-  it("throws if operation is not a function", () => {
+  it('throws if operation is not a function', () => {
     expect(() => debounceImmediate(100, {})).toThrow();
     expect(() => debounceImmediate(100, () => {})).not.toThrow();
   });
 
-  it("throws if interval is not a number", () => {
-    expect(() => debounceImmediate("100", () => {})).toThrow();
+  it('throws if interval is not a number', () => {
+    expect(() => debounceImmediate('100', () => {})).toThrow();
     expect(() => debounceImmediate(100, () => {})).not.toThrow();
   });
 
-  it("runs immediately", () => {
+  it('runs immediately', () => {
     const fn = jest.fn();
     const dfn = debounceImmediate100(fn);
     dfn();
     expect(fn).toBeCalled();
   });
 
-  it("restarts the interval if the fn is called again", () => {
+  it('restarts the interval if the fn is called again', () => {
     const fn = jest.fn();
     const dfn = debounceImmediate100(fn);
     dfn();
@@ -38,7 +38,7 @@ describe("transmute/debounceImmediate", () => {
     expect(fn.mock.calls.length).toBe(2);
   });
 
-  it("returns the most recent result", () => {
+  it('returns the most recent result', () => {
     let calls = 0;
     const fn = () => ++calls;
     const dfn = debounceImmediate100(fn);
@@ -51,7 +51,7 @@ describe("transmute/debounceImmediate", () => {
     dfn.cancel();
   });
 
-  it("cancels delayed calls when .cancel is called", () => {
+  it('cancels delayed calls when .cancel is called', () => {
     const fn = jest.fn();
     const dfn = debounceImmediate100(fn);
     dfn();

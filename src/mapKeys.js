@@ -1,5 +1,25 @@
-import curry from "./curry";
-import { Iterable, Seq } from "immutable";
+import clear from './clear';
+import curry from './curry';
+import { Iterable } from 'immutable';
+import _reduce from './internal/_reduce';
+import _set from './internal/_set';
+
+function mapKeys(keyMapper, subject) {
+  const isIterable = Iterable.isIterable(subject);
+  if (
+    (isIterable && !Iterable.isKeyed(subject)) ||
+    (!isIterable && subject.constructor !== Object)
+  ) {
+    throw new Error(
+      `expected an Object or other Keyed Collection but got \`${subject}\``
+    );
+  }
+  return _reduce(
+    clear(subject),
+    (acc, value, key) => _set(value, keyMapper(key, value, subject), acc),
+    subject
+  );
+}
 
 /**
  * Like `map` but transforms an Iterable's keys rather than its values.
@@ -14,20 +34,4 @@ import { Iterable, Seq } from "immutable";
  * @param  {KeyedIterable} subject
  * @return {KeyedIterable}
  */
-function mapKeys(keyMapper, subject) {
-  if (!Iterable.isKeyed(subject)) {
-    throw new Error(
-      `expected \`subject\` to be a KeyedIterable but got \`${subject}\``
-    );
-  }
-
-  const nextEntries = subject
-    .entrySeq()
-    .map(([key, value]) => [keyMapper(key, value, subject), value]);
-  if (Seq.isSeq(subject)) {
-    return Seq.Keyed(nextEntries);
-  }
-  return new subject.constructor(nextEntries);
-}
-
 export default curry(mapKeys);

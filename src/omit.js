@@ -1,5 +1,11 @@
-import curry from "./curry";
-import { Map, Seq, Record } from "immutable";
+import curry from './curry';
+import { Seq } from 'immutable';
+import _filter from './internal/_filter';
+
+function omit(keys, subject) {
+  const keySet = Seq.Set(keys);
+  return _filter((value, key) => !keySet.contains(key), subject);
+}
 
 /**
  * Drop specified keys from a KeyedIterable (e.g. a `Map` or `OrderedMap`).
@@ -15,18 +21,4 @@ import { Map, Seq, Record } from "immutable";
  * @param  {KeyedIterable} subject from which to remove `keys`.
  * @return {KeyedIterable} without `keys`.
  */
-function omit(keys, subject) {
-  const keySet = Seq.Set(keys);
-  // can't filter a Record so we reduce it to a Map
-  if (subject instanceof Record) {
-    return subject.reduce((acc, value, key) => {
-      if (keySet.contains(key)) {
-        return acc;
-      }
-      return acc.set(key, value);
-    }, Map());
-  }
-  return subject.filterNot((value, key) => keySet.contains(key));
-}
-
 export default curry(omit);

@@ -32,3 +32,14 @@ Immutable.OrderedMap {
   },
 }
 `;
+
+exports[`transmute/indexBy indexes an Object 1`] = `
+Immutable.OrderedMap {
+  123: Object {
+    "id": "123",
+  },
+  456: Object {
+    "id": "456",
+  },
+}
+`;

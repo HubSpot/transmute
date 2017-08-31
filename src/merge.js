@@ -1,4 +1,10 @@
-import curry from "./curry";
+import _reduce from './internal/_reduce';
+import _set from './internal/_set';
+import curry from './curry';
+
+function merge(updates, subject) {
+  return _reduce(subject, (acc, value, key) => _set(value, key, acc), updates);
+}
 
 /**
  * Takes each entry of `updates` and sets it on `subject`.
@@ -14,8 +20,4 @@ import curry from "./curry";
  * @param  {Iterable} subject the thing to update.
  * @return {Iterable} with each key-value of `updates` merged into `subject`.
  */
-function merge(updates, subject) {
-  return subject.merge(updates);
-}
-
 export default curry(merge);

@@ -1,5 +1,5 @@
-import curry from "./curry";
-import _setArity from "./internal/_setArity";
+import curry from './curry';
+import _setArity from './internal/_setArity';
 
 /**
  * Creates a function identical to `operation` but with length `arity`.

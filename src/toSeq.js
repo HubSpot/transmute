@@ -1,6 +1,6 @@
 // @flow
-import { Seq } from "immutable";
-import type { Iterable } from "immutable";
+import { Seq } from 'immutable';
+import type { Iterable } from 'immutable';
 
 /**
  * Converts `subject` to a `Seq` if possible.

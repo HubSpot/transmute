@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`set sets a key in a Map 1`] = `
+Immutable.Map {
+  one: 1,
+}
+`;
+
+exports[`set sets a key in an Object 1`] = `
+Object {
+  "one": 1,
+}
+`;

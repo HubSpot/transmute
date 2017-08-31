@@ -1,4 +1,4 @@
-import { is, Seq } from "immutable";
+import { is, Seq } from 'immutable';
 
 /**
  * Like memoize, but only caches the most recent value.

@@ -1,16 +1,9 @@
-import { Iterable, Seq } from "immutable";
+import _keySeq from './internal/_keySeq';
 
 /**
- * Get a Seq of the keys in `value`.
+ * Get a Seq of the keys in `subject`.
  *
- * @param  {Iterable|Object|Array} value
+ * @param  {Iterable|Object|Array} subject
  * @return {Seq}
  */
-export default function keySeq<K>(
-  value: Array<*> | Iterable<K, *> | { [key: K]: * }
-) {
-  if (!Iterable.isIterable(value)) {
-    value = Seq(value);
-  }
-  return value.keySeq();
-}
+export default _keySeq;

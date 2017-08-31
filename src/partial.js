@@ -1,4 +1,4 @@
-import enforceFunction from "./enforce/enforceFunction";
+import enforceFunction from './enforce/enforceFunction';
 
 /**
  * Like `fn.bind()`, but without the option to pass `context`.
@@ -14,9 +14,7 @@ import enforceFunction from "./enforce/enforceFunction";
  * @param  {Array<any>} ...args  any number of other arguments to pass to `operation`
  * @return {Function}
  */
-function partial(operation, first, ...args) {
+export default function partial(operation, first, ...args) {
   enforceFunction(operation);
   return operation.bind(null, first, ...args);
 }
-
-export default partial;

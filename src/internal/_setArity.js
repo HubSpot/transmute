@@ -1,6 +1,6 @@
 /* eslint no-unused-vars: 0, prefer-rest-params: 0 */
-import enforceArity from "../enforce/enforceArity";
-import enforceFunction from "../enforce/enforceFunction";
+import enforceArity from '../enforce/enforceArity';
+import enforceFunction from '../enforce/enforceFunction';
 
 /**
  * @private

@@ -1,5 +1,5 @@
 // @flow
-import { fromJS as fromJSBase } from "immutable";
+import { fromJS as fromJSBase } from 'immutable';
 
 /**
  * A version of Immutable.fromJS that drops all but the first argument for

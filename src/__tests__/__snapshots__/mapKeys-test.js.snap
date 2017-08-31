@@ -8,7 +8,7 @@ Immutable.Map {
 }
 `;
 
-exports[`transmute/mapKeys maps ObjectSeq keys 1`] = `
+exports[`transmute/mapKeys maps Objects 1`] = `
 Object {
   "test-1": 1,
   "test-2": 2,
@@ -21,18 +21,5 @@ Immutable.OrderedMap {
   test-1: 1,
   test-2: 2,
   test-3: 3,
-}
-`;
-
-exports[`transmute/mapKeys transform an API response 1`] = `
-Immutable.Map {
-  1: Immutable.Map {
-    id: 1,
-    name: "test",
-  },
-  2: Immutable.Map {
-    id: 2,
-    name: "test 2",
-  },
 }
 `;

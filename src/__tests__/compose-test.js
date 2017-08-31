@@ -1,7 +1,7 @@
-import compose from "../compose";
+import compose from '../compose';
 
-describe("transmute/compose", () => {
-  it("throws if any arguments are not functions", () => {
+describe('transmute/compose', () => {
+  it('throws if any arguments are not functions', () => {
     expect(() => {
       compose(() => {}, null, () => {});
     }).toThrow();
@@ -10,7 +10,7 @@ describe("transmute/compose", () => {
     }).not.toThrow();
   });
 
-  it("runs the functions right to left", () => {
+  it('runs the functions right to left', () => {
     const toThree = compose(
       a => a.concat(1),
       a => a.concat(2),

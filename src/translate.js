@@ -1,31 +1,34 @@
-import curry from "./curry";
-import { Iterable, Map, Seq } from "immutable";
+import _get from './internal/_get';
+import _reduce from './internal/_reduce';
+import _set from './internal/_set';
+import curry from './curry';
+import { Map } from 'immutable';
+import getIn from './getIn';
+import isRecord from './isRecord';
 
-function isRecord(subject) {
-  return (
-    Iterable.isAssociative(subject) &&
-    !Map.isMap(subject) &&
-    !Seq.isSeq(subject)
-  );
+const getInOp = getIn.operation;
+
+function runTransform(transform, newKey, subject) {
+  if (typeof transform === 'function') {
+    return transform(subject, newKey);
+  }
+  if (transform === true) {
+    return _get(newKey, subject);
+  }
+  if (Array.isArray(transform)) {
+    return getInOp(transform, subject);
+  }
+  return _get(transform, subject);
 }
 
 function translate(translation, subject) {
   const result = isRecord(subject) ? Map() : new subject.constructor();
-  return result.withMutations(acc => {
-    return Seq(translation).reduce((translated, transform, newKey) => {
-      let newValue;
-      if (typeof transform === "function") {
-        newValue = transform(subject, newKey);
-      } else if (transform === true) {
-        newValue = subject.get(newKey);
-      } else {
-        newValue = Array.isArray(transform)
-          ? subject.getIn(transform)
-          : subject.get(transform);
-      }
-      return translated.set(newKey, newValue);
-    }, acc);
-  });
+  return _reduce(
+    result,
+    (acc, transform, newKey) =>
+      _set(runTransform(transform, newKey, subject), newKey, acc),
+    translation
+  );
 }
 
 export default curry(translate);

@@ -1,11 +1,15 @@
 // @flow
-import curry from "./curry";
+import curry from './curry';
+
+function bind<F: Function>(operation: F, context: Object): F {
+  return operation.bind(context);
+}
 
 /**
  * Sets a function's `this` context. Similar to `Function.prototype.bind`.
+ *
+ * @param {Function} operation
+ * @param {Object} context
+ * @return {Function}
  */
-function bind<F: Function>(fn: F, context: Object): F {
-  return fn.bind(context);
-}
-
 export default curry(bind);

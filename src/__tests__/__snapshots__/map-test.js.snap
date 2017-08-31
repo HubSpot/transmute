@@ -15,3 +15,19 @@ Immutable.Map {
   three: 4,
 }
 `;
+
+exports[`transmute/map maps an Array 1`] = `
+Array [
+  2,
+  3,
+  4,
+]
+`;
+
+exports[`transmute/map maps an Object 1`] = `
+Object {
+  "one": 2,
+  "three": 4,
+  "two": 3,
+}
+`;

@@ -1,9 +1,16 @@
-import curry from "./curry";
-import get from "./get";
+import _get from './internal/_get';
+import curry from './curry';
 
-// This is the un-curried version of `get`.
-// Figured since we aren't using it here it's worth avioding the overhead.
-const getBase = get.operation;
+function getIn(keyPath, subject) {
+  let value = subject;
+  for (let i = 0; i < keyPath.length; i++) {
+    if (value === undefined) {
+      break;
+    }
+    value = _get(keyPath[i], value);
+  }
+  return value;
+}
 
 /**
  * Retrieve a `keyPath` from a nested Immutable or JS structure.
@@ -24,15 +31,4 @@ const getBase = get.operation;
  * @param  {Array|Iterable|Object} subject
  * @return {any}
  */
-function getIn(keyPath, subject) {
-  let value = subject;
-  for (let i = 0; i < keyPath.length; i++) {
-    if (value === undefined) {
-      break;
-    }
-    value = getBase(keyPath[i], value);
-  }
-  return value;
-}
-
 export default curry(getIn);

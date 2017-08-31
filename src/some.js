@@ -1,4 +1,5 @@
-import curry from "./curry";
+import curry from './curry';
+import _some from './internal/_some';
 
 /**
  * Returns `true` if **any** items in `subject` match `predicate`.
@@ -7,8 +8,4 @@ import curry from "./curry";
  * @param  {Iterable} subject
  * @return {bool}
  */
-function some(predicate, subject) {
-  return subject.some(predicate);
-}
-
-export default curry(some);
+export default curry(_some);

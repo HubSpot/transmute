@@ -1,4 +1,5 @@
-import curry from "./curry";
+import curry from './curry';
+import _map from './internal/_map';
 
 /**
  * Create a new Iterable by applying `mapper` to each item in `subject`.
@@ -14,8 +15,4 @@ import curry from "./curry";
  * @param  {Iterable} subject the Iterable to map.
  * @return {Iterable} with each value of `subject` updated with mapper.
  */
-function map(mapper, subject) {
-  return subject.map(mapper);
-}
-
-export default curry(map);
+export default curry(_map);
