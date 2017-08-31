@@ -1,4 +1,4 @@
-import flattenN from './flattenN';
+import _flattenN from './internal/_flattenN';
 
 /**
  * Flattens an iterable as deeply as possible.
@@ -11,5 +11,5 @@ import flattenN from './flattenN';
  * @return {Iterable}
  */
 export default function flatten(subject) {
-  return flattenN.operation(Infinity, subject);
+  return _flattenN(Infinity, subject);
 }

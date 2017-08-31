@@ -1,11 +1,8 @@
 import clear from './clear';
 import curry from './curry';
 import { Iterable } from 'immutable';
-import reduce from './reduce';
-import set from './set';
-
-const reduceOp = reduce.operation;
-const setOp = set.operation;
+import _reduce from './internal/_reduce';
+import _set from './internal/_set';
 
 function mapKeys(keyMapper, subject) {
   const isIterable = Iterable.isIterable(subject);
@@ -17,9 +14,9 @@ function mapKeys(keyMapper, subject) {
       `expected an Object or other Keyed Collection but got \`${subject}\``
     );
   }
-  return reduceOp(
+  return _reduce(
     clear(subject),
-    (acc, value, key) => setOp(value, keyMapper(key, value, subject), acc),
+    (acc, value, key) => _set(value, keyMapper(key, value, subject), acc),
     subject
   );
 }

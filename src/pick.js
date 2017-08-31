@@ -1,12 +1,10 @@
+import _filter from './internal/_filter';
 import curry from './curry';
 import { Seq } from 'immutable';
-import filter from './filter';
-
-const filterOperation = filter.operation;
 
 function pick(keys, subject) {
   const keySet = Seq.Set(keys);
-  return filterOperation((value, key) => keySet.contains(key), subject);
+  return _filter((value, key) => keySet.contains(key), subject);
 }
 
 /**

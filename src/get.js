@@ -1,16 +1,5 @@
-import always from './always';
 import curry from './curry';
-import { get } from './internal/TransmuteCollection';
-import { Iterable } from 'immutable';
-
-const empty = always(undefined);
-
-get.implement(Array, (key, subject) => subject[key]);
-get.implement(null, empty);
-get.implement(Object, (key, subject) => subject[key]);
-get.implement(undefined, empty);
-
-get.implementInherited(Iterable, (key, subject) => subject.get(key));
+import _get from './internal/_get';
 
 /**
  * Retrieve the value at `key` from `subject`.
@@ -23,4 +12,4 @@ get.implementInherited(Iterable, (key, subject) => subject.get(key));
  * @param  {Iterable|Object} subject in which to look up `key`.
  * @return {any} the value at `key`.
  */
-export default curry(get);
+export default curry(_get);

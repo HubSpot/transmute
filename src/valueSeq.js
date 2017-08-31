@@ -1,11 +1,4 @@
-import { Iterable, Seq } from 'immutable';
-import { valueSeq } from './internal/TransmuteCollection';
-
-const jsToValueSeq = subject => Seq(subject).valueSeq();
-
-valueSeq.implement(Array, jsToValueSeq);
-valueSeq.implementInherited(Iterable, subject => subject.valueSeq());
-valueSeq.implement(Object, jsToValueSeq);
+import _valueSeq from './internal/_valueSeq';
 
 /**
  * Get a Seq of the values in `subject`.
@@ -13,4 +6,4 @@ valueSeq.implement(Object, jsToValueSeq);
  * @param  {Iterable|Object|Array} subject
  * @return {Seq}
  */
-export default valueSeq;
+export default _valueSeq;

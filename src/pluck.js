@@ -1,9 +1,9 @@
+import _get from './internal/_get';
+import _map from './internal/_map';
 import curry from './curry';
-import get from './get';
-import map from './map';
 
 function pluck(key, subject) {
-  return map.operation(get(key), subject);
+  return _map(item => _get(key, item), subject);
 }
 
 /**

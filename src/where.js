@@ -1,9 +1,9 @@
+import _filter from './internal/_filter';
 import curry from './curry';
-import filter from './filter';
 import match from './match';
 
 function where(pattern, subject) {
-  return filter.operation(match(pattern), subject);
+  return _filter(match(pattern), subject);
 }
 
 /**

@@ -153,22 +153,6 @@ export const map = protocol({
 
 /**
  * @private
- * Creates a new value by applying `mapper` to each _key_ in `subject`.
- *
- * @param {Function} mapper
- * @param {TYPE} subject
- * @return {TYPE}
- */
-export const mapKeys = protocol({
-  args: [
-    isFunction, // mapper
-    protocol.TYPE, // subject
-  ],
-  name: 'mapKeys',
-});
-
-/**
- * @private
  * Returns a new value by applying `mapper` to each item in `subject`.
  *
  * @param {Function} mapper

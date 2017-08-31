@@ -1,11 +1,4 @@
-import { Iterable, Seq } from 'immutable';
-import { keySeq } from './internal/TransmuteCollection';
-
-const jsToKeySeq = subject => Seq(subject).keySeq();
-
-keySeq.implement(Array, jsToKeySeq);
-keySeq.implementInherited(Iterable, subject => subject.keySeq());
-keySeq.implement(Object, jsToKeySeq);
+import _keySeq from './internal/_keySeq';
 
 /**
  * Get a Seq of the keys in `subject`.
@@ -13,4 +6,4 @@ keySeq.implement(Object, jsToKeySeq);
  * @param  {Iterable|Object|Array} subject
  * @return {Seq}
  */
-export default keySeq;
+export default _keySeq;

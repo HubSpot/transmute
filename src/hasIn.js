@@ -1,13 +1,12 @@
-import count from './count';
+import _count from './internal/_count';
+import _has from './internal/_has';
 import curry from './curry';
 import getIn from './getIn';
-import has from './has';
 
 const getInOp = getIn.operation;
-const hasOp = has.operation;
 
 function hasIn(keyPath, subject) {
-  const keyLen = count(keyPath);
+  const keyLen = _count(keyPath);
   if (keyLen === 0) {
     return false;
   }
@@ -17,7 +16,7 @@ function hasIn(keyPath, subject) {
     return false;
   }
 
-  return hasOp(keyPath[keyLen - 1], parent);
+  return _has(keyPath[keyLen - 1], parent);
 }
 
 /**

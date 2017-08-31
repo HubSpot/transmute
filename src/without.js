@@ -1,10 +1,10 @@
+import _filter from './internal/_filter';
 import curry from './curry';
 import { Seq } from 'immutable';
-import filterNot from './filterNot';
 
 function without(unwanted, subject) {
   unwanted = Seq.Set(unwanted);
-  return filterNot.operation(value => unwanted.includes(value), subject);
+  return _filter(value => !unwanted.includes(value), subject);
 }
 
 /**

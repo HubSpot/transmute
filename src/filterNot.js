@@ -1,8 +1,8 @@
+import _filter from './internal/_filter';
 import curry from './curry';
-import filter from './filter';
 
 function filterNot(predicate, subject) {
-  return filter.operation((...args) => !predicate(...args), subject);
+  return _filter((...args) => !predicate(...args), subject);
 }
 
 /**

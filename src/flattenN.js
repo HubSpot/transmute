@@ -1,11 +1,6 @@
 // @flow
 import curry from './curry';
-import { Iterable } from 'immutable';
-import { flattenN } from './internal/TransmuteCollection';
-
-flattenN.implementInherited(Iterable, (depth, subject) =>
-  subject.flatten(depth)
-);
+import _flattenN from './internal/_flattenN';
 
 /**
  * Flattens an iterable `depth` levels.
@@ -18,4 +13,4 @@ flattenN.implementInherited(Iterable, (depth, subject) =>
  * @param {Iterable} subject
  * @return {Iterable}
  */
-export default curry(flattenN);
+export default curry(_flattenN);

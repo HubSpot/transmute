@@ -1,16 +1,9 @@
+import _reduce from './internal/_reduce';
+import _set from './internal/_set';
 import curry from './curry';
-import reduce from './reduce';
-import set from './set';
-
-const reduceOp = reduce.operation;
-const setOp = set.operation;
 
 function merge(updates, subject) {
-  return reduceOp(
-    subject,
-    (acc, value, key) => setOp(value, key, acc),
-    updates
-  );
+  return _reduce(subject, (acc, value, key) => _set(value, key, acc), updates);
 }
 
 /**

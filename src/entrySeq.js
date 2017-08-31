@@ -1,11 +1,4 @@
-import { Iterable, Seq } from 'immutable';
-import { entrySeq } from './internal/TransmuteCollection';
-
-const jsToEntrySeq = subject => Seq(subject).entrySeq();
-
-entrySeq.implement(Array, jsToEntrySeq);
-entrySeq.implementInherited(Iterable, subject => subject.entrySeq());
-entrySeq.implement(Object, jsToEntrySeq);
+import _entrySeq from './internal/_entrySeq';
 
 /**
  * Get a Seq of the entries (i.e. [key, value] tuples) in `subject`.
@@ -13,4 +6,4 @@ entrySeq.implement(Object, jsToEntrySeq);
  * @param  {Array|Iterable|Object} subject
  * @return {Seq}
  */
-export default entrySeq;
+export default _entrySeq;

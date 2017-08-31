@@ -1,15 +1,17 @@
 import curry from './curry';
-import { Iterable } from 'immutable';
-import { has } from './internal/TransmuteCollection';
+import _has from './internal/_has';
 
-has.implement(Array, (key, arr) => {
-  return arr.hasOwnProperty(key);
-});
-
-has.implementInherited(Iterable, (key, subject) => subject.has(key));
-
-has.implement(Object, (key, obj) => {
-  return obj.hasOwnProperty(key);
-});
-
-export default curry(has);
+/**
+ * Returns `true` if `key` exists in `subject`.
+ *
+ * @example
+ * const hasOne = has('one');
+ *
+ * hasOne({one: 1}) === true;
+ * hasOne(Map({two: 2})) === false;
+ *
+ * @param {any} key
+ * @param {Array|Iterable|Object} subject
+ * @return {boolean}
+ */
+export default curry(_has);

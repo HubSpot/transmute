@@ -1,11 +1,9 @@
+import _reduce from './internal/_reduce';
 import curry from './curry';
 import { Iterable, Map, OrderedMap } from 'immutable';
-import reduce from './reduce';
-
-const reduceOperation = reduce.operation;
 
 function indexBy(keyMapper, subject) {
-  return reduceOperation(
+  return _reduce(
     Iterable.isOrdered(subject) || !Iterable.isIterable(subject)
       ? OrderedMap()
       : Map(),

@@ -1,12 +1,10 @@
 import curry from './curry';
 import { Seq } from 'immutable';
-import filterNot from './filterNot';
-
-const filterNotOperation = filterNot.operation;
+import _filter from './internal/_filter';
 
 function omit(keys, subject) {
   const keySet = Seq.Set(keys);
-  return filterNotOperation((value, key) => keySet.contains(key), subject);
+  return _filter((value, key) => !keySet.contains(key), subject);
 }
 
 /**

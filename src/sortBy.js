@@ -1,10 +1,5 @@
 import curry from './curry';
-import { Iterable } from 'immutable';
-import { sortBy } from './internal/TransmuteCollection';
-
-sortBy.implementInherited(Iterable, (getSortValue, subject) =>
-  subject.sortBy(getSortValue)
-);
+import _sortBy from './internal/_sortBy';
 
 /**
  * Sort `subject` according to the value returned by `getSortValue`.
@@ -27,4 +22,4 @@ sortBy.implementInherited(Iterable, (getSortValue, subject) =>
  * @param  {Iterable} subject the thing to sort.
  * @return {Iterable} an ordered version of `subject` (e.g. sorting a `Map` returns an `OrderedMap`).
  */
-export default curry(sortBy);
+export default curry(_sortBy);

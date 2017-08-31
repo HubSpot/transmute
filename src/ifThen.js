@@ -3,8 +3,10 @@ import curry from './curry';
 import identity from './identity';
 import ifElse from './ifElse';
 
+const ifElseOp = ifElse.operation;
+
 function ifThen(predicate, affirmative, subject) {
-  return ifElse.operation(predicate, affirmative, identity, subject);
+  return ifElseOp(predicate, affirmative, identity, subject);
 }
 
 /**

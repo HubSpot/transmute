@@ -1,7 +1,5 @@
+import _get from './internal/_get';
 import curry from './curry';
-import get from './get';
-
-const getOperation = get.operation;
 
 function getIn(keyPath, subject) {
   let value = subject;
@@ -9,7 +7,7 @@ function getIn(keyPath, subject) {
     if (value === undefined) {
       break;
     }
-    value = getOperation(keyPath[i], value);
+    value = _get(keyPath[i], value);
   }
   return value;
 }
