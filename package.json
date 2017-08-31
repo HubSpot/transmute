@@ -30,7 +30,7 @@
     "access": "public"
   },
   "scripts": {
-    "build": "npm run build:clean && npm run build:commonjs",
+    "build": "npm run build:clean || npm run build:commonjs",
     "build:clean": "rm *.js",
     "build:commonjs": "BABEL_ENV=commonjs babel src --ignore *-test.js --out-dir .",
     "docs": "npm run docs:html && npm run docs:readme",
@@ -42,7 +42,7 @@
     "lint": "eslint",
     "lint:all": "eslint src",
     "precommit": "lint-staged",
-    "prepublish": "npm run flow:check && npm run lint:all && npm run test && npm run build",
+    "prepublishOnly": "npm run flow:check && npm run lint:all && npm run test && npm run build",
     "prepush": "npm run lint:all && npm run flow:check && npm run test",
     "prettier": "prettier",
     "prettier:write": "npm run prettier -- --write \"src/**/*.js\"",
