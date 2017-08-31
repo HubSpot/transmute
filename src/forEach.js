@@ -4,6 +4,7 @@ import _forEach from './internal/_forEach';
 /**
  * Executes `effect` for each value in `subject`, then returns `subject`.
  *
+ * @example
  * forEach(
  *   v => console.log(v),
  *   Map({ one: 1, two: 2, three: 3 })
