@@ -1,4 +1,4 @@
-import enforceFunction from "./enforce/enforceFunction";
+import enforceFunction from './enforce/enforceFunction';
 
 function composed(operations, arg) {
   let result = arg;

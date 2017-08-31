@@ -1,4 +1,4 @@
-import curry from "./curry";
+import curry from './curry';
 
 function updateIn(keyPath, updater, subject) {
   return subject.updateIn(keyPath, updater);

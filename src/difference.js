@@ -1,5 +1,5 @@
-import curry from "./curry";
-import filter from "./filter";
+import curry from './curry';
+import filter from './filter';
 
 function difference(toRemove, subject) {
   if (!toRemove) {

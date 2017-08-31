@@ -1,8 +1,8 @@
-import clear from "./clear";
-import curry from "./curry";
-import { Iterable } from "immutable";
-import reduce from "./reduce";
-import set from "./set";
+import clear from './clear';
+import curry from './curry';
+import { Iterable } from 'immutable';
+import reduce from './reduce';
+import set from './set';
 
 const reduceOp = reduce.operation;
 const setOp = set.operation;

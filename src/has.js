@@ -1,6 +1,6 @@
-import curry from "./curry";
-import { Iterable } from "immutable";
-import { has } from "./protocols/TransmuteCollection";
+import curry from './curry';
+import { Iterable } from 'immutable';
+import { has } from './protocols/TransmuteCollection';
 
 has.implement(Array, (key, arr) => {
   return arr.hasOwnProperty(key);

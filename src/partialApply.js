@@ -1,6 +1,6 @@
-import curry from "./curry";
-import enforceFunction from "./enforce/enforceFunction";
-import { Iterable } from "immutable";
+import curry from './curry';
+import enforceFunction from './enforce/enforceFunction';
+import { Iterable } from 'immutable';
 
 function partialApply(operation, args) {
   enforceFunction(operation);

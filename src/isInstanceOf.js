@@ -1,4 +1,4 @@
-import curry from "./curry";
+import curry from './curry';
 
 function isInstanceOf(Constructor, value) {
   return value instanceof Constructor;

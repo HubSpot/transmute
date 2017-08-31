@@ -1,5 +1,5 @@
 // @flow
-import count from "./count";
+import count from './count';
 
 /**
  * Returns true if `value` is "empty".

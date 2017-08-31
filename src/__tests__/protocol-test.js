@@ -1,50 +1,50 @@
-import { Iterable, List, Map, OrderedSet, Set } from "immutable";
-import isFunction from "../isFunction";
-import protocol from "../protocol";
+import { Iterable, List, Map, OrderedSet, Set } from 'immutable';
+import isFunction from '../isFunction';
+import protocol from '../protocol';
 
-describe("protocol", () => {
-  describe("unimplmented types", () => {
-    it("throws if no implementation is defined", () => {
+describe('protocol', () => {
+  describe('unimplmented types', () => {
+    it('throws if no implementation is defined', () => {
       const isTestable = protocol({
-        name: "isTestable",
-        args: [protocol.TYPE]
+        name: 'isTestable',
+        args: [protocol.TYPE],
       });
       expect(() => isTestable({})).toThrow();
     });
 
-    it("uses the fallback if available", () => {
+    it('uses the fallback if available', () => {
       const stringify = protocol({
-        name: "stringify",
+        name: 'stringify',
         args: [protocol.TYPE],
-        fallback: thing => thing.toString()
+        fallback: thing => thing.toString(),
       });
-      expect(stringify({})).toBe("[object Object]");
+      expect(stringify({})).toBe('[object Object]');
     });
   });
 
-  describe("empty types", () => {
+  describe('empty types', () => {
     const stringify = protocol({
-      name: "stringify",
+      name: 'stringify',
       args: [protocol.TYPE],
-      fallback: thing => thing.toString()
+      fallback: thing => thing.toString(),
     });
 
-    stringify.implement(null, () => "this is null");
-    stringify.implement(undefined, () => "this is undefined");
+    stringify.implement(null, () => 'this is null');
+    stringify.implement(undefined, () => 'this is undefined');
 
-    it("dispatches to null", () => {
-      expect(stringify(null)).toBe("this is null");
+    it('dispatches to null', () => {
+      expect(stringify(null)).toBe('this is null');
     });
 
-    it("dispatches to undefined", () => {
-      expect(stringify(undefined)).toBe("this is undefined");
+    it('dispatches to undefined', () => {
+      expect(stringify(undefined)).toBe('this is undefined');
     });
   });
 
-  describe("constructor types", () => {
+  describe('constructor types', () => {
     const count = protocol({
-      name: "count",
-      args: [protocol.TYPE]
+      name: 'count',
+      args: [protocol.TYPE],
     });
 
     count.implement(Array, arr => arr.length);
@@ -54,8 +54,8 @@ describe("protocol", () => {
     count.implementInherited(Iterable, iter => iter.count());
 
     const isEmpty = protocol({
-      name: "isEmpty",
-      args: [protocol.TYPE]
+      name: 'isEmpty',
+      args: [protocol.TYPE],
     });
 
     isEmpty.implement(Array, arr => arr.length === 0);
@@ -64,27 +64,27 @@ describe("protocol", () => {
     isEmpty.implement(String, str => str.length === 0);
     isEmpty.implementInherited(Iterable, iter => iter.count() === 0);
 
-    it("dispatches based on the values type", () => {
+    it('dispatches based on the values type', () => {
       expect(count([1, 2, 3])).toBe(3);
       expect(count(Map({ one: 1, two: 2 }))).toBe(2);
       expect(count(10)).toBe(10);
-      expect(count("omg123")).toBe(6);
+      expect(count('omg123')).toBe(6);
       expect(isEmpty([])).toBe(true);
       expect(isEmpty([1, 2, 3])).toBe(false);
     });
 
-    it("dispatches based on a values super type", () => {
+    it('dispatches based on a values super type', () => {
       expect(count(Set.of(1, 2, 3, 4))).toBe(4);
       // this works because `OrderedSet() instaceof Set === true`
       expect(count(OrderedSet.of(1, 2, 3, 4))).toBe(4);
     });
   });
 
-  describe("additional arguments", () => {
+  describe('additional arguments', () => {
     const map = protocol({
-      name: "map",
+      name: 'map',
       args: [isFunction, protocol.TYPE],
-      fallback: (mapper, iter) => iter.map(mapper)
+      fallback: (mapper, iter) => iter.map(mapper),
     });
 
     map.implement(List, (mapper, list) => list.map(mapper));
@@ -96,23 +96,23 @@ describe("protocol", () => {
       }, new object.constructor());
     });
 
-    it("passes through the correct args", () => {
+    it('passes through the correct args', () => {
       const inc = n => n + 1;
       expect(map(inc, [1, 2, 3])).toEqual([2, 3, 4]);
       expect(map(inc, List.of(1, 2, 3))).toEqual(List.of(2, 3, 4));
       expect(map(inc, { one: 1, two: 2, three: 3 })).toEqual({
         one: 2,
         two: 3,
-        three: 4
+        three: 4,
       });
     });
 
-    it("ignores extraneous args", () => {
+    it('ignores extraneous args', () => {
       const inc = n => n + 1;
-      expect(map(inc, { one: 1, two: 2, three: 3 }, "test", 123)).toEqual({
+      expect(map(inc, { one: 1, two: 2, three: 3 }, 'test', 123)).toEqual({
         one: 2,
         two: 3,
-        three: 4
+        three: 4,
       });
     });
   });

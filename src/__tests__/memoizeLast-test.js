@@ -1,8 +1,8 @@
-import { List } from "immutable";
-import memoizeLast from "../memoizeLast";
+import { List } from 'immutable';
+import memoizeLast from '../memoizeLast';
 
-describe("transmute/memoizeLast", () => {
-  describe("one argument", () => {
+describe('transmute/memoizeLast', () => {
+  describe('one argument', () => {
     let sum;
     let sumImpl;
 
@@ -12,13 +12,13 @@ describe("transmute/memoizeLast", () => {
       sum = memoizeLast(nums => sumImpl(nums));
     });
 
-    it("caches the last value", () => {
+    it('caches the last value', () => {
       expect(sum(List.of(1, 2, 3))).toEqual(6);
       expect(sum(List.of(1, 2, 3))).toEqual(6);
       expect(sumImpl.mock.calls.length).toEqual(1);
     });
 
-    it("clears the cache when a new arg is passed", () => {
+    it('clears the cache when a new arg is passed', () => {
       expect(sum(List.of(1, 2, 3))).toEqual(6);
       expect(sum(List.of(1, 2, 3))).toEqual(6);
       expect(sumImpl.mock.calls.length).toEqual(1);
@@ -29,7 +29,7 @@ describe("transmute/memoizeLast", () => {
     });
   });
 
-  describe("multiple arguments", () => {
+  describe('multiple arguments', () => {
     let sum;
     let sumImpl;
 
@@ -38,13 +38,13 @@ describe("transmute/memoizeLast", () => {
       sum = memoizeLast(sumImpl);
     });
 
-    it("caches the last value", () => {
+    it('caches the last value', () => {
       expect(sum(1, 2, 3)).toEqual(6);
       expect(sum(1, 2, 3)).toEqual(6);
       expect(sumImpl.mock.calls.length).toEqual(1);
     });
 
-    it("clears the cache when a new arg is passed", () => {
+    it('clears the cache when a new arg is passed', () => {
       expect(sum(1, 2, 3)).toEqual(6);
       expect(sum(1, 2, 3)).toEqual(6);
       expect(sumImpl.mock.calls.length).toEqual(1);

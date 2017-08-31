@@ -1,6 +1,6 @@
-import curry from "./curry";
-import get from "./get";
-import map from "./map";
+import curry from './curry';
+import get from './get';
+import map from './map';
 
 function pluck(key, subject) {
   return map.operation(get(key), subject);

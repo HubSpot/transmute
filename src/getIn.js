@@ -1,5 +1,5 @@
-import curry from "./curry";
-import get from "./get";
+import curry from './curry';
+import get from './get';
 
 const getOperation = get.operation;
 

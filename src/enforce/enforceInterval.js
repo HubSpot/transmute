@@ -1,6 +1,6 @@
 // @flow
 export default function enforceInterval(interval: number) {
-  if (typeof interval === "number" && interval >= 0) {
+  if (typeof interval === 'number' && interval >= 0) {
     return interval;
   }
 

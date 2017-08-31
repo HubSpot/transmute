@@ -1,4 +1,4 @@
-import enforceFunction from "./enforce/enforceFunction";
+import enforceFunction from './enforce/enforceFunction';
 
 function piped(operations, arg) {
   let result = arg;

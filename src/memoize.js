@@ -1,5 +1,5 @@
-import enforceFunction from "./enforce/enforceFunction";
-import { Map, Seq } from "immutable";
+import enforceFunction from './enforce/enforceFunction';
+import { Map, Seq } from 'immutable';
 
 function defaultHashFunction(...args) {
   if (args.length === 1) {

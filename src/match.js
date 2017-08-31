@@ -1,5 +1,5 @@
-import curry from "./curry";
-import { is, Seq } from "immutable";
+import curry from './curry';
+import { is, Seq } from 'immutable';
 
 function match(pattern, candidate) {
   return Seq(pattern).every((val, key) => {

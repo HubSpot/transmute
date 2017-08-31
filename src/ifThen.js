@@ -1,7 +1,7 @@
 // @flow
-import curry from "./curry";
-import identity from "./identity";
-import ifElse from "./ifElse";
+import curry from './curry';
+import identity from './identity';
+import ifElse from './ifElse';
 
 function ifThen(predicate, affirmative, subject) {
   return ifElse.operation(predicate, affirmative, identity, subject);

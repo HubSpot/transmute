@@ -1,6 +1,6 @@
-import curry from "./curry";
-import { Iterable } from "immutable";
-import { every } from "./protocols/TransmuteCollection";
+import curry from './curry';
+import { Iterable } from 'immutable';
+import { every } from './protocols/TransmuteCollection';
 
 every.implement(Array, (predicate, arr) => {
   return arr.every(predicate);

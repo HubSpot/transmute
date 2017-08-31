@@ -1,5 +1,5 @@
 // @flow
-import curry from "./curry";
+import curry from './curry';
 
 function both<T>(
   condition1: (arg: T) => boolean,

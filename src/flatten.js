@@ -1,4 +1,4 @@
-import flattenN from "./flattenN";
+import flattenN from './flattenN';
 
 /**
  * Flattens an iterable as deeply as possible.

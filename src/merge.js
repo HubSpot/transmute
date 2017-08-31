@@ -1,6 +1,6 @@
-import curry from "./curry";
-import reduce from "./reduce";
-import set from "./set";
+import curry from './curry';
+import reduce from './reduce';
+import set from './set';
 
 const reduceOp = reduce.operation;
 const setOp = set.operation;

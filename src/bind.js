@@ -1,5 +1,5 @@
 // @flow
-import curry from "./curry";
+import curry from './curry';
 
 function bind<F: Function>(operation: F, context: Object): F {
   return operation.bind(context);

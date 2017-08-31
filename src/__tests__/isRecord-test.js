@@ -1,14 +1,14 @@
-import { List, Map, Record, Seq, Set } from "immutable";
-import isRecord from "../isRecord";
+import { List, Map, Record, Seq, Set } from 'immutable';
+import isRecord from '../isRecord';
 
-describe("transmute/isRecord", () => {
-  it("returns true if subject is a Record", () => {
+describe('transmute/isRecord', () => {
+  it('returns true if subject is a Record', () => {
     const TestRecord = Record({ one: 1 });
     expect(isRecord(TestRecord())).toBe(true);
   });
 
-  it("returns false for everything else", () => {
-    expect(isRecord("test")).toBe(false);
+  it('returns false for everything else', () => {
+    expect(isRecord('test')).toBe(false);
     expect(isRecord({})).toBe(false);
     expect(isRecord([])).toBe(false);
     expect(isRecord(List())).toBe(false);

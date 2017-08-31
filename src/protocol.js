@@ -1,15 +1,15 @@
 // @flow
-import _makeSymbol from "./internal/_makeSymbol";
-import _setArity from "./internal/_setArity";
-import uniqueId from "./uniqueId";
+import _makeSymbol from './internal/_makeSymbol';
+import _setArity from './internal/_setArity';
+import uniqueId from './uniqueId';
 
 type ProtocolDefinition = {
   name: string,
   args: Array<Function | Symbol | string>,
-  fallback?: Function
+  fallback?: Function,
 };
 
-const DISPATCH_TYPE = _makeSymbol("protocolType");
+const DISPATCH_TYPE = _makeSymbol('protocolType');
 
 function getValueKey(id, value) {
   switch (value) {
@@ -24,9 +24,9 @@ function getValueKey(id, value) {
 function makeKey(id, Type) {
   switch (Type) {
     case null:
-      return "null";
+      return 'null';
     case undefined:
-      return "undefined";
+      return 'undefined';
     default:
       return Type[id] || uniqueId();
   }
@@ -35,9 +35,9 @@ function makeKey(id, Type) {
 function makeKeyInherited(id, Type) {
   switch (Type) {
     case null:
-      return "null";
+      return 'null';
     case undefined:
-      return "undefined";
+      return 'undefined';
     default:
       return Type.prototype.hasOwnProperty(id)
         ? Type.prototype[id]
@@ -50,7 +50,7 @@ function setKey(subject: Object, id, key) {
     configurable: false,
     enumerable: false,
     value: key,
-    writable: true
+    writable: true,
   });
   return subject;
 }

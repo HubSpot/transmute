@@ -1,6 +1,6 @@
-import enforceArity from "./enforce/enforceArity";
-import enforceFunction from "./enforce/enforceFunction";
-import _setArity from "./internal/_setArity";
+import enforceArity from './enforce/enforceArity';
+import enforceFunction from './enforce/enforceFunction';
+import _setArity from './internal/_setArity';
 
 /* eslint no-use-before-define: 0 */
 function bindWithArity(operation, arity, args) {

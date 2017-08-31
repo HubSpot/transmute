@@ -1,7 +1,7 @@
-import count from "./count";
-import curry from "./curry";
-import getIn from "./getIn";
-import has from "./has";
+import count from './count';
+import curry from './curry';
+import getIn from './getIn';
+import has from './has';
 
 const getInOp = getIn.operation;
 const hasOp = has.operation;

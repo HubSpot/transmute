@@ -1,6 +1,6 @@
-import curry from "./curry";
-import { Seq } from "immutable";
-import filter from "./filter";
+import curry from './curry';
+import { Seq } from 'immutable';
+import filter from './filter';
 
 const filterOperation = filter.operation;
 

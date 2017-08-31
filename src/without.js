@@ -1,6 +1,6 @@
-import curry from "./curry";
-import { Seq } from "immutable";
-import filterNot from "./filterNot";
+import curry from './curry';
+import { Seq } from 'immutable';
+import filterNot from './filterNot';
 
 function without(unwanted, subject) {
   unwanted = Seq.Set(unwanted);

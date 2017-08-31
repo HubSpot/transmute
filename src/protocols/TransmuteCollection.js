@@ -1,16 +1,16 @@
 // @flow
-import always from "../always";
-import isFunction from "../isFunction";
-import isNumber from "../isNumber";
-import protocol from "../protocol";
+import always from '../always';
+import isFunction from '../isFunction';
+import isNumber from '../isNumber';
+import protocol from '../protocol';
 
 const isAnyValue = always(true);
 
 export const clear = protocol({
   args: [
-    protocol.TYPE // subject
+    protocol.TYPE, // subject
   ],
-  name: "clear"
+  name: 'clear',
 });
 
 /**
@@ -22,9 +22,9 @@ export const clear = protocol({
  */
 export const count = protocol({
   args: [
-    protocol.TYPE // subject
+    protocol.TYPE, // subject
   ],
-  name: "count"
+  name: 'count',
 });
 
 /**
@@ -36,9 +36,9 @@ export const count = protocol({
  */
 export const entrySeq = protocol({
   args: [
-    protocol.TYPE // subject
+    protocol.TYPE, // subject
   ],
-  name: "entrySeq"
+  name: 'entrySeq',
 });
 
 /**
@@ -52,9 +52,9 @@ export const entrySeq = protocol({
 export const every = protocol({
   args: [
     isFunction, // predicate
-    protocol.TYPE // subject
+    protocol.TYPE, // subject
   ],
-  name: "every"
+  name: 'every',
 });
 
 /**
@@ -67,25 +67,25 @@ export const every = protocol({
 export const filter = protocol({
   args: [
     isFunction, // predicate
-    protocol.TYPE // subject
+    protocol.TYPE, // subject
   ],
-  name: "filter"
+  name: 'filter',
 });
 
 export const flattenN = protocol({
   args: [
     isNumber, // depth
-    protocol.TYPE // subject
+    protocol.TYPE, // subject
   ],
-  name: "flattenN"
+  name: 'flattenN',
 });
 
 export const forEach = protocol({
   args: [
     isFunction, // effect
-    protocol.TYPE // subject
+    protocol.TYPE, // subject
   ],
-  name: "forEach"
+  name: 'forEach',
 });
 
 /**
@@ -99,10 +99,10 @@ export const forEach = protocol({
 export const get = protocol({
   args: [
     isAnyValue, // key
-    protocol.TYPE // subject
+    protocol.TYPE, // subject
   ],
-  name: "get",
-  fallback: (key, obj) => obj[key]
+  name: 'get',
+  fallback: (key, obj) => obj[key],
 });
 
 /**
@@ -116,9 +116,9 @@ export const get = protocol({
 export const has = protocol({
   args: [
     isAnyValue, // key
-    protocol.TYPE
+    protocol.TYPE,
   ],
-  name: "has"
+  name: 'has',
 });
 
 /**
@@ -130,9 +130,9 @@ export const has = protocol({
  */
 export const keySeq = protocol({
   args: [
-    protocol.TYPE // subject
+    protocol.TYPE, // subject
   ],
-  name: "keySeq"
+  name: 'keySeq',
 });
 
 /**
@@ -146,9 +146,9 @@ export const keySeq = protocol({
 export const map = protocol({
   args: [
     isFunction, // mapper
-    protocol.TYPE // subject
+    protocol.TYPE, // subject
   ],
-  name: "map"
+  name: 'map',
 });
 
 /**
@@ -162,9 +162,9 @@ export const map = protocol({
 export const mapKeys = protocol({
   args: [
     isFunction, // mapper
-    protocol.TYPE // subject
+    protocol.TYPE, // subject
   ],
-  name: "mapKeys"
+  name: 'mapKeys',
 });
 
 /**
@@ -179,9 +179,9 @@ export const reduce = protocol({
   args: [
     isAnyValue, // accumulator
     isFunction, // reducer
-    protocol.TYPE // subject
+    protocol.TYPE, // subject
   ],
-  name: "reduce"
+  name: 'reduce',
 });
 
 /**
@@ -197,9 +197,9 @@ export const set = protocol({
   args: [
     isAnyValue, // value
     isAnyValue, // key
-    protocol.TYPE // subject
+    protocol.TYPE, // subject
   ],
-  name: "set"
+  name: 'set',
 });
 
 /**
@@ -213,9 +213,9 @@ export const set = protocol({
 export const some = protocol({
   args: [
     isFunction, // predicate
-    protocol.TYPE // subject
+    protocol.TYPE, // subject
   ],
-  name: "some"
+  name: 'some',
 });
 
 /**
@@ -229,9 +229,9 @@ export const some = protocol({
 export const sortBy = protocol({
   args: [
     isFunction, // getSortValue
-    protocol.TYPE // subject
+    protocol.TYPE, // subject
   ],
-  name: "sortBy"
+  name: 'sortBy',
 });
 
 /**
@@ -243,7 +243,7 @@ export const sortBy = protocol({
  */
 export const valueSeq = protocol({
   args: [
-    protocol.TYPE // subject
+    protocol.TYPE, // subject
   ],
-  name: "valueSeq"
+  name: 'valueSeq',
 });

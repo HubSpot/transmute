@@ -1,6 +1,6 @@
-import curry from "./curry";
-import { Iterable, Map, OrderedMap } from "immutable";
-import reduce from "./reduce";
+import curry from './curry';
+import { Iterable, Map, OrderedMap } from 'immutable';
+import reduce from './reduce';
 
 const reduceOperation = reduce.operation;
 

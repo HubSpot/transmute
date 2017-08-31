@@ -1,10 +1,10 @@
-import curry from "./curry";
-import { Map } from "immutable";
-import get from "./get";
-import getIn from "./getIn";
-import isRecord from "./isRecord";
-import reduce from "./reduce";
-import set from "./set";
+import curry from './curry';
+import { Map } from 'immutable';
+import get from './get';
+import getIn from './getIn';
+import isRecord from './isRecord';
+import reduce from './reduce';
+import set from './set';
 
 const getOp = get.operation;
 const getInOp = getIn.operation;
@@ -12,7 +12,7 @@ const reduceOp = reduce.operation;
 const setOp = set.operation;
 
 function runTransform(transform, newKey, subject) {
-  if (typeof transform === "function") {
+  if (typeof transform === 'function') {
     return transform(subject, newKey);
   }
   if (transform === true) {

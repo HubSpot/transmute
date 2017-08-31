@@ -1,5 +1,5 @@
 // @flow
-import curry from "./curry";
+import curry from './curry';
 
 function ifElse(predicate, affimative, negative, subject) {
   if (predicate(subject)) {

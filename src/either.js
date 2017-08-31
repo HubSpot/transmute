@@ -1,4 +1,4 @@
-import curry from "./curry";
+import curry from './curry';
 
 function either(first, second, arg) {
   return first(arg) || second(arg);
