@@ -1,6 +1,6 @@
 import curry from './curry';
 import { Iterable, is } from 'immutable';
-import { set } from './protocol/TransmuteCollection';
+import { set } from './internal/TransmuteCollection';
 
 set.implement(Array, (value, index, arr) => {
   if (is(arr[index], value)) {

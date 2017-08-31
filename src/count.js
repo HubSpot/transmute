@@ -1,4 +1,4 @@
-import { count } from './protocol/TransmuteCollection';
+import { count } from './internal/TransmuteCollection';
 import { Iterable } from 'immutable';
 
 count.implement(Array, arr => arr.length);

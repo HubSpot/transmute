@@ -1,5 +1,5 @@
 import { Iterable, Seq } from 'immutable';
-import { valueSeq } from './protocol/TransmuteCollection';
+import { valueSeq } from './internal/TransmuteCollection';
 
 const jsToValueSeq = subject => Seq(subject).valueSeq();
 

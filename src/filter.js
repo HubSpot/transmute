@@ -1,6 +1,6 @@
 import curry from './curry';
 import { Iterable, Map, Record } from 'immutable';
-import { filter } from './protocol/TransmuteCollection';
+import { filter } from './internal/TransmuteCollection';
 
 filter.implement(Array, (test, arr) => arr.filter(test));
 
