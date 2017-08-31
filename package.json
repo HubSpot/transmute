@@ -27,9 +27,8 @@
     "prettier-eslint": "^4.3.2"
   },
   "files": [
-    "enforce",
-    "internal",
-    "*.js"
+    "*.js",
+    "internal"
   ],
   "publishConfig": {
     "access": "public"
