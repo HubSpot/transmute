@@ -1,10 +1,10 @@
 // @flow
-import count from './count';
+import _count from './internal/_count';
 
 /**
  * Returns true if `value` is "empty".
  * If given null, undefined, isEmpty will return true.
- * 
+ *
  * @param {any} value
  * @return {boolean}
  */
@@ -12,5 +12,5 @@ export default function isEmpty(value: any): boolean {
   if (!value) {
     return true;
   }
-  return count(value) === 0;
+  return _count(value) === 0;
 }

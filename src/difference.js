@@ -12,6 +12,11 @@ function difference(toRemove, subject) {
  * Take the difference between one iterable and another iterable.
  * Only the elements present in just subject will remain.
  *
+ * @example
+ * const removeOne = difference(Set.of(1));
+ *
+ * removeOne(Set.of(1, 2, 3)) // returns Set { 2, 3 }
+ *
  * @param  {Iterable} toRemove
  * @param  {Iterable} subject
  * @return {Iterable}

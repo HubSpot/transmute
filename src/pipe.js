@@ -13,6 +13,15 @@ function piped(operations, arg) {
  *
  * `pipe` is _not_ curried.
  *
+ * @example
+ * const takeEvensAndDouble = pipe(
+ *   filter(n => n % 2 === 0),
+ *   map(n => n * 2)
+ * );
+ *
+ * takeEvensAndDouble(List.of(1, 2, 3))
+ * // returns List [ 4 ]
+ *
  * @param  {Array<Function>} operations any number of unary functions.
  * @return {Function}
  */

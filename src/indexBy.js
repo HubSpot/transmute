@@ -16,6 +16,10 @@ function indexBy(keyMapper, subject) {
  * Create a Map, or OrderedMap from `subject` with a key for each item
  * returned by `keyMapper`.
  *
+ * @example
+ * indexBy(get('id'), List.of({id: 123}, {id: 456}))
+ * // returns Map { 123: {id: 123}, 456: {id: 456} }
+ *
  * @param  {Function} keyMapper generates keys for each item
  * @param  {Iterable} subject to index
  * @return {KeyedIterable}

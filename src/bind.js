@@ -8,6 +8,9 @@ function bind<F: Function>(operation: F, context: Object): F {
 /**
  * Sets a function's `this` context. Similar to `Function.prototype.bind`.
  *
+ * @example
+ * bind(console.log, console);
+ *
  * @param {Function} operation
  * @param {Object} context
  * @return {Function}
