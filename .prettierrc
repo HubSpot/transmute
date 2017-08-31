@@ -1,3 +1,5 @@
 {
-  "parser": "flow"
+  "parser": "flow",
+  "singleQuote": true,
+  "trailingComma": "es5"
 }
