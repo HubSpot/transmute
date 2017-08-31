@@ -3,13 +3,13 @@
 // Copyright (c) 2017 Nathan Cahill; Licensed MIT
 
 (function(global, factory) {
-  typeof exports === "object" && typeof module !== "undefined"
+  typeof exports === 'object' && typeof module !== 'undefined'
     ? (module.exports = factory())
-    : typeof define === "function" && define.amd
-        ? define(factory)
-        : (global.Split = factory());
+    : typeof define === 'function' && define.amd
+      ? define(factory)
+      : (global.Split = factory());
 })(this, function() {
-  "use strict";
+  'use strict';
   // The programming goals of Split.js are to deliver readable, understandable and
   // maintainable code, while at the same time manually optimizing for tiny minified file size,
   // browser compatibility without additional requirements, graceful fallback (IE8 is supported)
@@ -19,9 +19,9 @@
 
   // Save a couple long function names that are used frequently.
   // This optimization saves around 400 bytes.
-  var addEventListener = "addEventListener";
-  var removeEventListener = "removeEventListener";
-  var getBoundingClientRect = "getBoundingClientRect";
+  var addEventListener = 'addEventListener';
+  var removeEventListener = 'removeEventListener';
+  var getBoundingClientRect = 'getBoundingClientRect';
   var NOOP = function() {
     return false;
   };
@@ -38,20 +38,20 @@
   // Tests -webkit, -moz and -o prefixes. Modified from StackOverflow:
   // http://stackoverflow.com/questions/16625140/js-feature-detection-to-detect-the-usage-of-webkit-calc-over-calc/16625167#16625167
   var calc =
-    ["", "-webkit-", "-moz-", "-o-"]
+    ['', '-webkit-', '-moz-', '-o-']
       .filter(function(prefix) {
-        var el = document.createElement("div");
-        el.style.cssText = "width:" + prefix + "calc(9px)";
+        var el = document.createElement('div');
+        el.style.cssText = 'width:' + prefix + 'calc(9px)';
 
         return !!el.style.length;
       })
-      .shift() + "calc";
+      .shift() + 'calc';
 
   // The second helper function allows elements and string selectors to be used
   // interchangeably. In either case an element is returned. This allows us to
   // do `Split([elem1, elem2])` as well as `Split(['#id1', '#id2'])`.
   var elementOrSelector = function(el) {
-    if (typeof el === "string" || el instanceof String) {
+    if (typeof el === 'string' || el instanceof String) {
       return document.querySelector(el);
     }
 
@@ -121,15 +121,15 @@
         });
     var gutterSize = options.gutterSize !== undefined ? options.gutterSize : 10;
     var snapOffset = options.snapOffset !== undefined ? options.snapOffset : 30;
-    var direction = options.direction || "horizontal";
+    var direction = options.direction || 'horizontal';
     var cursor =
       options.cursor ||
-      (direction === "horizontal" ? "ew-resize" : "ns-resize");
+      (direction === 'horizontal' ? 'ew-resize' : 'ns-resize');
     var gutter =
       options.gutter ||
       function(i, gutterDirection) {
-        var gut = document.createElement("div");
-        gut.className = "gutter gutter-" + gutterDirection;
+        var gut = document.createElement('div');
+        gut.className = 'gutter gutter-' + gutterDirection;
         return gut;
       };
     var elementStyle =
@@ -137,11 +137,11 @@
       function(dim, size, gutSize) {
         var style = {};
 
-        if (typeof size !== "string" && !(size instanceof String)) {
+        if (typeof size !== 'string' && !(size instanceof String)) {
           if (!isIE8) {
-            style[dim] = calc + "(" + size + "% - " + gutSize + "px)";
+            style[dim] = calc + '(' + size + '% - ' + gutSize + 'px)';
           } else {
-            style[dim] = size + "%";
+            style[dim] = size + '%';
           }
         } else {
           style[dim] = size;
@@ -152,27 +152,27 @@
     var gutterStyle =
       options.gutterStyle ||
       function(dim, gutSize) {
-        return (obj = {}), (obj[dim] = gutSize + "px"), obj;
+        return (obj = {}), (obj[dim] = gutSize + 'px'), obj;
         var obj;
       };
 
     // 2. Initialize a bunch of strings based on the direction we're splitting.
     // A lot of the behavior in the rest of the library is paramatized down to
     // rely on CSS strings and classes.
-    if (direction === "horizontal") {
-      dimension = "width";
-      clientDimension = "clientWidth";
-      clientAxis = "clientX";
-      position = "left";
-      paddingA = "paddingLeft";
-      paddingB = "paddingRight";
-    } else if (direction === "vertical") {
-      dimension = "height";
-      clientDimension = "clientHeight";
-      clientAxis = "clientY";
-      position = "top";
-      paddingA = "paddingTop";
-      paddingB = "paddingBottom";
+    if (direction === 'horizontal') {
+      dimension = 'width';
+      clientDimension = 'clientWidth';
+      clientAxis = 'clientX';
+      position = 'left';
+      paddingA = 'paddingLeft';
+      paddingB = 'paddingRight';
+    } else if (direction === 'vertical') {
+      dimension = 'height';
+      clientDimension = 'clientHeight';
+      clientAxis = 'clientY';
+      position = 'top';
+      paddingA = 'paddingTop';
+      paddingB = 'paddingBottom';
     }
 
     // 3. Define the dragging helper functions, and a few helpers to go with them.
@@ -250,7 +250,7 @@
       // Get the offset of the event from the first side of the
       // pair `this.start`. Supports touch events, but not multitouch, so only the first
       // finger `touches[0]` is counted.
-      if ("touches" in e) {
+      if ('touches' in e) {
         offset = e.touches[0][clientAxis] - this.start;
       } else {
         offset = e[clientAxis] - this.start;
@@ -317,35 +317,35 @@
       self.dragging = false;
 
       // Remove the stored event listeners. This is why we store them.
-      global[removeEventListener]("mouseup", self.stop);
-      global[removeEventListener]("touchend", self.stop);
-      global[removeEventListener]("touchcancel", self.stop);
+      global[removeEventListener]('mouseup', self.stop);
+      global[removeEventListener]('touchend', self.stop);
+      global[removeEventListener]('touchcancel', self.stop);
 
-      self.parent[removeEventListener]("mousemove", self.move);
-      self.parent[removeEventListener]("touchmove", self.move);
+      self.parent[removeEventListener]('mousemove', self.move);
+      self.parent[removeEventListener]('touchmove', self.move);
 
       // Delete them once they are removed. I think this makes a difference
       // in memory usage with a lot of splits on one page. But I don't know for sure.
       delete self.stop;
       delete self.move;
 
-      a[removeEventListener]("selectstart", NOOP);
-      a[removeEventListener]("dragstart", NOOP);
-      b[removeEventListener]("selectstart", NOOP);
-      b[removeEventListener]("dragstart", NOOP);
+      a[removeEventListener]('selectstart', NOOP);
+      a[removeEventListener]('dragstart', NOOP);
+      b[removeEventListener]('selectstart', NOOP);
+      b[removeEventListener]('dragstart', NOOP);
 
-      a.style.userSelect = "";
-      a.style.webkitUserSelect = "";
-      a.style.MozUserSelect = "";
-      a.style.pointerEvents = "";
+      a.style.userSelect = '';
+      a.style.webkitUserSelect = '';
+      a.style.MozUserSelect = '';
+      a.style.pointerEvents = '';
 
-      b.style.userSelect = "";
-      b.style.webkitUserSelect = "";
-      b.style.MozUserSelect = "";
-      b.style.pointerEvents = "";
+      b.style.userSelect = '';
+      b.style.webkitUserSelect = '';
+      b.style.MozUserSelect = '';
+      b.style.pointerEvents = '';
 
-      self.gutter.style.cursor = "";
-      self.parent.style.cursor = "";
+      self.gutter.style.cursor = '';
+      self.parent.style.cursor = '';
     }
 
     // startDragging calls `calculateSizes` to store the inital size in the pair object.
@@ -374,28 +374,28 @@
       self.stop = stopDragging.bind(self);
 
       // All the binding. `window` gets the stop events in case we drag out of the elements.
-      global[addEventListener]("mouseup", self.stop);
-      global[addEventListener]("touchend", self.stop);
-      global[addEventListener]("touchcancel", self.stop);
+      global[addEventListener]('mouseup', self.stop);
+      global[addEventListener]('touchend', self.stop);
+      global[addEventListener]('touchcancel', self.stop);
 
-      self.parent[addEventListener]("mousemove", self.move);
-      self.parent[addEventListener]("touchmove", self.move);
+      self.parent[addEventListener]('mousemove', self.move);
+      self.parent[addEventListener]('touchmove', self.move);
 
       // Disable selection. Disable!
-      a[addEventListener]("selectstart", NOOP);
-      a[addEventListener]("dragstart", NOOP);
-      b[addEventListener]("selectstart", NOOP);
-      b[addEventListener]("dragstart", NOOP);
+      a[addEventListener]('selectstart', NOOP);
+      a[addEventListener]('dragstart', NOOP);
+      b[addEventListener]('selectstart', NOOP);
+      b[addEventListener]('dragstart', NOOP);
 
-      a.style.userSelect = "none";
-      a.style.webkitUserSelect = "none";
-      a.style.MozUserSelect = "none";
-      a.style.pointerEvents = "none";
+      a.style.userSelect = 'none';
+      a.style.webkitUserSelect = 'none';
+      a.style.MozUserSelect = 'none';
+      a.style.pointerEvents = 'none';
 
-      b.style.userSelect = "none";
-      b.style.webkitUserSelect = "none";
-      b.style.MozUserSelect = "none";
-      b.style.pointerEvents = "none";
+      b.style.userSelect = 'none';
+      b.style.webkitUserSelect = 'none';
+      b.style.MozUserSelect = 'none';
+      b.style.pointerEvents = 'none';
 
       // Set the cursor, both on the gutter and the parent element.
       // Doing only a, b and gutter causes flickering.
@@ -432,7 +432,7 @@
       var element = {
         element: elementOrSelector(id),
         size: sizes[i],
-        minSize: minSizes[i]
+        minSize: minSizes[i],
       };
 
       var pair;
@@ -446,7 +446,7 @@
           isFirst: i === 1,
           isLast: i === ids.length - 1,
           direction: direction,
-          parent: parent
+          parent: parent,
         };
 
         // For first and last pairs, first and last gutter width is half.
@@ -463,8 +463,8 @@
 
         // if the parent has a reverse flex-direction, switch the pair elements.
         if (
-          parentFlexDirection === "row-reverse" ||
-          parentFlexDirection === "column-reverse"
+          parentFlexDirection === 'row-reverse' ||
+          parentFlexDirection === 'column-reverse'
         ) {
           var temp = pair.a;
           pair.a = pair.b;
@@ -484,11 +484,11 @@
           setGutterSize(gutterElement, gutterSize);
 
           gutterElement[addEventListener](
-            "mousedown",
+            'mousedown',
             startDragging.bind(pair)
           );
           gutterElement[addEventListener](
-            "touchstart",
+            'touchstart',
             startDragging.bind(pair)
           );
 
@@ -540,15 +540,15 @@
     function destroy() {
       pairs.forEach(function(pair) {
         pair.parent.removeChild(pair.gutter);
-        elements[pair.a].element.style[dimension] = "";
-        elements[pair.b].element.style[dimension] = "";
+        elements[pair.a].element.style[dimension] = '';
+        elements[pair.b].element.style[dimension] = '';
       });
     }
 
     if (isIE8) {
       return {
         setSizes: setSizes,
-        destroy: destroy
+        destroy: destroy,
       };
     }
 
@@ -578,7 +578,7 @@
           }
         }
       },
-      destroy: destroy
+      destroy: destroy,
     };
   };
 

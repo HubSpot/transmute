@@ -175,26 +175,6 @@
               
                 
                 <li><a
-                  href='#filter'
-                  class="">
-                  filter
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#filter'
-                  class="">
-                  filter
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
                   href='#filternot'
                   class="">
                   filterNot
@@ -255,9 +235,9 @@
               
                 
                 <li><a
-                  href='#get'
+                  href='#getin'
                   class="">
-                  get
+                  getIn
                   
                 </a>
                 
@@ -265,9 +245,19 @@
               
                 
                 <li><a
-                  href='#getin'
+                  href='#has'
                   class="">
-                  getIn
+                  has
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#hasin'
+                  class="">
+                  hasIn
                   
                 </a>
                 
@@ -308,6 +298,76 @@
                   href='#indexby'
                   class="">
                   indexBy
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#keyseq'
+                  class="">
+                  keySeq
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#map'
+                  class="">
+                  map
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#reduce'
+                  class="">
+                  reduce
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#set'
+                  class="">
+                  set
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#some'
+                  class="">
+                  some
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#sortby'
+                  class="">
+                  sortBy
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#valueseq'
+                  class="">
+                  valueSeq
                   
                 </a>
                 
@@ -388,26 +448,6 @@
                   href='#isstring'
                   class="">
                   isString
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#keyseq'
-                  class="">
-                  keySeq
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#map'
-                  class="">
-                  map
                   
                 </a>
                 
@@ -518,66 +558,6 @@
                   href='#pluck'
                   class="">
                   pluck
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#set'
-                  class="">
-                  set
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#set'
-                  class="">
-                  set
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#reduce'
-                  class="">
-                  reduce
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#some'
-                  class="">
-                  some
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#sortby'
-                  class="">
-                  sortBy
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#valueseq'
-                  class="">
-                  valueSeq
                   
                 </a>
                 
@@ -1789,98 +1769,6 @@ are truthy.</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>subject</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)</code>
-	    to filter.
-
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code>:
-        without values that didn't match 
-<code>predicate</code>
-.
-
-      
-    
-  
-
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Example</div>
-    
-      
-      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// returns [ 2 ]</span>
-filter(
-  <span class="hljs-function">(<span class="hljs-params">n</span>) =&gt;</span> n % <span class="hljs-number">2</span> === <span class="hljs-number">0</span>,
-  [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]
-);</pre>
-    
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-            <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='filter'>
-      filter
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>Remove values for which <code>predicate</code> returns <code>false</code>.</p>
-
-
-  <div class='pre p1 fill-light mt0'>filter</div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>predicate</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code>
-	    returns 
-<code>true</code>
- if a value should be included.
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
             <span class='code bold'>subject</span> <code class='quiet'>(Iterable)</code>
 	    to filter.
 
@@ -1923,98 +1811,6 @@ filter(
 filter(
   <span class="hljs-function">(<span class="hljs-params">n</span>) =&gt;</span> n % <span class="hljs-number">2</span> === <span class="hljs-number">0</span>,
   ThreeRecord({<span class="hljs-attr">one</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">two</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">three</span>: <span class="hljs-number">3</span>})
-);</pre>
-    
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-            <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='filter'>
-      filter
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>Remove values for which <code>predicate</code> returns <code>false</code>.</p>
-
-
-  <div class='pre p1 fill-light mt0'>filter</div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>predicate</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code>
-	    returns 
-<code>true</code>
- if a value should be included.
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>subject</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
-	    to filter.
-
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>Iterable</code>:
-        without values that didn't match 
-<code>predicate</code>
-.
-
-      
-    
-  
-
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Example</div>
-    
-      
-      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// returns {two: 2}</span>
-filter(
-  <span class="hljs-function">(<span class="hljs-params">n</span>) =&gt;</span> n % <span class="hljs-number">2</span> === <span class="hljs-number">0</span>,
-  {<span class="hljs-attr">one</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">two</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">three</span>: <span class="hljs-number">3</span>}
 );</pre>
     
   
@@ -2512,82 +2308,6 @@ get(<span class="hljs-string">'one'</span>, <span class="hljs-built_in">Map</spa
   
   <div class='clearfix'>
     
-    <h3 class='fl m0' id='get'>
-      get
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>Return the value of <code>key</code> in <code>subject</code>.</p>
-
-
-  <div class='pre p1 fill-light mt0'>get</div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>key</span> <code class='quiet'>(any)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>subject</span> <code class='quiet'>(TYPE)</code>
-	    
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>any</code>:
-        
-
-      
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-            <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
     <h3 class='fl m0' id='getin'>
       getIn
     </h3>
@@ -2660,6 +2380,181 @@ get(<span class="hljs-string">'one'</span>, <span class="hljs-built_in">Map</spa
   }),
 });
 getFirstName(user) === <span class="hljs-string">'Test'</span></pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='has'>
+      has
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Returns <code>true</code> if <code>key</code> exists in <code>subject</code>.</p>
+
+
+  <div class='pre p1 fill-light mt0'>has</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>key</span> <code class='quiet'>(any)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>subject</span> <code class='quiet'>((<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> | Iterable | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>))</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>:
+        
+
+      
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> hasOne = has(<span class="hljs-string">'one'</span>);
+
+hasOne({<span class="hljs-attr">one</span>: <span class="hljs-number">1</span>}) === <span class="hljs-literal">true</span>;
+hasOne(<span class="hljs-built_in">Map</span>({<span class="hljs-attr">two</span>: <span class="hljs-number">2</span>})) === <span class="hljs-literal">false</span>;</pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='hasin'>
+      hasIn
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Returns <code>true</code> if <code>keyPath</code> is defined in a nested data structure.</p>
+<p><code>hasIn</code> short circuts and returns <code>false</code> when it encounters a <code>null</code> or <code>undefined</code> value.</p>
+
+
+  <div class='pre p1 fill-light mt0'>hasIn</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>keyPath</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>>)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>subject</span> <code class='quiet'>((<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> | Iterable | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>))</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>:
+        
+
+      
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> hasFirstName = hasIn([<span class="hljs-string">'name'</span>, <span class="hljs-string">'first'</span>]);
+<span class="hljs-keyword">const</span> user = UserRecord({
+  <span class="hljs-attr">name</span>: <span class="hljs-built_in">Map</span>({
+    <span class="hljs-attr">first</span>: <span class="hljs-string">'Test'</span>,
+    <span class="hljs-attr">last</span>: <span class="hljs-string">'Testerson'</span>,
+  }),
+});
+hasFirstName(user) === <span class="hljs-literal">true</span></pre>
     
   
 
@@ -3005,6 +2900,588 @@ returned by <code>keyMapper</code>.</p>
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
       <code>KeyedIterable</code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='keyseq'>
+      keySeq
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Get a Seq of the keys in <code>subject</code>.</p>
+
+
+  <div class='pre p1 fill-light mt0'>keySeq</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>subject</span> <code class='quiet'>((Iterable | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>))</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>Seq</code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='map'>
+      map
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Create a new Iterable by applying <code>mapper</code> to each item in <code>subject</code>.</p>
+
+
+  <div class='pre p1 fill-light mt0'>map</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>mapper</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code>
+	    applied to each item in 
+<code>subject</code>
+.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>subject</span> <code class='quiet'>(Iterable)</code>
+	    the Iterable to map.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>Iterable</code>:
+        with each value of 
+<code>subject</code>
+ updated with mapper.
+
+      
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// returns List [ 2, 3, 4 ]</span>
+map(
+  <span class="hljs-function">(<span class="hljs-params">val</span>) =&gt;</span> val + <span class="hljs-number">1</span>,
+  List.of(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>)
+);</pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='reduce'>
+      reduce
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Transform the contents of <code>subject</code> to <code>into</code> by applying <code>operation</code> to each
+item.</p>
+
+
+  <div class='pre p1 fill-light mt0'>reduce</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>into</span> <code class='quiet'>(any)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>operation</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>subject</span> <code class='quiet'>(Iterable)</code>
+	    [
+description
+]
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>Iterable</code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='set'>
+      set
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Returns a copy of <code>subject</code> with <code>key</code> set to <code>value</code>.</p>
+
+
+  <div class='pre p1 fill-light mt0'>set</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>value</span> <code class='quiet'>(any)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>key</span> <code class='quiet'>(any)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>subject</span> <code class='quiet'>((<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> | Iterable | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>))</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> | Iterable | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='some'>
+      some
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Returns <code>true</code> if <strong>any</strong> items in <code>subject</code> match <code>predicate</code>.</p>
+
+
+  <div class='pre p1 fill-light mt0'>some</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>predicate</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code>
+	    returns 
+<code>true</code>
+ if item is a match.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>subject</span> <code class='quiet'>(Iterable)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>bool</code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='sortby'>
+      sortBy
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Sort <code>subject</code> according to the value returned by <code>getSortValue</code>.</p>
+
+
+  <div class='pre p1 fill-light mt0'>sortBy</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>getSortValue</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code>
+	    returns a value to sort on for each item in 
+<code>subject</code>
+.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>subject</span> <code class='quiet'>(Iterable)</code>
+	    the thing to sort.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>Iterable</code>:
+        an ordered version of 
+<code>subject</code>
+ (e.g. sorting a 
+<code>Map</code>
+ returns an 
+<code>OrderedMap</code>
+).
+
+      
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// returns List [ 2, 1, 3 ]</span>
+sortBy(
+  <span class="hljs-function">(<span class="hljs-params">n</span>) =&gt;</span> n % <span class="hljs-number">2</span>,
+  List.of(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>)
+);</pre>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// returns OrderedMap { "one" =&gt; 1, "two" =&gt; 2, "three" =&gt; 3 }</span>
+sortBy(
+  <span class="hljs-function">(<span class="hljs-params">n</span>) =&gt;</span> n % <span class="hljs-number">2</span>,
+  <span class="hljs-built_in">Map</span>({<span class="hljs-attr">three</span>: <span class="hljs-number">3</span>, <span class="hljs-attr">one</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">two</span>: <span class="hljs-number">2</span>})
+);</pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='valueseq'>
+      valueSeq
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Get a Seq of the values in <code>subject</code>.</p>
+
+
+  <div class='pre p1 fill-light mt0'>valueSeq</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>subject</span> <code class='quiet'>((Iterable | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>))</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>Seq</code>:
         
 
       
@@ -3566,166 +4043,6 @@ If given null, undefined, isEmpty will return true.</p>
 
   
 
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-            <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='keyseq'>
-      keySeq
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>Get a Seq of the keys in <code>subject</code>.</p>
-
-
-  <div class='pre p1 fill-light mt0'>keySeq</div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>subject</span> <code class='quiet'>((Iterable | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>))</code>
-	    
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>Seq</code>:
-        
-
-      
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-            <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='map'>
-      map
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>Create a new Iterable by applying <code>mapper</code> to each item in <code>subject</code>.</p>
-
-
-  <div class='pre p1 fill-light mt0'>map</div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>mapper</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code>
-	    applied to each item in 
-<code>subject</code>
-.
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>subject</span> <code class='quiet'>(Iterable)</code>
-	    the Iterable to map.
-
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>Iterable</code>:
-        with each value of 
-<code>subject</code>
- updated with mapper.
-
-      
-    
-  
-
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Example</div>
-    
-      
-      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// returns List [ 2, 3, 4 ]</span>
-map(
-  <span class="hljs-function">(<span class="hljs-params">val</span>) =&gt;</span> val + <span class="hljs-number">1</span>,
-  List.of(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>)
-);</pre>
-    
   
 
   
@@ -4701,511 +5018,6 @@ pluckName(userMap) === <span class="hljs-built_in">Map</span>({<span class="hljs
   
   <div class='clearfix'>
     
-    <h3 class='fl m0' id='set'>
-      set
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>Set the <code>value</code> of <code>key</code> in <code>subject</code>.</p>
-
-
-  <div class='pre p1 fill-light mt0'>set</div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>value</span> <code class='quiet'>(any)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>key</span> <code class='quiet'>(any)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>subject</span> <code class='quiet'>(TYPE)</code>
-	    
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>TYPE</code>:
-        
-
-      
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-            <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='set'>
-      set
-    </h3>
-    
-    
-  </div>
-  
-
-  
-
-  <div class='pre p1 fill-light mt0'>set</div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>value</span> <code class='quiet'>(any)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>key</span> <code class='quiet'>(any)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>subject</span> <code class='quiet'>((<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> | Iterable | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>))</code>
-	    
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> | Iterable | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>:
-        
-
-      
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-            <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='reduce'>
-      reduce
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>Transform the contents of <code>subject</code> to <code>into</code> by applying <code>operation</code> to each
-item.</p>
-
-
-  <div class='pre p1 fill-light mt0'>reduce</div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>into</span> <code class='quiet'>(any)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>operation</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>subject</span> <code class='quiet'>(Iterable)</code>
-	    [
-description
-]
-
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>Iterable</code>:
-        
-
-      
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-            <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='some'>
-      some
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>Returns <code>true</code> if <strong>any</strong> items in <code>subject</code> match <code>predicate</code>.</p>
-
-
-  <div class='pre p1 fill-light mt0'>some</div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>predicate</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code>
-	    returns 
-<code>true</code>
- if item is a match.
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>subject</span> <code class='quiet'>(Iterable)</code>
-	    
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>bool</code>:
-        
-
-      
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-            <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='sortby'>
-      sortBy
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>Sort <code>subject</code> according to the value returned by <code>getSortValue</code>.</p>
-
-
-  <div class='pre p1 fill-light mt0'>sortBy</div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>getSortValue</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code>
-	    returns a value to sort on for each item in 
-<code>subject</code>
-.
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>subject</span> <code class='quiet'>(Iterable)</code>
-	    the thing to sort.
-
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>Iterable</code>:
-        an ordered version of 
-<code>subject</code>
- (e.g. sorting a 
-<code>Map</code>
- returns an 
-<code>OrderedMap</code>
-).
-
-      
-    
-  
-
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Example</div>
-    
-      
-      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// returns List [ 2, 1, 3 ]</span>
-sortBy(
-  <span class="hljs-function">(<span class="hljs-params">n</span>) =&gt;</span> n % <span class="hljs-number">2</span>,
-  List.of(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>)
-);</pre>
-    
-      
-      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// returns OrderedMap { "one" =&gt; 1, "two" =&gt; 2, "three" =&gt; 3 }</span>
-sortBy(
-  <span class="hljs-function">(<span class="hljs-params">n</span>) =&gt;</span> n % <span class="hljs-number">2</span>,
-  <span class="hljs-built_in">Map</span>({<span class="hljs-attr">three</span>: <span class="hljs-number">3</span>, <span class="hljs-attr">one</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">two</span>: <span class="hljs-number">2</span>})
-);</pre>
-    
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-            <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='valueseq'>
-      valueSeq
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>Get a Seq of the values in <code>subject</code>.</p>
-
-
-  <div class='pre p1 fill-light mt0'>valueSeq</div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>subject</span> <code class='quiet'>((Iterable | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>))</code>
-	    
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>Seq</code>:
-        
-
-      
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-            <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
     <h3 class='fl m0' id='setarity'>
       setArity
     </h3>
@@ -5589,7 +5401,7 @@ sortBy(
         <div class='space-bottom0'>
           <div>
             <span class='code bold'>prefix</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>
-            = <code>&quot;&quot;</code>)</code>
+            = <code>&#39;&#39;</code>)</code>
 	    
           </div>
           
