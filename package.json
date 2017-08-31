@@ -1,6 +1,6 @@
 {
   "name": "@hs/transmute",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "like underscore but for immutable",
   "license": "MIT",
   "main": "lib/index.js",
@@ -29,6 +29,12 @@
   "files": [
     "lib"
   ],
+  "directories": {
+    "lib": "./lib"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "npm run build:commonjs",
     "build:commonjs": "BABEL_ENV=commonjs babel src --ignore *-test.js --out-dir lib",
