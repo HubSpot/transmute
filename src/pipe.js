@@ -1,4 +1,4 @@
-import enforceFunction from './internal/enforceFunction';
+import _enforceFunction from './internal/_enforceFunction';
 
 function piped(operations, arg) {
   let result = arg;
@@ -26,6 +26,6 @@ function piped(operations, arg) {
  * @return {Function}
  */
 export default function pipe(...operations) {
-  operations.forEach(enforceFunction);
+  operations.forEach(_enforceFunction);
   return piped.bind(null, operations);
 }

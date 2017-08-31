@@ -1,10 +1,10 @@
 import curry from './curry';
-import enforceFunction from './internal/enforceFunction';
-import enforceInterval from './internal/enforceInterval';
+import _enforceFunction from './internal/_enforceFunction';
+import _enforceInterval from './internal/_enforceInterval';
 
 function debounce(interval, operation) {
-  enforceInterval(interval);
-  enforceFunction(operation);
+  _enforceInterval(interval);
+  _enforceFunction(operation);
 
   let lastArgs;
   let lastResult;

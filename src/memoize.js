@@ -1,4 +1,4 @@
-import enforceFunction from './internal/enforceFunction';
+import _enforceFunction from './internal/_enforceFunction';
 import { Map, Seq } from 'immutable';
 
 function defaultHashFunction(...args) {
@@ -52,7 +52,7 @@ function memoizedN(cache, operation, hashFunction, ...args) {
  * @return {Function}  memoized version of `operation`.
  */
 export default function memoize(operation, hashFunction = defaultHashFunction) {
-  enforceFunction(operation);
+  _enforceFunction(operation);
   const cache = Map().asMutable();
   const memoizer = operation.length === 1 ? memoized1 : memoizedN;
   const result = memoizer.bind(null, cache, operation, hashFunction);

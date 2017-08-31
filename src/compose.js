@@ -1,4 +1,4 @@
-import enforceFunction from './internal/enforceFunction';
+import _enforceFunction from './internal/_enforceFunction';
 
 function composed(operations, arg) {
   let result = arg;
@@ -26,6 +26,6 @@ function composed(operations, arg) {
  * @return {Function}
  */
 export default function compose(...operations) {
-  operations.forEach(enforceFunction);
+  operations.forEach(_enforceFunction);
   return composed.bind(null, operations);
 }

@@ -1,6 +1,6 @@
 /* eslint no-unused-vars: 0, prefer-rest-params: 0 */
-import enforceArity from '../internal/enforceArity';
-import enforceFunction from '../internal/enforceFunction';
+import _enforceArity from '../internal/_enforceArity';
+import _enforceFunction from '../internal/_enforceFunction';
 
 /**
  * @private
@@ -11,8 +11,8 @@ import enforceFunction from '../internal/enforceFunction';
  * @return {Function}
  */
 export default function _setArity(arity, operation) {
-  enforceArity(arity);
-  enforceFunction(operation);
+  _enforceArity(arity);
+  _enforceFunction(operation);
 
   // The implementation here borrows pretty heavily from ramdajs.
   // https://github.com/ramda/ramda/blob/45bb9160b0aa2ed3bc5755d906024eb0337169a2/src/internal/_arity.js

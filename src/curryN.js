@@ -1,5 +1,5 @@
-import enforceArity from './internal/enforceArity';
-import enforceFunction from './internal/enforceFunction';
+import _enforceArity from './internal/_enforceArity';
+import _enforceFunction from './internal/_enforceFunction';
 import _setArity from './internal/_setArity';
 
 /* eslint no-use-before-define: 0 */
@@ -23,7 +23,7 @@ function curryInternal(operation, arity, prevArgs, ...nextArgs) {
 }
 
 function curryN(arity, operation) {
-  return bindWithArity(enforceFunction(operation), enforceArity(arity), []);
+  return bindWithArity(_enforceFunction(operation), _enforceArity(arity), []);
 }
 
 /**

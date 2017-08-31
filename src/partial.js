@@ -1,4 +1,4 @@
-import enforceFunction from './internal/enforceFunction';
+import _enforceFunction from './internal/_enforceFunction';
 
 /**
  * Like `fn.bind()`, but without the option to pass `context`.
@@ -15,6 +15,6 @@ import enforceFunction from './internal/enforceFunction';
  * @return {Function}
  */
 export default function partial(operation, first, ...args) {
-  enforceFunction(operation);
+  _enforceFunction(operation);
   return operation.bind(null, first, ...args);
 }

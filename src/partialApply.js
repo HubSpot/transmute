@@ -1,9 +1,9 @@
 import curry from './curry';
-import enforceFunction from './internal/enforceFunction';
+import _enforceFunction from './internal/_enforceFunction';
 import { Iterable } from 'immutable';
 
 function partialApply(operation, args) {
-  enforceFunction(operation);
+  _enforceFunction(operation);
   const isArray = Array.isArray(args);
   if (!isArray && !Iterable.isOrdered(args)) {
     throw new Error(
