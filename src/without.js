@@ -8,7 +8,13 @@ function without(unwanted, subject) {
 }
 
 /**
- * Removes items in `unwanted` from `subject`.
+ * Removes values in `unwanted` from `subject`.
+ *
+ * @example
+ * const removeOne = without(Set.of(1));
+ *
+ * removeOne(Set.of(1, 2, 3)) // returns Set { 2, 3 }
+ *
  *
  * @param  {Iterable} unwanted
  * @param  {Iterable} subject
