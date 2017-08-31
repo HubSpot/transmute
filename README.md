@@ -49,7 +49,7 @@ takeEvenValues(Map({one: 1, two: 2, three: 3, four: 4}));
 
 ### always
 
-[src/always.js:13-15](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/always.js#L13-L15 "Source code on GitHub")
+[src/always.js:13-15](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/always.js#L13-L15 "Source code on GitHub")
 
 Creates a function that always returns `returnValue`.
 
@@ -68,7 +68,7 @@ Returns **T**
 
 ### bind
 
-[src/bind.js:15-15](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/bind.js#L15-L15 "Source code on GitHub")
+[src/bind.js:18-18](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/bind.js#L18-L18 "Source code on GitHub")
 
 Sets a function's `this` context. Similar to `Function.prototype.bind`.
 
@@ -77,11 +77,17 @@ Sets a function's `this` context. Similar to `Function.prototype.bind`.
 -   `operation` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
 -   `context` **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
 
+**Examples**
+
+```javascript
+bind(console.log, console);
+```
+
 Returns **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
 
 ### both
 
-[src/both.js:20-20](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/both.js#L20-L20 "Source code on GitHub")
+[src/both.js:29-29](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/both.js#L29-L29 "Source code on GitHub")
 
 Returns `true` if the results of `arg` applied to both `condition1` and
 `condition2` are truthy.
@@ -91,11 +97,23 @@ Returns `true` if the results of `arg` applied to both `condition1` and
 -   `condition1` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
 -   `condition2` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
 
+**Examples**
+
+```javascript
+const isOneToTen = both(
+  n => n >= 1,
+  n => n <= 10
+);
+
+isOneToTen(3) === true;
+isOneToTen(11) === false;
+```
+
 Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
 
 ### clear
 
-[src/clear.js:9-9](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/clear.js#L9-L9 "Source code on GitHub")
+[src/clear.js:14-14](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/clear.js#L14-L14 "Source code on GitHub")
 
 Returns an empty copy of `subject`.
 
@@ -103,11 +121,19 @@ Returns an empty copy of `subject`.
 
 -   `subject` **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) | Collection | [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object))** 
 
+**Examples**
+
+```javascript
+clear([1, 2, 3]) // returns []
+clear(List.of(1, 2, 3)) // returns List []
+clear({one: 1, two: 2, three: 3}) // returns {}
+```
+
 Returns **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) | Collection | [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object))** 
 
 ### compose
 
-[src/compose.js:19-22](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/compose.js#L19-L22 "Source code on GitHub")
+[src/compose.js:28-31](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/compose.js#L28-L31 "Source code on GitHub")
 
 Create a function that runs operations from right-to-left.
 
@@ -117,11 +143,23 @@ Create a function that runs operations from right-to-left.
 
 -   `operations` **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)>** any number of unary functions.
 
+**Examples**
+
+```javascript
+const doubleAndTakeEvens = pipe(
+  filter(n => n % 2 === 0),
+  map(n => n * 2)
+);
+
+doubleAndTakeEvens(List.of(1, 2, 3))
+// returns List [ 2, 4, 6 ]
+```
+
 Returns **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
 
 ### count
 
-[src/count.js:9-9](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/count.js#L9-L9 "Source code on GitHub")
+[src/count.js:12-12](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/count.js#L12-L12 "Source code on GitHub")
 
 Returns the number of values in `subject`.
 
@@ -129,11 +167,17 @@ Returns the number of values in `subject`.
 
 -   `subject` **TYPE** 
 
+**Examples**
+
+```javascript
+count(List.of(1, 2, 3)) === 3;
+```
+
 Returns **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** 
 
 ### curry
 
-[src/curry.js:14-16](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/curry.js#L14-L16 "Source code on GitHub")
+[src/curry.js:14-16](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/curry.js#L14-L16 "Source code on GitHub")
 
 Creates a curried version of `operation`.
 
@@ -153,7 +197,7 @@ Returns **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Ref
 
 ### curryN
 
-[src/curryN.js:41-41](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/curryN.js#L41-L41 "Source code on GitHub")
+[src/curryN.js:41-41](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/curryN.js#L41-L41 "Source code on GitHub")
 
 Create a curried version of `operation` that expects `arity` arguments.
 Inception-ally, `curryN` is also curried.
@@ -174,7 +218,7 @@ Returns **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Ref
 
 ### debounce
 
-[src/debounce.js:42-42](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/debounce.js#L42-L42 "Source code on GitHub")
+[src/debounce.js:42-42](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/debounce.js#L42-L42 "Source code on GitHub")
 
 `operation` is called `interval` milliseconds after the most recent call.
 
@@ -187,7 +231,7 @@ Returns **any** the most recent result of `operation`
 
 ### debounceImmediate
 
-[src/debounceImmediate.js:52-52](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/debounceImmediate.js#L52-L52 "Source code on GitHub")
+[src/debounceImmediate.js:52-52](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/debounceImmediate.js#L52-L52 "Source code on GitHub")
 
 `operation` is called immediately and then `interval` milliseconds after the most
 recent call.
@@ -201,7 +245,7 @@ Returns **any** the most recent result of `operation`
 
 ### difference
 
-[src/difference.js:19-19](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/difference.js#L19-L19 "Source code on GitHub")
+[src/difference.js:24-24](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/difference.js#L24-L24 "Source code on GitHub")
 
 Take the difference between one iterable and another iterable.
 Only the elements present in just subject will remain.
@@ -211,11 +255,19 @@ Only the elements present in just subject will remain.
 -   `toRemove` **Iterable** 
 -   `subject` **Iterable** 
 
+**Examples**
+
+```javascript
+const removeOne = difference(Set.of(1));
+
+removeOne(Set.of(1, 2, 3)) // returns Set { 2, 3 }
+```
+
 Returns **Iterable** 
 
 ### either
 
-[src/either.js:16-16](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/either.js#L16-L16 "Source code on GitHub")
+[src/either.js:26-26](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/either.js#L26-L26 "Source code on GitHub")
 
 Returns true if the results of `arg` applied to either `first` or `second`
 are truthy.
@@ -224,13 +276,26 @@ are truthy.
 
 -   `first` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
 -   `second` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
--   `arg` **any** 
+-   `subject` **any** 
+
+**Examples**
+
+```javascript
+const oneOrTwo = either(
+  n => n === 1,
+  n => n === 2
+);
+
+oneOrTwo(1) === true;
+oneOrTwo(2) === true;
+oneOrTwo(3) === false;
+```
 
 Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
 
 ### entrySeq
 
-[src/entrySeq.js:9-9](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/entrySeq.js#L9-L9 "Source code on GitHub")
+[src/entrySeq.js:13-13](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/entrySeq.js#L13-L13 "Source code on GitHub")
 
 Get a Seq of the entries (i.e. [key, value] tuples) in `subject`.
 
@@ -238,11 +303,18 @@ Get a Seq of the entries (i.e. [key, value] tuples) in `subject`.
 
 -   `subject` **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) | Iterable | [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object))** 
 
+**Examples**
+
+```javascript
+entrySeq(Map({one: 1, two: 2}))
+// returns Seq [ ['one', 1], ['two', 2] ]
+```
+
 Returns **Seq** 
 
 ### every
 
-[src/every.js:11-11](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/every.js#L11-L11 "Source code on GitHub")
+[src/every.js:17-17](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/every.js#L17-L17 "Source code on GitHub")
 
 Returns `true` if **all** items in `subject` match `predicate`.
 
@@ -251,11 +323,20 @@ Returns `true` if **all** items in `subject` match `predicate`.
 -   `predicate` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** returns `true` if item is a match.
 -   `subject` **Iterable** 
 
+**Examples**
+
+```javascript
+const alwaysBlue = every(v => v === 'blue');
+
+alwaysBlue(List.of('blue', 'blue')) === true;
+alwaysBlue(List.of('red', 'blue')) === false;
+```
+
 Returns **bool** 
 
 ### filter
 
-[src/filter.js:25-25](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/filter.js#L25-L25 "Source code on GitHub")
+[src/filter.js:25-25](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/filter.js#L25-L25 "Source code on GitHub")
 
 Remove values for which `predicate` returns `false`.
 
@@ -288,7 +369,7 @@ Returns **Iterable** without values that didn't match `predicate`.
 
 ### filterNot
 
-[src/filterNot.js:22-22](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/filterNot.js#L22-L22 "Source code on GitHub")
+[src/filterNot.js:22-22](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/filterNot.js#L22-L22 "Source code on GitHub")
 
 Remove values for which `predicate` returns `true`.
 
@@ -311,7 +392,7 @@ Returns **Iterable** without values that matched `predicate`.
 
 ### flatten
 
-[src/flatten.js:13-15](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/flatten.js#L13-L15 "Source code on GitHub")
+[src/flatten.js:13-15](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/flatten.js#L13-L15 "Source code on GitHub")
 
 Flattens an iterable as deeply as possible.
 
@@ -330,7 +411,7 @@ Returns **Iterable**
 
 ### flattenN
 
-[src/flattenN.js:16-16](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/flattenN.js#L16-L16 "Source code on GitHub")
+[src/flattenN.js:16-16](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/flattenN.js#L16-L16 "Source code on GitHub")
 
 Flattens an iterable `depth` levels.
 
@@ -350,9 +431,19 @@ Returns **Iterable**
 
 ### forEach
 
-[src/forEach.js:11-11](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/forEach.js#L11-L11 "Source code on GitHub")
+[src/forEach.js:21-21](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/forEach.js#L21-L21 "Source code on GitHub")
 
 Executes `effect` for each value in `subject`, then returns `subject`.
+
+forEach(
+  v => console.log(v),
+  Map({ one: 1, two: 2, three: 3 })
+);
+
+// prints...
+// 1
+// 2
+// 3
 
 **Parameters**
 
@@ -363,18 +454,27 @@ Returns **TYPE**
 
 ### fromJS
 
-[src/fromJS.js:8-10](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/fromJS.js#L8-L10 "Source code on GitHub")
+[src/fromJS.js:15-17](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/fromJS.js#L15-L17 "Source code on GitHub")
 
 A version of Immutable.fromJS that drops all but the first argument for
 compatibility with other transmute functions like `map`.
 
 **Parameters**
 
--   `json` **T** 
+-   `json` **any** 
+
+**Examples**
+
+```javascript
+fromJS({items: [1, 2, 3]})
+// returns Map { items: List [ 1, 2, 3 ] }
+```
+
+Returns **Iterable?** 
 
 ### get
 
-[src/get.js:15-15](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/get.js#L15-L15 "Source code on GitHub")
+[src/get.js:15-15](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/get.js#L15-L15 "Source code on GitHub")
 
 Retrieve the value at `key` from `subject`.
 
@@ -394,7 +494,7 @@ Returns **any** the value at `key`.
 
 ### getIn
 
-[src/getIn.js:34-34](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/getIn.js#L34-L34 "Source code on GitHub")
+[src/getIn.js:34-34](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/getIn.js#L34-L34 "Source code on GitHub")
 
 Retrieve a `keyPath` from a nested Immutable or JS structure.
 
@@ -422,7 +522,7 @@ Returns **any**
 
 ### has
 
-[src/has.js:17-17](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/has.js#L17-L17 "Source code on GitHub")
+[src/has.js:17-17](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/has.js#L17-L17 "Source code on GitHub")
 
 Returns `true` if `key` exists in `subject`.
 
@@ -444,7 +544,7 @@ Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refe
 
 ### hasIn
 
-[src/hasIn.js:41-41](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/hasIn.js#L41-L41 "Source code on GitHub")
+[src/hasIn.js:41-41](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/hasIn.js#L41-L41 "Source code on GitHub")
 
 Returns `true` if `keyPath` is defined in a nested data structure.
 
@@ -472,7 +572,7 @@ Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refe
 
 ### identity
 
-[src/identity.js:8-10](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/identity.js#L8-L10 "Source code on GitHub")
+[src/identity.js:12-14](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/identity.js#L12-L14 "Source code on GitHub")
 
 Returns it's first argument.
 
@@ -480,11 +580,17 @@ Returns it's first argument.
 
 -   `thing` **any** 
 
+**Examples**
+
+```javascript
+identity('something') === 'something'
+```
+
 Returns **any** 
 
 ### ifElse
 
-[src/ifElse.js:31-31](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/ifElse.js#L31-L31 "Source code on GitHub")
+[src/ifElse.js:31-31](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/ifElse.js#L31-L31 "Source code on GitHub")
 
 Applies `affirmative` to `subject` if `predicate(subject)` is truthy.
 Otherwise applies `negative` to `subject`.
@@ -513,7 +619,7 @@ Returns **any**
 
 ### ifThen
 
-[src/ifThen.js:32-32](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/ifThen.js#L32-L32 "Source code on GitHub")
+[src/ifThen.js:32-32](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/ifThen.js#L32-L32 "Source code on GitHub")
 
 Applies `affirmative` to `subject` if `predicate(subject)` is truthy.
 Otherwise returns `subject`.
@@ -542,7 +648,7 @@ Returns **any**
 
 ### indexBy
 
-[src/indexBy.js:23-23](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/indexBy.js#L23-L23 "Source code on GitHub")
+[src/indexBy.js:27-27](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/indexBy.js#L27-L27 "Source code on GitHub")
 
 Create a Map, or OrderedMap from `subject` with a key for each item
 returned by `keyMapper`.
@@ -552,11 +658,18 @@ returned by `keyMapper`.
 -   `keyMapper` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** generates keys for each item
 -   `subject` **Iterable** to index
 
+**Examples**
+
+```javascript
+indexBy(get('id'), List.of({id: 123}, {id: 456}))
+// returns Map { 123: {id: 123}, 456: {id: 456} }
+```
+
 Returns **KeyedIterable** 
 
 ### keySeq
 
-[src/keySeq.js:9-9](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/keySeq.js#L9-L9 "Source code on GitHub")
+[src/keySeq.js:13-13](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/keySeq.js#L13-L13 "Source code on GitHub")
 
 Get a Seq of the keys in `subject`.
 
@@ -564,11 +677,18 @@ Get a Seq of the keys in `subject`.
 
 -   `subject` **(Iterable | [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) \| [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array))** 
 
+**Examples**
+
+```javascript
+keySeq({one: 1, two: 2, three: 3})
+// returns Seq [ 'one', 'two', 'three' ]
+```
+
 Returns **Seq** 
 
 ### map
 
-[src/map.js:18-18](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/map.js#L18-L18 "Source code on GitHub")
+[src/map.js:18-18](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/map.js#L18-L18 "Source code on GitHub")
 
 Create a new Iterable by applying `mapper` to each item in `subject`.
 
@@ -591,7 +711,7 @@ Returns **Iterable** with each value of `subject` updated with mapper.
 
 ### reduce
 
-[src/reduce.js:13-13](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/reduce.js#L13-L13 "Source code on GitHub")
+[src/reduce.js:21-21](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/reduce.js#L21-L21 "Source code on GitHub")
 
 Transform the contents of `subject` to `into` by applying `operation` to each
 item.
@@ -602,11 +722,22 @@ item.
 -   `operation` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
 -   `subject` **Iterable** [description]
 
+**Examples**
+
+```javascript
+reduce(
+  List(),
+  (acc, val) => acc.push(val),
+  Map({ one: 1, two: 2, three: 3 })
+);
+// returns List [ 1, 2, 3 ]
+```
+
 Returns **Iterable** 
 
 ### set
 
-[src/set.js:12-12](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/set.js#L12-L12 "Source code on GitHub")
+[src/set.js:16-16](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/set.js#L16-L16 "Source code on GitHub")
 
 Returns a copy of `subject` with `key` set to `value`.
 
@@ -616,11 +747,18 @@ Returns a copy of `subject` with `key` set to `value`.
 -   `key` **any** 
 -   `subject` **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) | Iterable | [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object))** 
 
+**Examples**
+
+```javascript
+set(2, 'one', {one: 1});
+// returns {one: 2}
+```
+
 Returns **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) | Iterable | [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object))** 
 
 ### some
 
-[src/some.js:11-11](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/some.js#L11-L11 "Source code on GitHub")
+[src/some.js:17-17](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/some.js#L17-L17 "Source code on GitHub")
 
 Returns `true` if **any** items in `subject` match `predicate`.
 
@@ -629,11 +767,20 @@ Returns `true` if **any** items in `subject` match `predicate`.
 -   `predicate` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** returns `true` if item is a match.
 -   `subject` **Iterable** 
 
+**Examples**
+
+```javascript
+const anyBlue = some(v => v === 'blue');
+
+anyBlue(List.of('blue', 'red')) === true;
+anyBlue(List.of('red', 'red')) === true;
+```
+
 Returns **bool** 
 
 ### sortBy
 
-[src/sortBy.js:25-25](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/sortBy.js#L25-L25 "Source code on GitHub")
+[src/sortBy.js:25-25](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/sortBy.js#L25-L25 "Source code on GitHub")
 
 Sort `subject` according to the value returned by `getSortValue`.
 
@@ -664,7 +811,7 @@ Returns **Iterable** an ordered version of `subject` (e.g. sorting a `Map` retur
 
 ### valueSeq
 
-[src/valueSeq.js:9-9](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/valueSeq.js#L9-L9 "Source code on GitHub")
+[src/valueSeq.js:13-13](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/valueSeq.js#L13-L13 "Source code on GitHub")
 
 Get a Seq of the values in `subject`.
 
@@ -672,11 +819,18 @@ Get a Seq of the values in `subject`.
 
 -   `subject` **(Iterable | [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) \| [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array))** 
 
+**Examples**
+
+```javascript
+valueSeq(Map({ one: 1, two: 2, three: 3 }))
+// returns Seq [ 1, 2, 3 ]
+```
+
 Returns **Seq** 
 
 ### isArray
 
-[src/isArray.js:9-11](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/isArray.js#L9-L11 "Source code on GitHub")
+[src/isArray.js:9-11](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/isArray.js#L9-L11 "Source code on GitHub")
 
 Returns `true` if value is an Array.
 
@@ -688,7 +842,7 @@ Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refe
 
 ### isEmpty
 
-[src/isEmpty.js:11-16](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/isEmpty.js#L11-L16 "Source code on GitHub")
+[src/isEmpty.js:11-16](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/isEmpty.js#L11-L16 "Source code on GitHub")
 
 Returns true if `value` is "empty".
 If given null, undefined, isEmpty will return true.
@@ -701,7 +855,7 @@ Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refe
 
 ### isFunction
 
-[src/isFunction.js:9-11](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/isFunction.js#L9-L11 "Source code on GitHub")
+[src/isFunction.js:9-11](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/isFunction.js#L9-L11 "Source code on GitHub")
 
 Returns true if `value` is a Function.
 
@@ -713,7 +867,7 @@ Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refe
 
 ### isInstanceOf
 
-[src/isInstanceOf.js:14-14](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/isInstanceOf.js#L14-L14 "Source code on GitHub")
+[src/isInstanceOf.js:14-14](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/isInstanceOf.js#L14-L14 "Source code on GitHub")
 
 Returns true if `value` is an instance of `Constructor`.
 
@@ -726,7 +880,7 @@ Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refe
 
 ### isNumber
 
-[src/isNumber.js:9-11](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/isNumber.js#L9-L11 "Source code on GitHub")
+[src/isNumber.js:9-11](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/isNumber.js#L9-L11 "Source code on GitHub")
 
 Returns `true` if `subject` is a JavaScript Number and not `NaN`.
 
@@ -738,7 +892,7 @@ Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refe
 
 ### isObject
 
-[src/isObject.js:9-11](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/isObject.js#L9-L11 "Source code on GitHub")
+[src/isObject.js:9-11](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/isObject.js#L9-L11 "Source code on GitHub")
 
 Returns true if `value` is an Object.
 
@@ -750,7 +904,7 @@ Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refe
 
 ### isRecord
 
-[src/isRecord.js:10-14](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/isRecord.js#L10-L14 "Source code on GitHub")
+[src/isRecord.js:10-14](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/isRecord.js#L10-L14 "Source code on GitHub")
 
 Returns `true` if `subject` is an instance of a Record.
 
@@ -762,7 +916,7 @@ Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refe
 
 ### isString
 
-[src/isString.js:9-11](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/isString.js#L9-L11 "Source code on GitHub")
+[src/isString.js:9-11](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/isString.js#L9-L11 "Source code on GitHub")
 
 Returns true if `value` is a String.
 
@@ -774,7 +928,7 @@ Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refe
 
 ### mapKeys
 
-[src/mapKeys.js:37-37](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/mapKeys.js#L37-L37 "Source code on GitHub")
+[src/mapKeys.js:37-37](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/mapKeys.js#L37-L37 "Source code on GitHub")
 
 Like `map` but transforms an Iterable's keys rather than its values.
 
@@ -796,9 +950,29 @@ stringifyKeys(m).equals(Map.of('123', Map(), '456', Map(), '789', Map()));
 
 Returns **KeyedIterable** 
 
+### match
+
+[src/match.js:25-25](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/match.js#L25-L25 "Source code on GitHub")
+
+Returns `true` if the key => value pairs in `pattern` match the correspoding key => value pairs in `subject`.
+
+**Parameters**
+
+-   `pattern` **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) | Iterable | [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object))** 
+-   `subject` **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) | Iterable | [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object))** 
+
+**Examples**
+
+```javascript
+const hasOneAndThree = match({one: 1, three: 3});
+hasOneAndThree(Map({one: 1, two: 2, three: 3})) === true;
+```
+
+Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
+
 ### memoize
 
-[src/memoize.js:54-61](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/memoize.js#L54-L61 "Source code on GitHub")
+[src/memoize.js:54-61](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/memoize.js#L54-L61 "Source code on GitHub")
 
 Memoizer that uses a `Map` to allow for arbitrarily many/complex keys.
 
@@ -839,7 +1013,7 @@ Returns **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Ref
 
 ### memoizeLast
 
-[src/memoizeLast.js:21-44](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/memoizeLast.js#L21-L44 "Source code on GitHub")
+[src/memoizeLast.js:21-44](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/memoizeLast.js#L21-L44 "Source code on GitHub")
 
 Like memoize, but only caches the most recent value.
 It's often useful for caching expensive calculations in react components.
@@ -866,7 +1040,7 @@ Returns **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Ref
 
 ### merge
 
-[src/merge.js:23-23](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/merge.js#L23-L23 "Source code on GitHub")
+[src/merge.js:23-23](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/merge.js#L23-L23 "Source code on GitHub")
 
 Takes each entry of `updates` and sets it on `subject`.
 
@@ -889,7 +1063,7 @@ Returns **Iterable** with each key-value of `updates` merged into `subject`.
 
 ### omit
 
-[src/omit.js:24-24](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/omit.js#L24-L24 "Source code on GitHub")
+[src/omit.js:24-24](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/omit.js#L24-L24 "Source code on GitHub")
 
 Drop specified keys from a KeyedIterable (e.g. a `Map` or `OrderedMap`).
 
@@ -912,7 +1086,7 @@ Returns **KeyedIterable** without `keys`.
 
 ### once
 
-[src/once.js:7-17](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/once.js#L7-L17 "Source code on GitHub")
+[src/once.js:7-17](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/once.js#L7-L17 "Source code on GitHub")
 
 `fn` is only run one time.
 
@@ -924,7 +1098,7 @@ Returns **any** the result of the first time `fn` was called
 
 ### partial
 
-[src/partial.js:17-20](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/partial.js#L17-L20 "Source code on GitHub")
+[src/partial.js:17-20](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/partial.js#L17-L20 "Source code on GitHub")
 
 Like `fn.bind()`, but without the option to pass `context`.
 
@@ -944,7 +1118,7 @@ Returns **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Ref
 
 ### partialApply
 
-[src/partialApply.js:34-34](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/partialApply.js#L34-L34 "Source code on GitHub")
+[src/partialApply.js:34-34](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/partialApply.js#L34-L34 "Source code on GitHub")
 
 Like `transmute/partial`, but takes an Array or Iterable of arguments to pass
 to `operation` rather than a dynamic number of args. Unlike `partial` it is
@@ -969,7 +1143,7 @@ Returns **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Ref
 
 ### pick
 
-[src/pick.js:24-24](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/pick.js#L24-L24 "Source code on GitHub")
+[src/pick.js:24-24](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/pick.js#L24-L24 "Source code on GitHub")
 
 Select specified keys from a KeyedIterable (e.g. a `Map` or `OrderedMap`).
 
@@ -992,7 +1166,7 @@ Returns **KeyedIterable** with just `keys`.
 
 ### pipe
 
-[src/pipe.js:19-22](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/pipe.js#L19-L22 "Source code on GitHub")
+[src/pipe.js:28-31](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/pipe.js#L28-L31 "Source code on GitHub")
 
 Create a function that runs operations from left-to-right.
 
@@ -1002,11 +1176,23 @@ Create a function that runs operations from left-to-right.
 
 -   `operations` **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)>** any number of unary functions.
 
+**Examples**
+
+```javascript
+const takeEvensAndDouble = pipe(
+  filter(n => n % 2 === 0),
+  map(n => n * 2)
+);
+
+takeEvensAndDouble(List.of(1, 2, 3))
+// returns List [ 4 ]
+```
+
 Returns **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
 
 ### pluck
 
-[src/pluck.js:20-20](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/pluck.js#L20-L20 "Source code on GitHub")
+[src/pluck.js:20-20](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/pluck.js#L20-L20 "Source code on GitHub")
 
 Select `key` from each item in `subject`.
 
@@ -1026,7 +1212,7 @@ Returns **Iterable**
 
 ### setArity
 
-[src/setArity.js:11-11](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/setArity.js#L11-L11 "Source code on GitHub")
+[src/setArity.js:18-18](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/setArity.js#L18-L18 "Source code on GitHub")
 
 Creates a function identical to `operation` but with length `arity`.
 
@@ -1035,11 +1221,21 @@ Creates a function identical to `operation` but with length `arity`.
 -   `arity` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** from 0 to 9
 -   `operation` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
 
+**Examples**
+
+```javascript
+const op = (...args) => args;
+op.length === 0;
+
+const twoArgOp = setArity(2, op);
+twoArgOp.length === 2;
+```
+
 Returns **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
 
 ### throttle
 
-[src/throttle.js:47-47](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/throttle.js#L47-L47 "Source code on GitHub")
+[src/throttle.js:47-47](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/throttle.js#L47-L47 "Source code on GitHub")
 
 Ensures `operation` is only called once every `interval` milliseconds.
 
@@ -1052,7 +1248,7 @@ Returns **any** the most recent result of `operation`
 
 ### toJS
 
-[src/toJS.js:7-18](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/toJS.js#L7-L18 "Source code on GitHub")
+[src/toJS.js:7-18](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/toJS.js#L7-L18 "Source code on GitHub")
 
 Converts an Iterable to a native JS structure.
 
@@ -1064,7 +1260,7 @@ Returns **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refer
 
 ### toSeq
 
-[src/toSeq.js:11-15](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/toSeq.js#L11-L15 "Source code on GitHub")
+[src/toSeq.js:11-15](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/toSeq.js#L11-L15 "Source code on GitHub")
 
 Converts `subject` to a `Seq` if possible.
 
@@ -1076,7 +1272,7 @@ Returns **Seq**
 
 ### toString
 
-[src/toString.js:6-8](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/toString.js#L6-L8 "Source code on GitHub")
+[src/toString.js:6-8](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/toString.js#L6-L8 "Source code on GitHub")
 
 Returns the value converted to a string.
 
@@ -1086,7 +1282,7 @@ Returns the value converted to a string.
 
 ### uniqueId
 
-[src/uniqueId.js:7-9](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/uniqueId.js#L7-L9 "Source code on GitHub")
+[src/uniqueId.js:12-14](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/uniqueId.js#L12-L14 "Source code on GitHub")
 
 Returns a unique integer string appended to `prefix`.
 
@@ -1094,9 +1290,17 @@ Returns a unique integer string appended to `prefix`.
 
 -   `prefix` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)**  (optional, default `''`)
 
+**Examples**
+
+```javascript
+uniqueId('test-') === 'test-1';
+uniqueId('other-') === 'other-2';
+uniqueId('test-') === 'test-3';
+```
+
 ### updateIn
 
-[src/updateIn.js:15-15](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/updateIn.js#L15-L15 "Source code on GitHub")
+[src/updateIn.js:15-15](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/updateIn.js#L15-L15 "Source code on GitHub")
 
 Apply `updater` to the value at `keyPath`.
 
@@ -1110,7 +1314,7 @@ Returns **Iterable**
 
 ### where
 
-[src/where.js:16-16](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/where.js#L16-L16 "Source code on GitHub")
+[src/where.js:25-25](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/where.js#L25-L25 "Source code on GitHub")
 
 Takes items in `subject` that match `pattern`.
 
@@ -1119,11 +1323,23 @@ Takes items in `subject` that match `pattern`.
 -   `pattern` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
 -   `subject` **Iterable** 
 
+**Examples**
+
+```javascript
+const users = Map({
+  123: {id: '123', name: 'Jack'},
+  456: {id: '456', name: 'Jill'},
+});
+
+where({name: 'Jack'}, users);
+// returns Map { 123: {id: '123', name: 'Jack'} }
+```
+
 Returns **Iterable** 
 
 ### without
 
-[src/without.js:17-17](https://github.com/HubSpot/transmute/blob/cf89d152a6b7a10f138617a9df47a47fb907e9a1/src/without.js#L17-L17 "Source code on GitHub")
+[src/without.js:17-17](https://github.com/HubSpot/transmute/blob/93bf790ba9f903cb8316cf34882900d1140dfe0f/src/without.js#L17-L17 "Source code on GitHub")
 
 Removes items in `unwanted` from `subject`.
 

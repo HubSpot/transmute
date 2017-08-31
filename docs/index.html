@@ -465,6 +465,16 @@
               
                 
                 <li><a
+                  href='#match'
+                  class="">
+                  match
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
                   href='#memoize'
                   class="">
                   memoize
@@ -803,6 +813,12 @@ alwaysBlue() === <span class="hljs-string">'blue'</span>;</pre>
   
 
   
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>bind(<span class="hljs-built_in">console</span>.log, <span class="hljs-built_in">console</span>);</pre>
+    
+  
 
   
 
@@ -880,6 +896,18 @@ alwaysBlue() === <span class="hljs-string">'blue'</span>;</pre>
   
 
   
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> isOneToTen = both(
+  <span class="hljs-function"><span class="hljs-params">n</span> =&gt;</span> n &gt;= <span class="hljs-number">1</span>,
+  n =&gt; n &lt;= <span class="hljs-number">10</span>
+);
+
+isOneToTen(<span class="hljs-number">3</span>) === <span class="hljs-literal">true</span>;
+isOneToTen(<span class="hljs-number">11</span>) === <span class="hljs-literal">false</span>;</pre>
+    
+  
 
   
 
@@ -947,6 +975,14 @@ alwaysBlue() === <span class="hljs-string">'blue'</span>;</pre>
 
   
 
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>clear([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]) <span class="hljs-comment">// returns []</span>
+clear(List.of(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>)) <span class="hljs-comment">// returns List []</span>
+clear({<span class="hljs-attr">one</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">two</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">three</span>: <span class="hljs-number">3</span>}) <span class="hljs-comment">// returns {}</span></pre>
+    
   
 
   
@@ -1018,6 +1054,18 @@ alwaysBlue() === <span class="hljs-string">'blue'</span>;</pre>
   
 
   
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> doubleAndTakeEvens = pipe(
+  filter(<span class="hljs-function"><span class="hljs-params">n</span> =&gt;</span> n % <span class="hljs-number">2</span> === <span class="hljs-number">0</span>),
+  map(<span class="hljs-function"><span class="hljs-params">n</span> =&gt;</span> n * <span class="hljs-number">2</span>)
+);
+
+doubleAndTakeEvens(List.of(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>))
+<span class="hljs-comment">// returns List [ 2, 4, 6 ]</span></pre>
+    
+  
 
   
 
@@ -1085,6 +1133,12 @@ alwaysBlue() === <span class="hljs-string">'blue'</span>;</pre>
 
   
 
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>count(List.of(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>)) === <span class="hljs-number">3</span>;</pre>
+    
   
 
   
@@ -1482,6 +1536,14 @@ Only the elements present in just subject will remain.</p>
   
 
   
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> removeOne = difference(<span class="hljs-built_in">Set</span>.of(<span class="hljs-number">1</span>));
+
+removeOne(<span class="hljs-built_in">Set</span>.of(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>)) <span class="hljs-comment">// returns Set { 2, 3 }</span></pre>
+    
+  
 
   
 
@@ -1543,7 +1605,7 @@ are truthy.</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>arg</span> <code class='quiet'>(any)</code>
+            <span class='code bold'>subject</span> <code class='quiet'>(any)</code>
 	    
           </div>
           
@@ -1566,6 +1628,19 @@ are truthy.</p>
 
   
 
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> oneOrTwo = either(
+  <span class="hljs-function"><span class="hljs-params">n</span> =&gt;</span> n === <span class="hljs-number">1</span>,
+  n =&gt; n === <span class="hljs-number">2</span>
+);
+
+oneOrTwo(<span class="hljs-number">1</span>) === <span class="hljs-literal">true</span>;
+oneOrTwo(<span class="hljs-number">2</span>) === <span class="hljs-literal">true</span>;
+oneOrTwo(<span class="hljs-number">3</span>) === <span class="hljs-literal">false</span>;</pre>
+    
   
 
   
@@ -1634,6 +1709,13 @@ are truthy.</p>
 
   
 
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>entrySeq(<span class="hljs-built_in">Map</span>({<span class="hljs-attr">one</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">two</span>: <span class="hljs-number">2</span>}))
+<span class="hljs-comment">// returns Seq [ ['one', 1], ['two', 2] ]</span></pre>
+    
   
 
   
@@ -1713,6 +1795,15 @@ are truthy.</p>
 
   
 
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> alwaysBlue = every(<span class="hljs-function"><span class="hljs-params">v</span> =&gt;</span> v === <span class="hljs-string">'blue'</span>);
+
+alwaysBlue(List.of(<span class="hljs-string">'blue'</span>, <span class="hljs-string">'blue'</span>)) === <span class="hljs-literal">true</span>;
+alwaysBlue(List.of(<span class="hljs-string">'red'</span>, <span class="hljs-string">'blue'</span>)) === <span class="hljs-literal">false</span>;</pre>
+    
   
 
   
@@ -2089,6 +2180,14 @@ flattenN(<span class="hljs-number">1</span>, List.of(List.of(<span class="hljs-n
   
 
   <p>Executes <code>effect</code> for each value in <code>subject</code>, then returns <code>subject</code>.</p>
+<p>forEach(
+v => console.log(v),
+Map({ one: 1, two: 2, three: 3 })
+);</p>
+<p>// prints...
+// 1
+// 2
+// 3</p>
 
 
   <div class='pre p1 fill-light mt0'>forEach</div>
@@ -2168,7 +2267,7 @@ flattenN(<span class="hljs-number">1</span>, List.of(List.of(<span class="hljs-n
 compatibility with other transmute functions like <code>map</code>.</p>
 
 
-  <div class='pre p1 fill-light mt0'>fromJS(json: T)</div>
+  <div class='pre p1 fill-light mt0'>fromJS(json: any): Iterable?</div>
   
   
 
@@ -2185,7 +2284,7 @@ compatibility with other transmute functions like <code>map</code>.</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>json</span> <code class='quiet'>(T)</code>
+            <span class='code bold'>json</span> <code class='quiet'>(any)</code>
 	    
           </div>
           
@@ -2197,9 +2296,24 @@ compatibility with other transmute functions like <code>map</code>.</p>
   
 
   
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>Iterable?</code>:
+        
+
+      
+    
+  
 
   
 
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>fromJS({<span class="hljs-attr">items</span>: [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]})
+<span class="hljs-comment">// returns Map { items: List [ 1, 2, 3 ] }</span></pre>
+    
   
 
   
@@ -2625,6 +2739,12 @@ hasFirstName(user) === <span class="hljs-literal">true</span></pre>
   
 
   
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>identity(<span class="hljs-string">'something'</span>) === <span class="hljs-string">'something'</span></pre>
+    
+  
 
   
 
@@ -2909,6 +3029,13 @@ returned by <code>keyMapper</code>.</p>
   
 
   
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>indexBy(get(<span class="hljs-string">'id'</span>), List.of({<span class="hljs-attr">id</span>: <span class="hljs-number">123</span>}, {<span class="hljs-attr">id</span>: <span class="hljs-number">456</span>}))
+<span class="hljs-comment">// returns Map { 123: {id: 123}, 456: {id: 456} }</span></pre>
+    
+  
 
   
 
@@ -2976,6 +3103,13 @@ returned by <code>keyMapper</code>.</p>
 
   
 
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>keySeq({<span class="hljs-attr">one</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">two</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">three</span>: <span class="hljs-number">3</span>})
+<span class="hljs-comment">// returns Seq [ 'one', 'two', 'three' ]</span></pre>
+    
   
 
   
@@ -3157,6 +3291,17 @@ description
   
 
   
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>reduce(
+  List(),
+  (acc, val) =&gt; acc.push(val),
+  <span class="hljs-built_in">Map</span>({ <span class="hljs-attr">one</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">two</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">three</span>: <span class="hljs-number">3</span> })
+);
+<span class="hljs-comment">// returns List [ 1, 2, 3 ]</span></pre>
+    
+  
 
   
 
@@ -3241,6 +3386,13 @@ description
   
 
   
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>set(<span class="hljs-number">2</span>, <span class="hljs-string">'one'</span>, {<span class="hljs-attr">one</span>: <span class="hljs-number">1</span>});
+<span class="hljs-comment">// returns {one: 2}</span></pre>
+    
+  
 
   
 
@@ -3319,6 +3471,15 @@ description
 
   
 
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> anyBlue = some(<span class="hljs-function"><span class="hljs-params">v</span> =&gt;</span> v === <span class="hljs-string">'blue'</span>);
+
+anyBlue(List.of(<span class="hljs-string">'blue'</span>, <span class="hljs-string">'red'</span>)) === <span class="hljs-literal">true</span>;
+anyBlue(List.of(<span class="hljs-string">'red'</span>, <span class="hljs-string">'red'</span>)) === <span class="hljs-literal">true</span>;</pre>
+    
   
 
   
@@ -3490,6 +3651,13 @@ sortBy(
 
   
 
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>valueSeq(<span class="hljs-built_in">Map</span>({ <span class="hljs-attr">one</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">two</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">three</span>: <span class="hljs-number">3</span> }))
+<span class="hljs-comment">// returns Seq [ 1, 2, 3 ]</span></pre>
+    
   
 
   
@@ -4129,6 +4297,89 @@ If given null, undefined, isEmpty will return true.</p>
 <span class="hljs-keyword">const</span> stringifyKeys = mapKeys(toString);
 <span class="hljs-keyword">const</span> m = <span class="hljs-built_in">Map</span>.of(<span class="hljs-number">123</span>, <span class="hljs-built_in">Map</span>(), <span class="hljs-number">456</span>, <span class="hljs-built_in">Map</span>(), <span class="hljs-number">789</span>, <span class="hljs-built_in">Map</span>());
 stringifyKeys(m).equals(<span class="hljs-built_in">Map</span>.of(<span class="hljs-string">'123'</span>, <span class="hljs-built_in">Map</span>(), <span class="hljs-string">'456'</span>, <span class="hljs-built_in">Map</span>(), <span class="hljs-string">'789'</span>, <span class="hljs-built_in">Map</span>()));</pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='match'>
+      match
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Returns <code>true</code> if the key => value pairs in <code>pattern</code> match the correspoding key => value pairs in <code>subject</code>.</p>
+
+
+  <div class='pre p1 fill-light mt0'>match</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>pattern</span> <code class='quiet'>((<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> | Iterable | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>))</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>subject</span> <code class='quiet'>((<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> | Iterable | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>))</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>:
+        
+
+      
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> hasOneAndThree = match({<span class="hljs-attr">one</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">three</span>: <span class="hljs-number">3</span>});
+hasOneAndThree(<span class="hljs-built_in">Map</span>({<span class="hljs-attr">one</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">two</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">three</span>: <span class="hljs-number">3</span>})) === <span class="hljs-literal">true</span>;</pre>
     
   
 
@@ -4919,6 +5170,18 @@ pick(
   
 
   
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> takeEvensAndDouble = pipe(
+  filter(<span class="hljs-function"><span class="hljs-params">n</span> =&gt;</span> n % <span class="hljs-number">2</span> === <span class="hljs-number">0</span>),
+  map(<span class="hljs-function"><span class="hljs-params">n</span> =&gt;</span> n * <span class="hljs-number">2</span>)
+);
+
+takeEvensAndDouble(List.of(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>))
+<span class="hljs-comment">// returns List [ 4 ]</span></pre>
+    
+  
 
   
 
@@ -5078,6 +5341,16 @@ pluckName(userMap) === <span class="hljs-built_in">Map</span>({<span class="hljs
 
   
 
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> op = <span class="hljs-function">(<span class="hljs-params">...args</span>) =&gt;</span> args;
+op.length === <span class="hljs-number">0</span>;
+
+<span class="hljs-keyword">const</span> twoArgOp = setArity(<span class="hljs-number">2</span>, op);
+twoArgOp.length === <span class="hljs-number">2</span>;</pre>
+    
   
 
   
@@ -5417,6 +5690,14 @@ pluckName(userMap) === <span class="hljs-built_in">Map</span>({<span class="hljs
   
 
   
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>uniqueId(<span class="hljs-string">'test-'</span>) === <span class="hljs-string">'test-1'</span>;
+uniqueId(<span class="hljs-string">'other-'</span>) === <span class="hljs-string">'other-2'</span>;
+uniqueId(<span class="hljs-string">'test-'</span>) === <span class="hljs-string">'test-3'</span>;</pre>
+    
+  
 
   
 
@@ -5581,6 +5862,18 @@ pluckName(userMap) === <span class="hljs-built_in">Map</span>({<span class="hljs
 
   
 
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> users = <span class="hljs-built_in">Map</span>({
+  <span class="hljs-number">123</span>: {<span class="hljs-attr">id</span>: <span class="hljs-string">'123'</span>, <span class="hljs-attr">name</span>: <span class="hljs-string">'Jack'</span>},
+  <span class="hljs-number">456</span>: {<span class="hljs-attr">id</span>: <span class="hljs-string">'456'</span>, <span class="hljs-attr">name</span>: <span class="hljs-string">'Jill'</span>},
+});
+
+where({<span class="hljs-attr">name</span>: <span class="hljs-string">'Jack'</span>}, users);
+<span class="hljs-comment">// returns Map { 123: {id: '123', name: 'Jack'} }</span></pre>
+    
   
 
   
