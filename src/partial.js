@@ -1,4 +1,4 @@
-import enforceFunction from './enforce/enforceFunction';
+import enforceFunction from './internal/enforceFunction';
 
 /**
  * Like `fn.bind()`, but without the option to pass `context`.

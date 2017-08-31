@@ -1,5 +1,5 @@
-import enforceArity from './enforce/enforceArity';
-import enforceFunction from './enforce/enforceFunction';
+import enforceArity from './internal/enforceArity';
+import enforceFunction from './internal/enforceFunction';
 import _setArity from './internal/_setArity';
 
 /* eslint no-use-before-define: 0 */

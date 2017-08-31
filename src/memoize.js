@@ -1,4 +1,4 @@
-import enforceFunction from './enforce/enforceFunction';
+import enforceFunction from './internal/enforceFunction';
 import { Map, Seq } from 'immutable';
 
 function defaultHashFunction(...args) {

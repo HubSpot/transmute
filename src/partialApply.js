@@ -1,5 +1,5 @@
 import curry from './curry';
-import enforceFunction from './enforce/enforceFunction';
+import enforceFunction from './internal/enforceFunction';
 import { Iterable } from 'immutable';
 
 function partialApply(operation, args) {
