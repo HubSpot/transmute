@@ -26,12 +26,6 @@
     "prettier": "^1.6.1",
     "prettier-eslint": "^4.3.2"
   },
-  "files": [
-    "lib"
-  ],
-  "directories": {
-    "lib": "./lib"
-  },
   "publishConfig": {
     "access": "public"
   },
