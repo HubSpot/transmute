@@ -1,5 +1,5 @@
 import { Collection, Iterable, Seq } from 'immutable';
-import { clear } from './protocols/TransmuteCollection';
+import { clear } from './protocol/TransmuteCollection';
 
 clear.implement(Array, () => []);
 clear.implementInherited(Collection, subject => subject.clear());

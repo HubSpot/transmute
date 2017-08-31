@@ -1,6 +1,6 @@
 import always from './always';
 import curry from './curry';
-import { get } from './protocols/TransmuteCollection';
+import { get } from './protocol/TransmuteCollection';
 import { Iterable } from 'immutable';
 
 const empty = always(undefined);

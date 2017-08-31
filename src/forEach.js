@@ -1,6 +1,6 @@
 import curry from './curry';
 import { Iterable } from 'immutable';
-import { forEach } from './protocols/TransmuteCollection';
+import { forEach } from './protocol/TransmuteCollection';
 
 forEach.implement(Array, (effect, arr) => arr.forEach(effect));
 

@@ -1,5 +1,5 @@
 import { Iterable, Seq } from 'immutable';
-import { keySeq } from './protocols/TransmuteCollection';
+import { keySeq } from './protocol/TransmuteCollection';
 
 const jsToKeySeq = subject => Seq(subject).keySeq();
 
