@@ -26,6 +26,9 @@
     "prettier": "^1.6.1",
     "prettier-eslint": "^4.3.2"
   },
+  "files": [
+    "*.js"
+  ],
   "publishConfig": {
     "access": "public"
   },
