@@ -31,7 +31,7 @@
   },
   "scripts": {
     "build": "npm run build:commonjs",
-    "build:commonjs": "BABEL_ENV=commonjs babel src --ignore *-test.js --out-dir lib",
+    "build:commonjs": "BABEL_ENV=commonjs babel src --ignore *-test.js --out-dir .",
     "docs": "npm run docs:html && npm run docs:readme",
     "docs:html": "documentation build src/** -f html -o docs",
     "docs:readme": "documentation readme --format md --github --quiet --section 'API' src",
