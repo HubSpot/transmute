@@ -28,7 +28,8 @@
   },
   "files": [
     "*.js",
-    "internal"
+    "internal",
+    "src"
   ],
   "publishConfig": {
     "access": "public"
