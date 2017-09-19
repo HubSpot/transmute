@@ -19,7 +19,7 @@ import _sortBy from './internal/_sortBy';
  * );
  *
  * @param  {Function} getSortValue returns a value to sort on for each item in `subject`.
- * @param  {Iterable} subject the thing to sort.
+ * @param  {Array|Iterable|Object} subject the thing to sort.
  * @return {Iterable} an ordered version of `subject` (e.g. sorting a `Map` returns an `OrderedMap`).
  */
 export default curry(_sortBy);

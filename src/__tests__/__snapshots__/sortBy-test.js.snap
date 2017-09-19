@@ -3,6 +3,7 @@
 exports[`transmute/sortBy sorts a List 1`] = `
 Immutable.List [
   2,
+  10,
   1,
   3,
 ]
