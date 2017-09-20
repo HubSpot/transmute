@@ -6,6 +6,6 @@
  * @param  {any}  subject
  * @return {boolean}
  */
-export default function isNull(subject) {
+export default function isNull(subject: any) {
   return subject === null;
 }

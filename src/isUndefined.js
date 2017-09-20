@@ -6,6 +6,6 @@
  * @param  {any}  subject
  * @return {boolean}
  */
-export default function isUndefined(subject) {
+export default function isUndefined(subject: any) {
   return subject === undefined;
 }
