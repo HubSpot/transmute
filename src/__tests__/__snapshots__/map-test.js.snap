@@ -10,9 +10,9 @@ Immutable.List [
 
 exports[`transmute/map maps a Map 1`] = `
 Immutable.Map {
-  one: 2,
-  two: 3,
-  three: 4,
+  "one": 2,
+  "two": 3,
+  "three": 4,
 }
 `;
 

@@ -2,17 +2,17 @@
 
 exports[`transmute/merge Iterable merges with a Map 1`] = `
 Immutable.Map {
-  one: 3,
-  two: 2,
-  three: 1,
+  "one": 3,
+  "two": 2,
+  "three": 1,
 }
 `;
 
 exports[`transmute/merge Iterable merges with an Object 1`] = `
 Immutable.Map {
-  one: 3,
-  two: 2,
-  three: 1,
+  "one": 3,
+  "two": 2,
+  "three": 1,
 }
 `;
 

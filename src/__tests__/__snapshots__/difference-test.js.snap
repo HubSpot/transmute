@@ -2,15 +2,11 @@
 
 exports[`transmute/difference returns differences for Map with key from subject 1`] = `
 Immutable.Map {
-  a2: "a",
+  "a2": "a",
 }
 `;
 
-exports[`transmute/difference returns differences for Seq 1`] = `
-Array [
-  "a",
-]
-`;
+exports[`transmute/difference returns differences for Seq 1`] = `Immutable.Seq […]`;
 
 exports[`transmute/difference returns differences for Set 1`] = `
 Immutable.Set [
@@ -24,10 +20,7 @@ Immutable.List [
 ]
 `;
 
-exports[`transmute/difference returns empty iterable when no differences 1`] = `
-Immutable.List [
-]
-`;
+exports[`transmute/difference returns empty iterable when no differences 1`] = `Immutable.List []`;
 
 exports[`transmute/difference returns full iterable when no toRemove given 1`] = `
 Immutable.List [

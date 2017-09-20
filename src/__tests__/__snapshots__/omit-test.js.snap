@@ -2,7 +2,7 @@
 
 exports[`transmute/omit drops keys from Maps 1`] = `
 Immutable.Map {
-  two: 2,
+  "two": 2,
 }
 `;
 
@@ -14,6 +14,6 @@ Object {
 
 exports[`transmute/omit drops keys from Records 1`] = `
 Immutable.Map {
-  two: 2,
+  "two": 2,
 }
 `;

@@ -2,8 +2,8 @@
 
 exports[`transmute/updateIn updates a nested Map 1`] = `
 Immutable.Map {
-  one: Immutable.Map {
-    two: 3,
+  "one": Immutable.Map {
+    "two": 3,
   },
 }
 `;

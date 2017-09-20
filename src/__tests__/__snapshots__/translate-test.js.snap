@@ -2,15 +2,15 @@
 
 exports[`transmute/translate applies functions to the key 1`] = `
 Immutable.Map {
-  second: 2,
+  "second": 2,
 }
 `;
 
 exports[`transmute/translate compatibility works with Maps 1`] = `
 Immutable.Map {
-  one: 1,
-  second: 2,
-  three: 4,
+  "one": 1,
+  "second": 2,
+  "three": 4,
 }
 `;
 
@@ -24,20 +24,20 @@ Object {
 
 exports[`transmute/translate compatibility works with OrderedMaps 1`] = `
 Immutable.OrderedMap {
-  one: 1,
-  second: 2,
-  three: 4,
+  "one": 1,
+  "second": 2,
+  "three": 4,
 }
 `;
 
 exports[`transmute/translate renames keys with string values 1`] = `
 Immutable.Map {
-  first: 1,
+  "first": 1,
 }
 `;
 
 exports[`transmute/translate takes keys flagged \`true\` 1`] = `
 Immutable.Map {
-  one: 1,
+  "one": 1,
 }
 `;

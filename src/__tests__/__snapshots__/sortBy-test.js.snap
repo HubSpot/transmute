@@ -11,8 +11,8 @@ Immutable.List [
 
 exports[`transmute/sortBy sorts a Map into an OrderedMap 1`] = `
 Immutable.OrderedMap {
-  two: 2,
-  one: 1,
-  three: 3,
+  "two": 2,
+  "one": 1,
+  "three": 3,
 }
 `;

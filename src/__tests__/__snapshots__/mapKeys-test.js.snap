@@ -2,9 +2,9 @@
 
 exports[`transmute/mapKeys maps Map keys 1`] = `
 Immutable.Map {
-  test-1: 1,
-  test-2: 2,
-  test-3: 3,
+  "test-1": 1,
+  "test-2": 2,
+  "test-3": 3,
 }
 `;
 
@@ -18,8 +18,8 @@ Object {
 
 exports[`transmute/mapKeys maps OrderedMap keys 1`] = `
 Immutable.OrderedMap {
-  test-1: 1,
-  test-2: 2,
-  test-3: 3,
+  "test-1": 1,
+  "test-2": 2,
+  "test-3": 3,
 }
 `;

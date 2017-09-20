@@ -1,23 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`transmute/keySeq gets the keys from a Map 1`] = `
-Array [
+Immutable.Seq [
   "one",
   "two",
   "three",
 ]
 `;
 
-exports[`transmute/keySeq gets the keys from an Array 1`] = `
-Array [
-  0,
-  1,
-  2,
-]
-`;
+exports[`transmute/keySeq gets the keys from an Array 1`] = `Immutable.Seq […]`;
 
 exports[`transmute/keySeq gets the keys from an Object 1`] = `
-Array [
+Immutable.Seq [
   "one",
   "two",
   "three",

@@ -2,8 +2,8 @@
 
 exports[`transmute/pick selects keys from Maps 1`] = `
 Immutable.Map {
-  one: 1,
-  three: 3,
+  "one": 1,
+  "three": 3,
 }
 `;
 
@@ -16,7 +16,7 @@ Object {
 
 exports[`transmute/pick selects keys from Records 1`] = `
 Immutable.Map {
-  one: 1,
-  three: 3,
+  "one": 1,
+  "three": 3,
 }
 `;

@@ -14,7 +14,7 @@ Object {
 
 exports[`transmute/getIn gets a keyPath from a Map 1`] = `
 Immutable.Map {
-  three: 3,
+  "three": 3,
 }
 `;
 

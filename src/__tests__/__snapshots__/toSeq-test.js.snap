@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`transmute/toSeq converts to a sequence 1`] = `
-Array [
+Immutable.Seq [
   1,
   2,
   3,
@@ -9,7 +9,7 @@ Array [
 `;
 
 exports[`transmute/toSeq converts to a sequence 2`] = `
-Array [
+Immutable.Seq [
   "1",
   "2",
   "3",

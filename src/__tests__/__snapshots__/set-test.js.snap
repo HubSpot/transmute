@@ -2,7 +2,7 @@
 
 exports[`set sets a key in a Map 1`] = `
 Immutable.Map {
-  one: 1,
+  "one": 1,
 }
 `;
 

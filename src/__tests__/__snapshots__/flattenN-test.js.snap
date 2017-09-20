@@ -13,15 +13,4 @@ Immutable.List [
 ]
 `;
 
-exports[`transmute/flattenN flattens Seqs to depth 1`] = `
-Array [
-  1,
-  Array [
-    2,
-    3,
-  ],
-  4,
-  5,
-  6,
-]
-`;
+exports[`transmute/flattenN flattens Seqs to depth 1`] = `Immutable.Seq […]`;

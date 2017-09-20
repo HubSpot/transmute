@@ -2,7 +2,7 @@
 
 exports[`transmute/fromJS converts json to Immutable 1`] = `
 Immutable.Map {
-  nums: Immutable.List [
+  "nums": Immutable.List [
     1,
     2,
     3,
@@ -13,13 +13,13 @@ Immutable.Map {
 exports[`transmute/fromJS works with \`map\` 1`] = `
 Immutable.List [
   Immutable.Map {
-    one: 1,
+    "one": 1,
   },
   Immutable.Map {
-    two: 2,
+    "two": 2,
   },
   Immutable.Map {
-    three: 3,
+    "three": 3,
   },
 ]
 `;

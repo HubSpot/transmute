@@ -14,7 +14,7 @@ Immutable.List [
 
 exports[`transmute/filter filters Maps 1`] = `
 Immutable.Map {
-  two: 2,
+  "two": 2,
 }
 `;
 
@@ -26,6 +26,6 @@ Object {
 
 exports[`transmute/filter filters Records into Maps 1`] = `
 Immutable.Map {
-  two: 2,
+  "two": 2,
 }
 `;

@@ -2,43 +2,43 @@
 
 exports[`transmute/indexBy indexes a List 1`] = `
 Immutable.OrderedMap {
-  123: Immutable.Map {
-    id: "123",
+  "123": Immutable.Map {
+    "id": "123",
   },
-  456: Immutable.Map {
-    id: "456",
+  "456": Immutable.Map {
+    "id": "456",
   },
 }
 `;
 
 exports[`transmute/indexBy indexes a Map 1`] = `
 Immutable.Map {
-  123: Immutable.Map {
-    id: "123",
+  "123": Immutable.Map {
+    "id": "123",
   },
-  456: Immutable.Map {
-    id: "456",
+  "456": Immutable.Map {
+    "id": "456",
   },
 }
 `;
 
 exports[`transmute/indexBy indexes an Array 1`] = `
 Immutable.OrderedMap {
-  123: Immutable.Map {
-    id: "123",
+  "123": Immutable.Map {
+    "id": "123",
   },
-  456: Immutable.Map {
-    id: "456",
+  "456": Immutable.Map {
+    "id": "456",
   },
 }
 `;
 
 exports[`transmute/indexBy indexes an Object 1`] = `
 Immutable.OrderedMap {
-  123: Object {
+  "123": Object {
     "id": "123",
   },
-  456: Object {
+  "456": Object {
     "id": "456",
   },
 }

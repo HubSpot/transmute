@@ -1,6 +1,6 @@
 {
   "parser": "babel-eslint",
-  "extends": ["hubspot", "prettier"],
+  "extends": ["prettier"],
   "env": {
     "browser": true,
     "node": true,
