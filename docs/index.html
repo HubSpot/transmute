@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset='utf-8' />
-  <title>@hs/transmute 1.3.0 | Documentation</title>
+  <title>@hs/transmute 1.3.1 | Documentation</title>
   <meta name='viewport' content='width=device-width,initial-scale=1'>
   <link href='assets/bass.css' type='text/css' rel='stylesheet' />
   <link href='assets/style.css' type='text/css' rel='stylesheet' />
@@ -14,7 +14,7 @@
       <div id='split-left' class='overflow-auto fs0 height-viewport-100'>
         <div class='py1 px2'>
           <h3 class='mb0 no-anchor'>@hs/transmute</h3>
-          <div class='mb1'><code>1.3.0</code></div>
+          <div class='mb1'><code>1.3.1</code></div>
           <input
             placeholder='Filter'
             id='filter-input'
@@ -415,6 +415,16 @@
               
                 
                 <li><a
+                  href='#isnull'
+                  class="">
+                  isNull
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
                   href='#isnumber'
                   class="">
                   isNumber
@@ -448,6 +458,16 @@
                   href='#isstring'
                   class="">
                   isString
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#isundefined'
+                  class="">
+                  isUndefined
                   
                 </a>
                 
@@ -3542,7 +3562,7 @@ anyBlue(List.of(<span class="hljs-string">'red'</span>, <span class="hljs-string
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>subject</span> <code class='quiet'>(Iterable)</code>
+            <span class='code bold'>subject</span> <code class='quiet'>((<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> | Iterable | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>))</code>
 	    the thing to sort.
 
           </div>
@@ -3962,6 +3982,74 @@ If given null, undefined, isEmpty will return true.</p>
   
   <div class='clearfix'>
     
+    <h3 class='fl m0' id='isnull'>
+      isNull
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Returns <code>true</code> if <code>subject</code> is <code>null</code>.</p>
+
+
+  <div class='pre p1 fill-light mt0'>isNull(subject: any): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>subject</span> <code class='quiet'>(any)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
     <h3 class='fl m0' id='isnumber'>
       isNumber
     </h3>
@@ -4195,6 +4283,74 @@ If given null, undefined, isEmpty will return true.</p>
         <div class='space-bottom0'>
           <div>
             <span class='code bold'>value</span> <code class='quiet'>(any)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='isundefined'>
+      isUndefined
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Returns <code>true</code> if <code>subject</code> is <code>undefined</code>.</p>
+
+
+  <div class='pre p1 fill-light mt0'>isUndefined(subject: any): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>subject</span> <code class='quiet'>(any)</code>
 	    
           </div>
           
