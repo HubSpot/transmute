@@ -13,4 +13,8 @@ describe('count', () => {
   it('counts a Seq', () => {
     expect(count(Seq.of(1, 2, 3))).toBe(3);
   });
+
+  it('counts a String', () => {
+    expect(count('test')).toBe(4);
+  });
 });

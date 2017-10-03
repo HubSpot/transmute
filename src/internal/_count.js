@@ -7,4 +7,6 @@ count.implementInherited(Iterable, subject => subject.count());
 
 count.implement(Object, obj => Object.keys(obj).length);
 
+count.implement(String, str => str.length);
+
 export default count;
