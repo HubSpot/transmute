@@ -1,5 +1,5 @@
-import curry from './curry';
 import _set from './internal/_set';
+import curry from './curry';
 
 /**
  * Returns a copy of `subject` with `key` set to `value`.
