@@ -54,6 +54,7 @@ export { default as protocol } from './protocol';
 export { default as reduce } from './reduce';
 export { default as set } from './set';
 export { default as setArity } from './setArity';
+export { default as setIn } from './setIn';
 export { default as some } from './some';
 export { default as sortBy } from './sortBy';
 export { default as throttle } from './throttle';
