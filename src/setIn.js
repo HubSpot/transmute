@@ -9,8 +9,8 @@ import curry from './curry';
 function makeSetStack(keyPath, subject) {
   return _reduce(
     [],
-    (acc, key, index) => {
-      if (acc.length === 0) {
+    (acc, key) => {
+      if (!acc.length) {
         acc.push([subject, key]);
         return acc;
       }
