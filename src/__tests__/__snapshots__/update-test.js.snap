@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`transmute/update updates a Map 1`] = `
+Immutable.Map {
+  "count": 2,
+}
+`;
+
+exports[`transmute/update updates an object 1`] = `
+Object {
+  "count": 2,
+}
+`;

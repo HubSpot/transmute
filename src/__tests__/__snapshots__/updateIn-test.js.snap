@@ -7,3 +7,11 @@ Immutable.Map {
   },
 }
 `;
+
+exports[`transmute/updateIn updates a nested Object 1`] = `
+Object {
+  "one": Object {
+    "two": 3,
+  },
+}
+`;
