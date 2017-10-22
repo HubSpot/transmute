@@ -1,7 +1,10 @@
 import curry from './curry';
+import _getIn from './internal/_getIn';
+import _setIn from './internal/_setIn';
 
 function updateIn(keyPath, updater, subject) {
-  return subject.updateIn(keyPath, updater);
+  const value = _getIn(keyPath, subject);
+  return _setIn(updater(value), keyPath, subject);
 }
 
 /**
