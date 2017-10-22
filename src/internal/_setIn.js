@@ -1,7 +1,7 @@
-import _clear from './_clear';
 import _count from './_count';
 import _has from './_has';
 import _get from './_get';
+import _keyedEquivalent from './_keyedEquivalent';
 import _reduce from './_reduce';
 import _set from './_set';
 
@@ -17,7 +17,7 @@ function makeSetStack(keyPath, subject) {
       const actualValue = _get(prevKey, prevValue);
       const nextValue =
         actualValue === undefined && !_has(prevKey, prevValue)
-          ? _clear(prevValue)
+          ? _keyedEquivalent(prevValue)
           : actualValue;
       acc.push([nextValue, key]);
       return acc;

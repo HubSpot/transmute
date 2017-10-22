@@ -135,6 +135,13 @@ export const keySeq = protocol({
   name: 'keySeq',
 });
 
+export const keyedEquivalent = protocol({
+  args: [
+    protocol.TYPE, // subject
+  ],
+  name: 'keyedEquivalent',
+});
+
 /**
  * @private
  * Returns a new value by applying `mapper` to each item in `subject`.

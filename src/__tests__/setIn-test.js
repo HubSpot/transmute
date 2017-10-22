@@ -1,4 +1,4 @@
-import { Map } from 'immutable';
+import { List, Map } from 'immutable';
 import setIn from '../setIn';
 
 describe('transmute/setIn', () => {
@@ -17,6 +17,11 @@ describe('transmute/setIn', () => {
   it('guesses at the type if a key isnt in the value', () => {
     expect(setOneTwo({})).toEqual({ one: { two: 3 } });
     expect(setOneTwo(Map())).toEqual(Map.of('one', Map.of('two', 3)));
+  });
+
+  it('switched to a keyed when guessing at an indexed type', () => {
+    expect(setIn(1, [0, 0], [])).toEqual([{ 0: 1 }]);
+    expect(setIn(1, [0, 0], List())).toEqual(List.of(Map.of(0, 1)));
   });
 
   describe('same type', () => {
