@@ -34,7 +34,7 @@ export default function _setIn(value, keyPath, subject) {
   let result = value;
   while (setStack.length > 0) {
     const [layer, key] = setStack.pop();
-    result = _set(result, key, layer);
+    result = _set(key, result, layer);
   }
   return result;
 }

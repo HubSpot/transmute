@@ -3,7 +3,7 @@ import _set from './internal/_set';
 import curry from './curry';
 
 function merge(updates, subject) {
-  return _reduce(subject, (acc, value, key) => _set(value, key, acc), updates);
+  return _reduce(subject, (acc, value, key) => _set(key, value, acc), updates);
 }
 
 /**

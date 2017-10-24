@@ -4,7 +4,7 @@ import curry from './curry';
 
 function update(key, updater, subject) {
   const value = _get(key, subject);
-  return _set(updater(value), key, subject);
+  return _set(key, updater(value), subject);
 }
 
 /**

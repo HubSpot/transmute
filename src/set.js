@@ -5,11 +5,11 @@ import curry from './curry';
  * Returns a copy of `subject` with `key` set to `value`.
  *
  * @example
- * set(2, 'one', {one: 1});
+ * set('one', 2, {one: 1});
  * // returns {one: 2}
  *
- * @param {any} value
  * @param {any} key
+ * @param {any} value
  * @param {Array|Iterable|Object} subject
  * @return {Array|Iterable|Object}
  */

@@ -26,7 +26,7 @@ function translate(translation, subject) {
   return _reduce(
     result,
     (acc, transform, newKey) =>
-      _set(runTransform(transform, newKey, subject), newKey, acc),
+      _set(newKey, runTransform(transform, newKey, subject), acc),
     translation
   );
 }
