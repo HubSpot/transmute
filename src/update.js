@@ -7,4 +7,12 @@ function update(key, updater, subject) {
   return _set(updater(value), key, subject);
 }
 
+/**
+ * Sets the value at `key` to the result of `updater`.
+ *
+ * @param {any} key
+ * @param {Function} updater
+ * @param {Array|Iterable|Object} subject
+ * @return {Array|Iterable|Object}
+ */
 export default curry(update);

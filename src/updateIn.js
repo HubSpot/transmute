@@ -10,9 +10,9 @@ function updateIn(keyPath, updater, subject) {
 /**
  * Apply `updater` to the value at `keyPath`.
  *
- * @param  {Array<any>} keyPath the location where `updater` should be applied.
+ * @param  {Array<any>|Iterable<any>} keyPath the location where `updater` should be applied.
  * @param  {Function} updater the tranformation to apply.
- * @param  {Iterable} subject the thing to update.
- * @return {Iterable}
+ * @param  {Array|Iterable|Object} subject the thing to update.
+ * @return {Array|Iterable|Object}
  */
 export default curry(updateIn);
