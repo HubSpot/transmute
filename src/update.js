@@ -10,6 +10,11 @@ function update(key, updater, subject) {
 /**
  * Sets the value at `key` to the result of `updater`.
  *
+ * @example
+ * const incrementCount = update('count', n => n + 1);
+ * incrementCount({count: 1});
+ * // returns {count: 2}
+ *
  * @param {any} key
  * @param {Function} updater
  * @param {Array|Iterable|Object} subject
