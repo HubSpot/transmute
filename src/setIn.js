@@ -8,8 +8,8 @@ import curry from './curry';
  * setIn(3, ['one', 'two'], {one: {two: 2}});
  * // returns {one: {two: 3}}
  *
- * @param {any} value
  * @param {Array<any>|Iterable<any>} keyPath
+ * @param {any} value
  * @param {Array|Iterable|Object} subject
  * @param {Array|Iterable|Object}
  */

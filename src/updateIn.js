@@ -4,7 +4,7 @@ import _setIn from './internal/_setIn';
 
 function updateIn(keyPath, updater, subject) {
   const value = _getIn(keyPath, subject);
-  return _setIn(updater(value), keyPath, subject);
+  return _setIn(keyPath, updater(value), subject);
 }
 
 /**

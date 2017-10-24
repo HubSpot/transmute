@@ -2,10 +2,10 @@ import { List, Map } from 'immutable';
 import setIn from '../setIn';
 
 describe('transmute/setIn', () => {
-  const setOneTwo = setIn(3, ['one', 'two']);
+  const setOneTwo = setIn(['one', 'two'], 3);
 
   it('returns `value` for an empty `keyPath`', () => {
-    expect(setIn(1, [], {})).toBe(1);
+    expect(setIn([], 1, {})).toBe(1);
   });
 
   it("throws if a value isn't settable", () => {
@@ -20,13 +20,13 @@ describe('transmute/setIn', () => {
   });
 
   it('switched to a keyed when guessing at an indexed type', () => {
-    expect(setIn(1, [0, 0], [])).toEqual([{ 0: 1 }]);
-    expect(setIn(1, [0, 0], List())).toEqual(List.of(Map.of(0, 1)));
+    expect(setIn([0, 0], 1, [])).toEqual([{ 0: 1 }]);
+    expect(setIn([0, 0], 1, List())).toEqual(List.of(Map.of(0, 1)));
   });
 
   describe('same type', () => {
     it('sets in an Array', () => {
-      expect(setIn(3, [0, 1], [[1, 2]])).toEqual([[1, 3]]);
+      expect(setIn([0, 1], 3, [[1, 2]])).toEqual([[1, 3]]);
     });
 
     it('sets in a Map', () => {
@@ -42,7 +42,7 @@ describe('transmute/setIn', () => {
 
   describe('mixed types', () => {
     it('sets in an Array of Objects', () => {
-      const set1Two = setIn(3, [1, 'two']);
+      const set1Two = setIn([1, 'two'], 3);
       expect(set1Two([0, { two: 2 }])).toEqual([0, { two: 3 }]);
     });
 

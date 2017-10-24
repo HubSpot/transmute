@@ -26,7 +26,7 @@ function makeSetStack(keyPath, subject) {
   );
 }
 
-export default function _setIn(value, keyPath, subject) {
+export default function _setIn(keyPath, value, subject) {
   if (_count(keyPath) === 0) {
     return value;
   }
