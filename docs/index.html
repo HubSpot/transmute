@@ -605,6 +605,16 @@
               
                 
                 <li><a
+                  href='#setin'
+                  class="">
+                  setIn
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
                   href='#throttle'
                   class="">
                   throttle
@@ -648,6 +658,16 @@
                   href='#uniqueid'
                   class="">
                   uniqueId
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#update'
+                  class="">
+                  update
                   
                 </a>
                 
@@ -3372,7 +3392,7 @@ description
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>value</span> <code class='quiet'>(any)</code>
+            <span class='code bold'>key</span> <code class='quiet'>(any)</code>
 	    
           </div>
           
@@ -3380,7 +3400,7 @@ description
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>key</span> <code class='quiet'>(any)</code>
+            <span class='code bold'>value</span> <code class='quiet'>(any)</code>
 	    
           </div>
           
@@ -3415,7 +3435,7 @@ description
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>set(<span class="hljs-number">2</span>, <span class="hljs-string">'one'</span>, {<span class="hljs-attr">one</span>: <span class="hljs-number">1</span>});
+      <pre class='p1 overflow-auto round fill-light'>set(<span class="hljs-string">'one'</span>, <span class="hljs-number">2</span>, {<span class="hljs-attr">one</span>: <span class="hljs-number">1</span>});
 <span class="hljs-comment">// returns {one: 2}</span></pre>
     
   
@@ -5530,6 +5550,97 @@ twoArgOp.length === <span class="hljs-number">2</span>;</pre>
   
   <div class='clearfix'>
     
+    <h3 class='fl m0' id='setin'>
+      setIn
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Set the <code>value</code> at <code>keyPath</code> in a nested structure.</p>
+
+
+  <div class='pre p1 fill-light mt0'>setIn</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>keyPath</span> <code class='quiet'>((<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;any> | Iterable&#x3C;any>))</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>value</span> <code class='quiet'>(any)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>subject</span> <code class='quiet'>((<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> | Iterable | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>))</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>setIn(<span class="hljs-number">3</span>, [<span class="hljs-string">'one'</span>, <span class="hljs-string">'two'</span>], {<span class="hljs-attr">one</span>: {<span class="hljs-attr">two</span>: <span class="hljs-number">2</span>}});
+<span class="hljs-comment">// returns {one: {two: 3}}</span></pre>
+    
+      <p><p>Unset keyPaths will be set based on the most recent type.</p>
+</p>
+      <pre class='p1 overflow-auto round fill-light'>setIn(<span class="hljs-number">3</span>, [<span class="hljs-string">'one'</span>, <span class="hljs-string">'two'</span>], {});
+<span class="hljs-comment">// returns {one: {two: 3}}</span>
+
+setIn(<span class="hljs-number">3</span>, [<span class="hljs-string">'one'</span>, <span class="hljs-string">'two'</span>], <span class="hljs-built_in">Map</span>());
+<span class="hljs-comment">// returns Map { one =&gt; Map { two =&gt; 3 } }</span></pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
     <h3 class='fl m0' id='throttle'>
       throttle
     </h3>
@@ -5876,6 +5987,98 @@ uniqueId(<span class="hljs-string">'test-'</span>) === <span class="hljs-string"
   
   <div class='clearfix'>
     
+    <h3 class='fl m0' id='update'>
+      update
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Sets the value at <code>key</code> to the result of <code>updater</code>.</p>
+
+
+  <div class='pre p1 fill-light mt0'>update</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>key</span> <code class='quiet'>(any)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>updater</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>subject</span> <code class='quiet'>((<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> | Iterable | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>))</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> | Iterable | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>:
+        
+
+      
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> incrementCount = update(<span class="hljs-string">'count'</span>, n =&gt; n + <span class="hljs-number">1</span>);
+incrementCount({<span class="hljs-attr">count</span>: <span class="hljs-number">1</span>});
+<span class="hljs-comment">// returns {count: 2}</span></pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
     <h3 class='fl m0' id='updatein'>
       updateIn
     </h3>
@@ -5904,7 +6107,7 @@ uniqueId(<span class="hljs-string">'test-'</span>) === <span class="hljs-string"
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>keyPath</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;any>)</code>
+            <span class='code bold'>keyPath</span> <code class='quiet'>((<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;any> | Iterable&#x3C;any>))</code>
 	    the location where 
 <code>updater</code>
  should be applied.
@@ -5924,7 +6127,7 @@ uniqueId(<span class="hljs-string">'test-'</span>) === <span class="hljs-string"
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>subject</span> <code class='quiet'>(Iterable)</code>
+            <span class='code bold'>subject</span> <code class='quiet'>((<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> | Iterable | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>))</code>
 	    the thing to update.
 
           </div>
@@ -5939,7 +6142,7 @@ uniqueId(<span class="hljs-string">'test-'</span>) === <span class="hljs-string"
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>Iterable</code>:
+      <code>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> | Iterable | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>:
         
 
       
@@ -5948,6 +6151,23 @@ uniqueId(<span class="hljs-string">'test-'</span>) === <span class="hljs-string"
 
   
 
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> incrementUserCount = updateIn([<span class="hljs-string">'users'</span>, <span class="hljs-string">'count'</span>], n =&gt; n + <span class="hljs-number">1</span>);
+incrementUserCount({<span class="hljs-attr">users</span>: {<span class="hljs-attr">count</span>: <span class="hljs-number">1</span>}});
+<span class="hljs-comment">// returns {users: {count: 2}}</span></pre>
+    
+      <p><p>Unset keyPaths will be set based on the most recent type.</p>
+</p>
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> incrementUserCount = updateIn([<span class="hljs-string">'users'</span>, <span class="hljs-string">'count'</span>], (n = <span class="hljs-number">0</span>) =&gt; n + <span class="hljs-number">1</span>);
+incrementUserCount({});
+<span class="hljs-comment">// returns {users: {count: 1}}</span>
+
+incrementUserCount(<span class="hljs-built_in">Map</span>());
+<span class="hljs-comment">// returns Map { users =&gt; Map { count =&gt; 1 } }</span></pre>
+    
   
 
   
