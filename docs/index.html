@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset='utf-8' />
-  <title>@hs/transmute 1.4.0 | Documentation</title>
+  <title>@hs/transmute 2.0.0 | Documentation</title>
   <meta name='viewport' content='width=device-width,initial-scale=1'>
   <link href='assets/bass.css' type='text/css' rel='stylesheet' />
   <link href='assets/style.css' type='text/css' rel='stylesheet' />
@@ -14,7 +14,7 @@
       <div id='split-left' class='overflow-auto fs0 height-viewport-100'>
         <div class='py1 px2'>
           <h3 class='mb0 no-anchor'>@hs/transmute</h3>
-          <div class='mb1'><code>1.4.0</code></div>
+          <div class='mb1'><code>2.0.0</code></div>
           <input
             placeholder='Filter'
             id='filter-input'
@@ -5613,15 +5613,15 @@ twoArgOp.length === <span class="hljs-number">2</span>;</pre>
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>setIn(<span class="hljs-number">3</span>, [<span class="hljs-string">'one'</span>, <span class="hljs-string">'two'</span>], {<span class="hljs-attr">one</span>: {<span class="hljs-attr">two</span>: <span class="hljs-number">2</span>}});
+      <pre class='p1 overflow-auto round fill-light'>setIn([<span class="hljs-string">'one'</span>, <span class="hljs-string">'two'</span>], <span class="hljs-number">3</span>, {<span class="hljs-attr">one</span>: {<span class="hljs-attr">two</span>: <span class="hljs-number">2</span>}});
 <span class="hljs-comment">// returns {one: {two: 3}}</span></pre>
     
       <p><p>Unset keyPaths will be set based on the most recent type.</p>
 </p>
-      <pre class='p1 overflow-auto round fill-light'>setIn(<span class="hljs-number">3</span>, [<span class="hljs-string">'one'</span>, <span class="hljs-string">'two'</span>], {});
+      <pre class='p1 overflow-auto round fill-light'>setIn([<span class="hljs-string">'one'</span>, <span class="hljs-string">'two'</span>], <span class="hljs-number">3</span>, {});
 <span class="hljs-comment">// returns {one: {two: 3}}</span>
 
-setIn(<span class="hljs-number">3</span>, [<span class="hljs-string">'one'</span>, <span class="hljs-string">'two'</span>], <span class="hljs-built_in">Map</span>());
+setIn([<span class="hljs-string">'one'</span>, <span class="hljs-string">'two'</span>], <span class="hljs-number">3</span>, <span class="hljs-built_in">Map</span>());
 <span class="hljs-comment">// returns Map { one =&gt; Map { two =&gt; 3 } }</span></pre>
     
   
