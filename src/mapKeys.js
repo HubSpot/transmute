@@ -16,7 +16,7 @@ function mapKeys(keyMapper, subject) {
   }
   return _reduce(
     clear(subject),
-    (acc, value, key) => _set(value, keyMapper(key, value, subject), acc),
+    (acc, value, key) => _set(keyMapper(key, value, subject), value, acc),
     subject
   );
 }

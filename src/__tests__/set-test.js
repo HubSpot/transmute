@@ -2,7 +2,8 @@ import { Map } from 'immutable';
 import set from '../set';
 
 describe('set', () => {
-  const setOne = set(1, 'one');
+  const setOne = set('one', 1);
+
   it('sets a key in a Map', () => {
     expect(setOne(Map())).toMatchSnapshot();
   });

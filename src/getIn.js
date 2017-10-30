@@ -1,16 +1,5 @@
-import _get from './internal/_get';
+import _getIn from './internal/_getIn';
 import curry from './curry';
-
-function getIn(keyPath, subject) {
-  let value = subject;
-  for (let i = 0; i < keyPath.length; i++) {
-    if (value === undefined) {
-      break;
-    }
-    value = _get(keyPath[i], value);
-  }
-  return value;
-}
 
 /**
  * Retrieve a `keyPath` from a nested Immutable or JS structure.
@@ -31,4 +20,4 @@ function getIn(keyPath, subject) {
  * @param  {Array|Iterable|Object} subject
  * @return {any}
  */
-export default curry(getIn);
+export default curry(_getIn);

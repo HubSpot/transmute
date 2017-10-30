@@ -1,7 +1,7 @@
 import { Iterable, is } from 'immutable';
 import { set } from './TransmuteCollection';
 
-set.implement(Array, (value, index, arr) => {
+set.implement(Array, (index, value, arr) => {
   if (is(arr[index], value)) {
     return arr;
   }
@@ -10,11 +10,11 @@ set.implement(Array, (value, index, arr) => {
   return next;
 });
 
-set.implementInherited(Iterable, (value, key, subject) => {
+set.implementInherited(Iterable, (key, value, subject) => {
   return subject.set(key, value);
 });
 
-set.implement(Object, (value, key, obj) => {
+set.implement(Object, (key, value, obj) => {
   if (is(obj[key], value)) {
     return obj;
   }
