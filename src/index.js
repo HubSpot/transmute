@@ -63,6 +63,7 @@ export { default as toSeq } from './toSeq';
 export { default as toString } from './toString';
 export { default as translate } from './translate';
 export { default as uniqueId } from './uniqueId';
+export { default as update } from './update';
 export { default as updateIn } from './updateIn';
 export { default as valueSeq } from './valueSeq';
 export { default as where } from './where';
