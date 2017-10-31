@@ -3,6 +3,15 @@
   "version": "2.0.1",
   "description": "kind of like lodash but works with Immutable",
   "license": "MIT",
+  "keywords": [
+    "curry",
+    "data",
+    "datastructure",
+    "function",
+    "functional",
+    "immutable",
+    "util"
+  ],
   "main": "index.js",
   "peerDependencies": {
     "immutable": "3.x"
