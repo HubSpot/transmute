@@ -1,5 +1,7 @@
 # @hs/transmute
 
+[![transmute on npm](https://img.shields.io/npm/v/@hs/transmute.svg?style=flat-square)](http://npmjs.com/@hs/transmute)
+
 `@hs/transmute` provides convenient, composable functions for transforming Arrays, [Immutable.js](http://facebook.github.io/immutable-js/) data structures, and Objects.
 
 ## Getting started
