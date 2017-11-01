@@ -1,7 +1,5 @@
 import debounceImmediate from '../debounceImmediate';
 
-jest.useFakeTimers();
-
 describe('transmute/debounceImmediate', () => {
   const debounceImmediate100 = debounceImmediate(100);
 

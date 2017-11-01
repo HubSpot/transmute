@@ -29,7 +29,7 @@
     "flow-bin": "^0.54.1",
     "husky": "^0.14.3",
     "immutable": "^3.8.1",
-    "jest": "^21.1.0",
+    "jest": "^21.2.1",
     "lint-staged": "^4.2.1",
     "prettier": "^1.7.0",
     "prettier-eslint": "^8.1.1"
