@@ -1,7 +1,5 @@
 import throttle from '../throttle';
 
-jest.useFakeTimers();
-
 describe('transmute/throttle', () => {
   const throttle100 = throttle(100);
 
