@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`transmute/indexBy indexes a List 1`] = `
-Immutable.OrderedMap {
+Immutable.Map {
   "123": Immutable.Map {
     "id": "123",
   },
@@ -23,7 +23,7 @@ Immutable.Map {
 `;
 
 exports[`transmute/indexBy indexes an Array 1`] = `
-Immutable.OrderedMap {
+Object {
   "123": Immutable.Map {
     "id": "123",
   },
@@ -34,7 +34,7 @@ Immutable.OrderedMap {
 `;
 
 exports[`transmute/indexBy indexes an Object 1`] = `
-Immutable.OrderedMap {
+Object {
   "123": Object {
     "id": "123",
   },
