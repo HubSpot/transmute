@@ -33,10 +33,20 @@ describe('transmute/isEmpty', () => {
   });
 
   describe('falsey values', () => {
-    [undefined, null, '', 0, NaN].forEach(value => {
+    [undefined, null, '', NaN].forEach(value => {
       it(`returns true for \`${value}\``, () => {
         expect(isEmpty(value)).toEqual(true);
       });
+    });
+  });
+
+  describe('Numbers', () => {
+    it('returns true if falsy', () => {
+      expect(isEmpty(0)).toBe(true);
+    });
+
+    it('returns false if truthy', () => {
+      expect(isEmpty(1234)).toBe(false);
     });
   });
 });
