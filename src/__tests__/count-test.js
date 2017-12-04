@@ -17,4 +17,8 @@ describe('count', () => {
   it('counts a String', () => {
     expect(count('test')).toBe(4);
   });
+
+  it('counts a Number', () => {
+    expect(count(42)).toBe(42);
+  });
 });
