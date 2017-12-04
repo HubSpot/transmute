@@ -9,4 +9,6 @@ count.implement(Object, obj => Object.keys(obj).length);
 
 count.implement(String, str => str.length);
 
+count.implement(Number, num => num);
+
 export default count;
