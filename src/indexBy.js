@@ -1,13 +1,13 @@
-import _keyedEquivalent from './internal/_keyedEquivalent';
 import _reduce from './internal/_reduce';
-import _set from './internal/_set';
 import curry from './curry';
 import { Iterable, Map, OrderedMap } from 'immutable';
 
 function indexBy(keyMapper, subject) {
   return _reduce(
-    _keyedEquivalent(subject),
-    (acc, v, k) => _set(keyMapper(v, k, subject), v, acc),
+    Iterable.isOrdered(subject) || !Iterable.isIterable(subject)
+      ? OrderedMap()
+      : Map(),
+    (acc, v, k) => acc.set(keyMapper(v, k, subject), v),
     subject
   );
 }

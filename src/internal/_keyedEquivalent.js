@@ -1,4 +1,4 @@
-import { Collection, Iterable, Map, Seq } from 'immutable';
+import { Collection, Map, Seq } from 'immutable';
 import { keyedEquivalent } from './TransmuteCollection';
 
 const makeObject = () => ({});
