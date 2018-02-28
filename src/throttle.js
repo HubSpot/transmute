@@ -18,12 +18,12 @@ function throttle(interval, operation) {
 
   function runner() {
     lastCall = Date.now();
-    cancel();
     lastResult = operation(...lastArgs);
   }
 
   function throttled(...args) {
     lastArgs = args;
+    cancel();
     if (Date.now() - lastCall >= interval) {
       runner();
     } else {
