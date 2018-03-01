@@ -1,13 +1,13 @@
 import throttle from '../throttle';
 
 describe('transmute/throttle', () => {
+  const throttle100 = throttle(100);
+
   const now = Date.now;
 
   afterEach(() => {
     Date.now = now;
   });
-
-  const throttle100 = throttle(100);
 
   it('throws if operation is not a function', () => {
     expect(() => throttle(100, {})).toThrow();
