@@ -12,8 +12,10 @@ function throttle(interval, operation) {
   let timer = null;
 
   function cancel() {
-    clearTimeout(timer);
-    timer = null;
+    if (timer !== null) {
+      clearTimeout(timer);
+      timer = null;
+    }
   }
 
   function runner() {
