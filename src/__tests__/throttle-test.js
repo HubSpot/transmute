@@ -3,7 +3,7 @@ import throttle from '../throttle';
 describe('transmute/throttle', () => {
   const now = Date.now;
 
-  afterAll(() => {
+  afterEach(() => {
     Date.now = now;
   });
 
