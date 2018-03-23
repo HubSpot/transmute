@@ -12,18 +12,20 @@ function throttle(interval, operation) {
   let timer = null;
 
   function cancel() {
-    clearTimeout(timer);
-    timer = null;
+    if (timer !== null) {
+      clearTimeout(timer);
+      timer = null;
+    }
   }
 
   function runner() {
     lastCall = Date.now();
-    cancel();
     lastResult = operation(...lastArgs);
   }
 
   function throttled(...args) {
     lastArgs = args;
+    cancel();
     if (Date.now() - lastCall >= interval) {
       runner();
     } else {
