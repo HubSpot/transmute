@@ -30,6 +30,15 @@ describe('transmute/getIn', () => {
     ).toMatchSnapshot();
   });
 
+  it('gets a keyPath from an Error', () => {
+    const error = new Error();
+    error.foo = {
+      bar: 'baz',
+    };
+    const fooBarGetter = getIn(['foo', 'bar']);
+    expect(fooBarGetter(error)).toEqual('baz');
+  });
+
   it('gets a keyPath from Immutables in JS Objects', () => {
     expect(
       getter({
