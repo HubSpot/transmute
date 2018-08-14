@@ -39,6 +39,10 @@ describe('protocol', () => {
     it('dispatches to undefined', () => {
       expect(stringify(undefined)).toBe('this is undefined');
     });
+
+    it('uses the fallback when undefined has been explicitly implemented', () => {
+      expect(stringify(123)).toBe('123');
+    });
   });
 
   describe('constructor types', () => {
