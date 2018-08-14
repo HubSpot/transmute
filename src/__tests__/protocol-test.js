@@ -40,7 +40,7 @@ describe('protocol', () => {
       expect(stringify(undefined)).toBe('this is undefined');
     });
 
-    it('uses the fallback when undefined has been explicitly implemented', () => {
+    it('uses the fallback when undefined has been implemented', () => {
       expect(stringify(123)).toBe('123');
     });
   });
