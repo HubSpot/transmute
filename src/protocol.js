@@ -63,7 +63,7 @@ export default function protocol({ args, name, fallback }: ProtocolDefinition) {
   const dispatch = _setArity(args.length, (...argValues) => {
     const value = argValues[dispatchValueIndex];
     const key = getValueKey(id, value);
-    const implementation = implementations[key] || fallback;
+    const implementation = (key && implementations[key]) || fallback;
     if (!implementation) {
       throw new Error(`${name}: not implmented for type \`${value}\``);
     }
