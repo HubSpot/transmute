@@ -6,6 +6,13 @@ describe('transmute/get', () => {
     expect(get('id')({ id: '123' }, 'random', [1, 2, 3])).toEqual('123');
   });
 
+  it('works with Error objects', () => {
+    const error = new Error();
+    error.foo = 'bar';
+    const getFoo = get('foo');
+    expect(getFoo(error)).toEqual('bar');
+  });
+
   describe('empty types', () => {
     const getTest = get('test');
 
