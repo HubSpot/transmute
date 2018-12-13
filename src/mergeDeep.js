@@ -23,10 +23,10 @@ function mergeDeep(updates, subject) {
  * Takes each entry of `updates` and sets it on `subject`.
  *
  * @example
- * // returns Map { "one" => 3, "two" => 2, "three" => 1}
+ * // returns Map { "one" => 3, "two" => 2, "three" => { a: 1, b: 1}}
  * merge(
- *   Map({one: 1, two: 2, three: 3}),
- *   Map({one: 3, three: 1})
+ *   Map({one: 1, two: 2, three: { a: 1 }}),
+ *   Map({one: 3, three: { a: 0, b: 1}})
  * );
  *
  * @param  {Iterable} updates key-value pairs to merge in `subject`.
