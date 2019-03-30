@@ -1,0 +1,111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`transmute/scan scans a List 1`] = `
+Immutable.List [
+  Immutable.List [],
+  Immutable.List [
+    2,
+  ],
+  Immutable.List [
+    2,
+    3,
+  ],
+  Immutable.List [
+    2,
+    3,
+    4,
+  ],
+]
+`;
+
+exports[`transmute/scan scans a Map 1`] = `
+Immutable.List [
+  Immutable.Map {},
+  Immutable.Map {
+    "one": 2,
+  },
+  Immutable.Map {
+    "one": 2,
+    "two": 3,
+  },
+  Immutable.Map {
+    "one": 2,
+    "two": 3,
+    "three": 4,
+  },
+]
+`;
+
+exports[`transmute/scan scans a Seq 1`] = `
+Immutable.List [
+  Immutable.Seq [],
+  Immutable.Seq [
+    2,
+  ],
+  Immutable.Seq […],
+  Immutable.Seq […],
+]
+`;
+
+exports[`transmute/scan scans a Set 1`] = `
+Immutable.List [
+  Immutable.Set [],
+  Immutable.Set [
+    2,
+  ],
+  Immutable.Set [
+    2,
+    3,
+  ],
+  Immutable.Set [
+    2,
+    3,
+    4,
+  ],
+]
+`;
+
+exports[`transmute/scan scans an Array 1`] = `
+Immutable.List [
+  Immutable.List [],
+  Immutable.List [
+    2,
+  ],
+  Immutable.List [
+    2,
+    3,
+  ],
+  Immutable.List [
+    2,
+    3,
+    4,
+  ],
+]
+`;
+
+exports[`transmute/scan scans an Object 1`] = `
+Immutable.List [
+  Immutable.List [],
+  Immutable.List [
+    2,
+  ],
+  Immutable.List [
+    2,
+    3,
+  ],
+  Immutable.List [
+    2,
+    3,
+    4,
+  ],
+]
+`;
+
+exports[`transmute/scan scans to a primitive 1`] = `
+Immutable.List [
+  0,
+  1,
+  3,
+  6,
+]
+`;
