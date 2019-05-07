@@ -161,7 +161,7 @@ doubleAndTakeEvens(List.of(1, 2, 3))
 Returns **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
 
 ### concat
-[src/concat.js:9-47](src/concat.js#L9-L47)
+[src/concat.js:18-18](src/concat.js#L18)
 
 Joins two `Iterable` objects together.
 
