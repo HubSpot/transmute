@@ -123,6 +123,20 @@ export const has = protocol({
 
 /**
  * @private
+ * Return a `Seq.Indexed` of the keys in `subject`
+ * 
+ * @param {TYPE<_, V>} subject
+ * @return {Seq.Indexed<V>}
+ */
+export const indexedSeq = protocol({
+  args: [
+    protocol.TYPE, // subject
+  ],
+  name: 'indexedSeq',
+});
+
+/**
+ * @private
  * Return a `Seq` of the keys in `subject`.
  *
  * @param {TYPE<K, _>} subject
