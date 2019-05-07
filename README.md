@@ -170,7 +170,7 @@ Joins two `Iterable` objects together.
 ```javascript
 // Arrays
 concat(List([3]), List([1, 2])); // Returns List [ 1, 2, 3 ]
-const addY = concat(List(['x']);
+const addY = concat(List(['y']);
 addY(List(['x'])); // Returns List [ 'x', 'y' ]
 
 // Maps
