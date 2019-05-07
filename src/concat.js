@@ -48,7 +48,7 @@ function concat(update, subject) {
 }
 
 /**
- * Extends `Iterable`
+ * Joins two `Iterable` objects together.
  *
  * @example
  * // returns List([1, 2, 3])

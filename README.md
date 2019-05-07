@@ -160,6 +160,28 @@ doubleAndTakeEvens(List.of(1, 2, 3))
 
 Returns **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
 
+### concat
+[src/concat.js:9-47](src/concat.js#L9-L47)
+
+Joins two `Iterable` objects together.
+
+**Examples**
+
+```javascript
+// Arrays
+concat(List([3]), List([1, 2])); // Returns List [ 1, 2, 3 ]
+const addY = concat(List(['x']);
+addY(List(['x'])); // Returns List [ 'x', 'y' ]
+
+// Maps
+concat(
+  Map({ a: 'a', b: 'b' }), 
+  Map({ b: 'b', c: 'c' })
+) // Returns Map { a: 'a', b: 'b', c: 'c' }
+```
+
+Returns `Iterable` with the concatenated value. If a keyed `Iterable`, does not override existing values. If an indexed `Iterable`, acts like `merge`.
+
 ### count
 
 [src/count.js:12-12](https://github.com/HubSpot/transmute/blob/ddf170dd577610935b648d330255d9ceccfe75b2/src/count.js#L12-L12 "Source code on GitHub")
