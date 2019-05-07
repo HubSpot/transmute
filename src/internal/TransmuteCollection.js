@@ -29,6 +29,22 @@ export const count = protocol({
 
 /**
  * @private
+ * Returns a joined `subject` and `update`.
+ *
+ * @param {TYPE} update
+ * @param {TYPE} subject
+ * @return {number}
+ */
+export const concat = protocol({
+  args: [
+    protocol.TYPE, // update
+    protocol.TYPE, // subject
+  ],
+  name: 'concat',
+});
+
+/**
+ * @private
  * Returns a Seq of key,value tuples (in JS Array)
  *
  * @param {TYPE}

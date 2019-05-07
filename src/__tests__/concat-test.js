@@ -2,14 +2,14 @@ import concat from '../concat';
 import { List, Map } from 'immutable';
 
 describe('transmute/concat', () => {
-  it('doesnt blow up when subject is `null` or `undefined`', () => {
-    expect(concat(List(), null)).toBeNull();
-    expect(concat(Map(), null)).toBeNull();
+  it('throws error when subject is `null` or `undefined`', () => {
+    expect(() => concat(List(), null)).toThrow();
+    expect(() => concat(Map(), null)).toThrow();
   });
 
-  it('doesnt blow up when update is `null` or `undefined`', () => {
-    expect(concat(null, List())).toBe(List());
-    expect(concat(null, Map())).toBe(Map());
+  it('throws error when update is `null` or `undefined`', () => {
+    expect(() => concat(null, List())).toThrow();
+    expect(() => concat(null, Map())).toThrow();
   });
 
   describe('concatenates Lists', () => {
