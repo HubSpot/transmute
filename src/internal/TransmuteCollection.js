@@ -31,13 +31,13 @@ export const count = protocol({
  * @private
  * Returns a joined `subject` and `update`.
  *
- * @param {TYPE} update
+ * @param {any} update
  * @param {TYPE} subject
  * @return {number}
  */
 export const concat = protocol({
   args: [
-    protocol.TYPE, // update
+    isAnyValue, // update
     protocol.TYPE, // subject
   ],
   name: 'concat',

@@ -1,15 +1,15 @@
 import concat from '../concat';
-import { List, Map } from 'immutable';
+import { List, Seq } from 'immutable';
 
 describe('transmute/concat', () => {
   it('throws error when subject is `null` or `undefined`', () => {
     expect(() => concat(List(), null)).toThrow();
-    expect(() => concat(Map(), null)).toThrow();
+    expect(() => concat(Seq(), null)).toThrow();
   });
 
-  it('throws error when update is `null` or `undefined`', () => {
-    expect(() => concat(null, List())).toThrow();
-    expect(() => concat(null, Map())).toThrow();
+  it('correctly concatenates values when update is null', () => {
+    expect(concat(null, List())).toEqual(List([null]));
+    expect(concat(null, Seq())).toEqual(Seq([null]));
   });
 
   describe('concatenates vanilla JS types', () => {
@@ -17,24 +17,6 @@ describe('transmute/concat', () => {
       expect(concat([3], [1, 2, 3])).toEqual([1, 2, 3, 3]);
       expect(concat([null], [null])).toEqual([null, null]);
       expect(concat([], [])).toEqual([]);
-    });
-
-    it('joins objects', () => {
-      expect(concat({ a: 'a', b: 'b' }, { b: 'b', c: 'c' })).toEqual({
-        a: 'a',
-        b: 'b',
-        c: 'c',
-      });
-      expect(concat({ a: 'a' }, { b: 'b', c: 'c' })).toEqual({
-        a: 'a',
-        b: 'b',
-        c: 'c',
-      });
-      expect(concat({}, { b: 'b', c: 'c' })).toEqual({
-        b: 'b',
-        c: 'c',
-      });
-      expect(concat({}, {})).toEqual({});
     });
 
     it('joins strings', () => {
@@ -79,37 +61,50 @@ describe('transmute/concat', () => {
     });
   });
 
-  describe('concatenates Maps', () => {
-    it('does not overwrite different keys', () => {
-      const MAP_1 = Map({ a: 'a' });
-      const MAP_2 = Map({ b: 'b' });
-      expect(concat(MAP_2, MAP_1)).toEqual(Map({ a: 'a', b: 'b' }));
+  describe('concatenates Sequences', () => {
+    it('joins Seq of primitives', () => {
+      expect(concat(Seq([3]), Seq([1, 2, 3]))).toEqual(
+        Seq([1, 2, 3]).concat(Seq([3]))
+      );
+      expect(concat(Seq(null), Seq(null))).toEqual(Seq(null));
     });
 
-    it('overwrites existing keys', () => {
-      const MAP_1 = Map({ a: 'a', b: 'b' });
-      const MAP_2 = Map({ b: 'b', c: 'c' });
-      expect(concat(MAP_2, MAP_1)).toEqual(Map({ a: 'a', b: 'b', c: 'c' }));
+    it('joins Seq objects', () => {
+      const SEQ_1 = Seq();
+      const SEQ_2 = Seq();
+      expect(concat(Seq(SEQ_2), Seq(SEQ_1))).toEqual(Seq(SEQ_1, SEQ_2));
     });
 
-    it('joins empty maps', () => {
-      const MAP_1 = Map();
-      const MAP_2 = Map();
-      expect(concat(MAP_2, MAP_1)).toEqual(Map());
+    it('joins empty Seqs', () => {
+      const SEQ_1 = Seq();
+      const SEQ_2 = Seq();
+
+      expect(concat(SEQ_2, SEQ_1)).toEqual(Seq());
     });
 
-    it('returns the original map if concat is empty', () => {
-      const MAP_1 = Map({ a: 'a', b: 'b' });
-      const MAP_2 = Map();
-      expect(concat(MAP_2, MAP_1)).toEqual(MAP_1);
+    it('returns the original Seq if the concat is empty', () => {
+      const SEQ_1 = Seq(['a', 'b']);
+      const SEQ_2 = Seq();
+
+      expect(concat(SEQ_2, SEQ_1)).toEqual(SEQ_1);
     });
 
-    it('uses the subject Map as the return value type', () => {
-      const MAP = Map({ a: 'a', b: 'b' });
-      const OBJ = { b: 'b', c: 'c' };
-      expect(concat(OBJ, MAP)).toEqual(Map({ a: 'a', b: 'b', c: 'c' }));
-
-      expect(concat(MAP, OBJ)).toEqual({ a: 'a', b: 'b', c: 'c' });
+    it('uses the subject Seq as the return value type', () => {
+      // https://github.com/facebook/jest/issues/5998
+      expect(concat(['test'], Seq('test')).toJS()).toEqual([
+        't',
+        'e',
+        's',
+        't',
+        'test',
+      ]);
+      expect(concat(Seq('test'), ['test'])).toEqual([
+        'test',
+        't',
+        'e',
+        's',
+        't',
+      ]);
     });
   });
 });
