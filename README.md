@@ -163,7 +163,7 @@ Returns **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Ref
 ### concat
 [src/concat.js:18-18](src/concat.js#L18)
 
-Joins two `Iterable` objects together.
+Joins two `Iterable.Indexed` objects together.
 
 **Examples**
 
@@ -172,15 +172,9 @@ Joins two `Iterable` objects together.
 concat(List([3]), List([1, 2])); // Returns List [ 1, 2, 3 ]
 const addY = concat(List(['y']);
 addY(List(['x'])); // Returns List [ 'x', 'y' ]
-
-// Maps
-concat(
-  Map({ a: 'a', b: 'b' }), 
-  Map({ b: 'b', c: 'c' })
-) // Returns Map { a: 'a', b: 'b', c: 'c' }
 ```
 
-Returns `Iterable` with the concatenated value. If a keyed `Iterable`, does not override existing values. If an indexed `Iterable`, acts like `merge`.
+Returns `Iterable` with the concatenated value. If an indexed `Iterable`, does not override existing values. If a keyed `Iterable`, acts like `merge`.
 
 ### count
 
