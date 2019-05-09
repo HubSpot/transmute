@@ -1,4 +1,4 @@
-import { Iterable, List, Seq } from 'immutable';
+import { Iterable, Collection, Seq } from 'immutable';
 import { concat } from './TransmuteCollection';
 
 // Convert immutable indexes to plain JS indexes
@@ -9,7 +9,11 @@ concat.implement(Array, (update, subject) => {
   return subject.concat(update);
 });
 
-concat.implementInherited(Iterable, (update, subject) =>
+concat.implementInherited(Seq.Indexed, (update, subject) =>
+  subject.concat(update)
+);
+
+concat.implementInherited(Collection.Indexed, (update, subject) =>
   subject.concat(update)
 );
 
