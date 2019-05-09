@@ -1,4 +1,4 @@
-import { Iterable, Collection, Seq } from 'immutable';
+import { Collection, Iterable, Seq } from 'immutable';
 import { concat } from './TransmuteCollection';
 
 // Convert immutable indexes to plain JS indexes

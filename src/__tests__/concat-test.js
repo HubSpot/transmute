@@ -1,10 +1,16 @@
 import concat from '../concat';
-import { List, Seq } from 'immutable';
+import { List, Map, Seq, Set } from 'immutable';
 
 describe('transmute/concat', () => {
-  it('throws error when subject is `null` or `undefined`', () => {
+  it('throws an error when subject is `null` or `undefined`', () => {
     expect(() => concat(List(), null)).toThrow();
     expect(() => concat(Seq(), null)).toThrow();
+  });
+
+  it('throws an error when attempting to concatenate non-indexed iterables', () => {
+    expect(() => concat({}, Map())).toThrow();
+    expect(() => concat({}, Set())).toThrow();
+    expect(() => concat({}, Seq.Keyed())).toThrow();
   });
 
   it('correctly concatenates values when update is null', () => {
