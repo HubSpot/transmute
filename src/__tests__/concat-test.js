@@ -97,20 +97,10 @@ describe('transmute/concat', () => {
 
     it('uses the subject type as the return value type', () => {
       // https://github.com/facebook/jest/issues/5998
-      expect(concat(['test'], Seq('test')).toJS()).toEqual([
-        't',
-        'e',
-        's',
-        't',
-        'test',
-      ]);
-      expect(concat(Seq('test'), ['test'])).toEqual([
-        'test',
-        't',
-        'e',
-        's',
-        't',
-      ]);
+      const seqConcatTest = concat(['test'], Seq(['test']));
+      expect(seqConcatTest instanceof Seq).toBe(true);
+      expect(concat(['test'], Seq(['test'])).toJS()).toEqual(['test', 'test']);
+      expect(concat(Seq(['test']), ['test'])).toEqual(['test', 'test']);
     });
   });
 });
