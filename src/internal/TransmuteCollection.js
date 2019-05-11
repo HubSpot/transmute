@@ -29,7 +29,7 @@ export const count = protocol({
 
 /**
  * @private
- * Returns a joined `subject` and `update`.
+ * Returns a concatenated `subject` and `update`.
  *
  * @param {any} update
  * @param {TYPE} subject

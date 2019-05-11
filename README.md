@@ -58,7 +58,7 @@ Creates a function that always returns `returnValue`.
 
 **Parameters**
 
--   `returnValue` **T** 
+-   `returnValue` **T**
 
 **Examples**
 
@@ -67,7 +67,7 @@ const alwaysBlue = always('blue');
 alwaysBlue() === 'blue';
 ```
 
-Returns **T** 
+Returns **T**
 
 ### bind
 
@@ -77,8 +77,8 @@ Sets a function's `this` context. Similar to `Function.prototype.bind`.
 
 **Parameters**
 
--   `operation` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
--   `context` **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
+-   `operation` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)**
+-   `context` **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)**
 
 **Examples**
 
@@ -86,7 +86,7 @@ Sets a function's `this` context. Similar to `Function.prototype.bind`.
 bind(console.log, console);
 ```
 
-Returns **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
+Returns **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)**
 
 ### both
 
@@ -97,8 +97,8 @@ Returns `true` if the results of `arg` applied to both `condition1` and
 
 **Parameters**
 
--   `condition1` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
--   `condition2` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
+-   `condition1` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)**
+-   `condition2` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)**
 
 **Examples**
 
@@ -112,7 +112,7 @@ isOneToTen(3) === true;
 isOneToTen(11) === false;
 ```
 
-Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
+Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)**
 
 ### clear
 
@@ -122,7 +122,7 @@ Returns an empty copy of `subject`.
 
 **Parameters**
 
--   `subject` **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) | Collection | [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object))** 
+-   `subject` **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) | Collection | [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object))**
 
 **Examples**
 
@@ -132,7 +132,7 @@ clear(List.of(1, 2, 3)) // returns List []
 clear({one: 1, two: 2, three: 3}) // returns {}
 ```
 
-Returns **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) | Collection | [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object))** 
+Returns **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) | Collection | [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object))**
 
 ### compose
 
@@ -158,7 +158,7 @@ doubleAndTakeEvens(List.of(1, 2, 3))
 // returns List [ 2, 4, 6 ]
 ```
 
-Returns **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
+Returns **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)**
 
 ### concat
 [src/concat.js:18-18](src/concat.js#L18)
@@ -174,7 +174,7 @@ const addY = concat(List(['y']);
 addY(List(['x'])); // Returns List [ 'x', 'y' ]
 ```
 
-Returns `Iterable` with the concatenated value. If an indexed `Iterable`, does not override existing values. If a keyed `Iterable`, acts like `merge`.
+Returns `Iterable` with the concatenated value. Does not support keyed `Iterable` subjects.
 
 ### count
 
@@ -184,7 +184,7 @@ Returns the number of values in `subject`.
 
 **Parameters**
 
--   `subject` **TYPE** 
+-   `subject` **TYPE**
 
 **Examples**
 
@@ -192,7 +192,7 @@ Returns the number of values in `subject`.
 count(List.of(1, 2, 3)) === 3;
 ```
 
-Returns **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** 
+Returns **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)**
 
 ### curry
 
@@ -202,7 +202,7 @@ Creates a curried version of `operation`.
 
 **Parameters**
 
--   `operation` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
+-   `operation` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)**
 
 **Examples**
 
@@ -212,7 +212,7 @@ const toArrayWith1 = toArray(1);
 toArrayWith1(2, 3) === [1, 2, 3];
 ```
 
-Returns **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
+Returns **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)**
 
 ### curryN
 
@@ -233,7 +233,7 @@ const toArray = curryN(3)((...args) => [...args]);
 toArray(1, 2, 3) === [1, 2, 3];
 ```
 
-Returns **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
+Returns **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)**
 
 ### debounce
 
@@ -244,7 +244,7 @@ Returns **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Ref
 **Parameters**
 
 -   `interval` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** of milliseconds
--   `operation` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
+-   `operation` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)**
 
 Returns **any** the most recent result of `operation`
 
@@ -258,7 +258,7 @@ recent call.
 **Parameters**
 
 -   `interval` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** of milliseconds
--   `operation` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
+-   `operation` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)**
 
 Returns **any** the most recent result of `operation`
 
@@ -271,8 +271,8 @@ Only the elements present in just subject will remain.
 
 **Parameters**
 
--   `toRemove` **Iterable** 
--   `subject` **Iterable** 
+-   `toRemove` **Iterable**
+-   `subject` **Iterable**
 
 **Examples**
 
@@ -282,7 +282,7 @@ const removeOne = difference(Set.of(1));
 removeOne(Set.of(1, 2, 3)) // returns Set { 2, 3 }
 ```
 
-Returns **Iterable** 
+Returns **Iterable**
 
 ### either
 
@@ -293,9 +293,9 @@ are truthy.
 
 **Parameters**
 
--   `first` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
--   `second` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
--   `subject` **any** 
+-   `first` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)**
+-   `second` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)**
+-   `subject` **any**
 
 **Examples**
 
@@ -310,7 +310,7 @@ oneOrTwo(2) === true;
 oneOrTwo(3) === false;
 ```
 
-Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
+Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)**
 
 ### entrySeq
 
@@ -320,7 +320,7 @@ Get a Seq of the entries (i.e. [key, value] tuples) in `subject`.
 
 **Parameters**
 
--   `subject` **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) | Iterable | [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object))** 
+-   `subject` **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) | Iterable | [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object))**
 
 **Examples**
 
@@ -329,7 +329,7 @@ entrySeq(Map({one: 1, two: 2}))
 // returns Seq [ ['one', 1], ['two', 2] ]
 ```
 
-Returns **Seq** 
+Returns **Seq**
 
 ### every
 
@@ -340,7 +340,7 @@ Returns `true` if **all** items in `subject` match `predicate`.
 **Parameters**
 
 -   `predicate` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** returns `true` if item is a match.
--   `subject` **Iterable** 
+-   `subject` **Iterable**
 
 **Examples**
 
@@ -351,7 +351,7 @@ alwaysBlue(List.of('blue', 'blue')) === true;
 alwaysBlue(List.of('red', 'blue')) === false;
 ```
 
-Returns **bool** 
+Returns **bool**
 
 ### filter
 
@@ -417,7 +417,7 @@ Flattens an iterable as deeply as possible.
 
 **Parameters**
 
--   `subject` **Iterable** 
+-   `subject` **Iterable**
 
 **Examples**
 
@@ -426,7 +426,7 @@ Flattens an iterable as deeply as possible.
 flatten(List.of(List.of(1, List.of(2, 3)), List.of(4, 5, 6)));
 ```
 
-Returns **Iterable** 
+Returns **Iterable**
 
 ### flattenN
 
@@ -436,8 +436,8 @@ Flattens an iterable `depth` levels.
 
 **Parameters**
 
--   `depth` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** 
--   `subject` **Iterable** 
+-   `depth` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)**
+-   `subject` **Iterable**
 
 **Examples**
 
@@ -446,7 +446,7 @@ Flattens an iterable `depth` levels.
 flattenN(1, List.of(List.of(1, List.of(2, 3)), List.of(4, 5, 6)));
 ```
 
-Returns **Iterable** 
+Returns **Iterable**
 
 ### forEach
 
@@ -456,8 +456,8 @@ Executes `effect` for each value in `subject`, then returns `subject`.
 
 **Parameters**
 
--   `effect` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
--   `subject` **TYPE** 
+-   `effect` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)**
+-   `subject` **TYPE**
 
 **Examples**
 
@@ -473,7 +473,7 @@ forEach(
 // 3
 ```
 
-Returns **TYPE** 
+Returns **TYPE**
 
 ### fromJS
 
@@ -484,7 +484,7 @@ compatibility with other transmute functions like `map`.
 
 **Parameters**
 
--   `json` **any** 
+-   `json` **any**
 
 **Examples**
 
@@ -493,7 +493,7 @@ fromJS({items: [1, 2, 3]})
 // returns Map { items: List [ 1, 2, 3 ] }
 ```
 
-Returns **Iterable?** 
+Returns **Iterable?**
 
 ### get
 
@@ -525,8 +525,8 @@ Retrieve a `keyPath` from a nested Immutable or JS structure.
 
 **Parameters**
 
--   `keyPath` **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)>** 
--   `subject` **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) | Iterable | [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object))** 
+-   `keyPath` **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)>**
+-   `subject` **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) | Iterable | [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object))**
 
 **Examples**
 
@@ -541,7 +541,7 @@ const user = UserRecord({
 getFirstName(user) === 'Test'
 ```
 
-Returns **any** 
+Returns **any**
 
 ### has
 
@@ -551,8 +551,8 @@ Returns `true` if `key` exists in `subject`.
 
 **Parameters**
 
--   `key` **any** 
--   `subject` **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) | Iterable | [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object))** 
+-   `key` **any**
+-   `subject` **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) | Iterable | [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object))**
 
 **Examples**
 
@@ -563,7 +563,7 @@ hasOne({one: 1}) === true;
 hasOne(Map({two: 2})) === false;
 ```
 
-Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
+Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)**
 
 ### hasIn
 
@@ -575,8 +575,8 @@ Returns `true` if `keyPath` is defined in a nested data structure.
 
 **Parameters**
 
--   `keyPath` **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)>** 
--   `subject` **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) | Iterable | [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object))** 
+-   `keyPath` **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)>**
+-   `subject` **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) | Iterable | [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object))**
 
 **Examples**
 
@@ -591,7 +591,7 @@ const user = UserRecord({
 hasFirstName(user) === true
 ```
 
-Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
+Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)**
 
 ### identity
 
@@ -601,7 +601,7 @@ Returns it's first argument.
 
 **Parameters**
 
--   `thing` **any** 
+-   `thing` **any**
 
 **Examples**
 
@@ -609,7 +609,7 @@ Returns it's first argument.
 identity('something') === 'something'
 ```
 
-Returns **any** 
+Returns **any**
 
 ### ifElse
 
@@ -620,10 +620,10 @@ Otherwise applies `negative` to `subject`.
 
 **Parameters**
 
--   `predicate` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
--   `affirmative` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
--   `negative` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
--   `subject` **any** 
+-   `predicate` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)**
+-   `affirmative` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)**
+-   `negative` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)**
+-   `subject` **any**
 
 **Examples**
 
@@ -638,7 +638,7 @@ incrementAwayFromZero(1) === 2
 incrementAwayFromZero(-1) === -2
 ```
 
-Returns **any** 
+Returns **any**
 
 ### ifThen
 
@@ -649,9 +649,9 @@ Otherwise returns `subject`.
 
 **Parameters**
 
--   `predicate` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
--   `affirmative` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
--   `subject` **any** 
+-   `predicate` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)**
+-   `affirmative` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)**
+-   `subject` **any**
 
 **Examples**
 
@@ -667,7 +667,7 @@ toJS(List.of(1, 2, 3)) //=> [1, 2, 3]
 toJS([1, 2, 3]) //=> [1, 2, 3]
 ```
 
-Returns **any** 
+Returns **any**
 
 ### indexBy
 
@@ -688,7 +688,7 @@ indexBy(get('id'), List.of({id: 123}, {id: 456}))
 // returns Map { 123: {id: 123}, 456: {id: 456} }
 ```
 
-Returns **KeyedIterable** 
+Returns **KeyedIterable**
 
 ### keySeq
 
@@ -698,7 +698,7 @@ Get a Seq of the keys in `subject`.
 
 **Parameters**
 
--   `subject` **(Iterable | [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) \| [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array))** 
+-   `subject` **(Iterable | [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) \| [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array))**
 
 **Examples**
 
@@ -707,7 +707,7 @@ keySeq({one: 1, two: 2, three: 3})
 // returns Seq [ 'one', 'two', 'three' ]
 ```
 
-Returns **Seq** 
+Returns **Seq**
 
 ### map
 
@@ -741,8 +741,8 @@ item.
 
 **Parameters**
 
--   `into` **any** 
--   `operation` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
+-   `into` **any**
+-   `operation` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)**
 -   `subject` **Iterable** [description]
 
 **Examples**
@@ -756,7 +756,7 @@ reduce(
 // returns List [ 1, 2, 3 ]
 ```
 
-Returns **Iterable** 
+Returns **Iterable**
 
 ### set
 
@@ -766,9 +766,9 @@ Returns a copy of `subject` with `key` set to `value`.
 
 **Parameters**
 
--   `key` **any** 
--   `value` **any** 
--   `subject` **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) | Iterable | [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object))** 
+-   `key` **any**
+-   `value` **any**
+-   `subject` **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) | Iterable | [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object))**
 
 **Examples**
 
@@ -777,7 +777,7 @@ set('one', 2, {one: 1});
 // returns {one: 2}
 ```
 
-Returns **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) | Iterable | [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object))** 
+Returns **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) | Iterable | [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object))**
 
 ### some
 
@@ -788,7 +788,7 @@ Returns `true` if **any** items in `subject` match `predicate`.
 **Parameters**
 
 -   `predicate` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** returns `true` if item is a match.
--   `subject` **Iterable** 
+-   `subject` **Iterable**
 
 **Examples**
 
@@ -799,7 +799,7 @@ anyBlue(List.of('blue', 'red')) === true;
 anyBlue(List.of('red', 'red')) === true;
 ```
 
-Returns **bool** 
+Returns **bool**
 
 ### sortBy
 
@@ -840,7 +840,7 @@ Get a Seq of the values in `subject`.
 
 **Parameters**
 
--   `subject` **(Iterable | [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) \| [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array))** 
+-   `subject` **(Iterable | [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) \| [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array))**
 
 **Examples**
 
@@ -849,7 +849,7 @@ valueSeq(Map({ one: 1, two: 2, three: 3 }))
 // returns Seq [ 1, 2, 3 ]
 ```
 
-Returns **Seq** 
+Returns **Seq**
 
 ### isArray
 
@@ -859,9 +859,9 @@ Returns `true` if value is an Array.
 
 **Parameters**
 
--   `value` **any** 
+-   `value` **any**
 
-Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
+Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)**
 
 ### isEmpty
 
@@ -872,9 +872,9 @@ If given null, undefined, isEmpty will return true.
 
 **Parameters**
 
--   `value` **any** 
+-   `value` **any**
 
-Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
+Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)**
 
 ### isFunction
 
@@ -884,9 +884,9 @@ Returns true if `value` is a Function.
 
 **Parameters**
 
--   `value` **any** 
+-   `value` **any**
 
-Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
+Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)**
 
 ### isInstanceOf
 
@@ -896,10 +896,10 @@ Returns true if `value` is an instance of `Constructor`.
 
 **Parameters**
 
--   `Constructor` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
--   `value` **any** 
+-   `Constructor` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)**
+-   `value` **any**
 
-Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
+Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)**
 
 ### isNull
 
@@ -909,9 +909,9 @@ Returns `true` if `subject` is `null`.
 
 **Parameters**
 
--   `subject` **any** 
+-   `subject` **any**
 
-Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
+Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)**
 
 ### isNumber
 
@@ -921,9 +921,9 @@ Returns `true` if `subject` is a JavaScript Number and not `NaN`.
 
 **Parameters**
 
--   `value` **any** 
+-   `value` **any**
 
-Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
+Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)**
 
 ### isObject
 
@@ -933,9 +933,9 @@ Returns true if `value` is an Object.
 
 **Parameters**
 
--   `value` **any** 
+-   `value` **any**
 
-Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
+Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)**
 
 ### isRecord
 
@@ -945,9 +945,9 @@ Returns `true` if `subject` is an instance of a Record.
 
 **Parameters**
 
--   `subject` **any** 
+-   `subject` **any**
 
-Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
+Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)**
 
 ### isString
 
@@ -957,9 +957,9 @@ Returns true if `value` is a String.
 
 **Parameters**
 
--   `value` **any** 
+-   `value` **any**
 
-Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
+Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)**
 
 ### isUndefined
 
@@ -969,9 +969,9 @@ Returns `true` if `subject` is `undefined`.
 
 **Parameters**
 
--   `subject` **any** 
+-   `subject` **any**
 
-Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
+Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)**
 
 ### mapKeys
 
@@ -982,7 +982,7 @@ Like `map` but transforms an Iterable's keys rather than its values.
 **Parameters**
 
 -   `keyMapper` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** returns a new key
--   `subject` **KeyedIterable** 
+-   `subject` **KeyedIterable**
 
 **Examples**
 
@@ -995,7 +995,7 @@ const m = Map.of(123, Map(), 456, Map(), 789, Map());
 stringifyKeys(m).equals(Map.of('123', Map(), '456', Map(), '789', Map()));
 ```
 
-Returns **KeyedIterable** 
+Returns **KeyedIterable**
 
 ### match
 
@@ -1005,8 +1005,8 @@ Returns `true` if the key => value pairs in `pattern` match the correspoding key
 
 **Parameters**
 
--   `pattern` **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) | Iterable | [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object))** 
--   `subject` **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) | Iterable | [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object))** 
+-   `pattern` **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) | Iterable | [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object))**
+-   `subject` **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) | Iterable | [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object))**
 
 **Examples**
 
@@ -1015,7 +1015,7 @@ const hasOneAndThree = match({one: 1, three: 3});
 hasOneAndThree(Map({one: 1, two: 2, three: 3})) === true;
 ```
 
-Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
+Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)**
 
 ### memoize
 
@@ -1067,7 +1067,7 @@ It's often useful for caching expensive calculations in react components.
 
 **Parameters**
 
--   `operation` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
+-   `operation` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)**
 
 **Examples**
 
@@ -1083,7 +1083,7 @@ sum(List.of(1, 2, 3))
 //> does work again, returns 6
 ```
 
-Returns **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
+Returns **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)**
 
 ### merge
 
@@ -1139,7 +1139,7 @@ Returns **KeyedIterable** without `keys`.
 
 **Parameters**
 
--   `fn` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
+-   `fn` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)**
 
 Returns **any** the result of the first time `fn` was called
 
@@ -1159,9 +1159,9 @@ add11(7); // returns 18
 
 -   `operation` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** the function to bind.
 -   `first` **any** the first argument to pass to `operation`
--   `args` **...any** 
+-   `args` **...any**
 
-Returns **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
+Returns **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)**
 
 ### partialApply
 
@@ -1186,7 +1186,7 @@ const add11 = partialApply(add, [5, 6]);
 add11(7); // returns 18
 ```
 
-Returns **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
+Returns **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)**
 
 ### pick
 
@@ -1235,7 +1235,7 @@ takeEvensAndDouble(List.of(1, 2, 3))
 // returns List [ 4 ]
 ```
 
-Returns **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
+Returns **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)**
 
 ### pluck
 
@@ -1245,8 +1245,8 @@ Select `key` from each item in `subject`.
 
 **Parameters**
 
--   `key` **any** 
--   `subject` **Iterable** 
+-   `key` **any**
+-   `subject` **Iterable**
 
 **Examples**
 
@@ -1255,7 +1255,7 @@ const pluckName = pluck('name');
 pluckName(userMap) === Map({123: 'Testing'});
 ```
 
-Returns **Iterable** 
+Returns **Iterable**
 
 ### setArity
 
@@ -1266,7 +1266,7 @@ Creates a function identical to `operation` but with length `arity`.
 **Parameters**
 
 -   `arity` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** from 0 to 9
--   `operation` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
+-   `operation` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)**
 
 **Examples**
 
@@ -1278,7 +1278,7 @@ const twoArgOp = setArity(2, op);
 twoArgOp.length === 2;
 ```
 
-Returns **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
+Returns **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)**
 
 ### setIn
 
@@ -1288,9 +1288,9 @@ Set the `value` at `keyPath` in a nested structure.
 
 **Parameters**
 
--   `keyPath` **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;any> | Iterable&lt;any>)** 
--   `value` **any** 
--   `subject` **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) | Iterable | [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object))** 
+-   `keyPath` **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;any> | Iterable&lt;any>)**
+-   `value` **any**
+-   `subject` **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) | Iterable | [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object))**
 
 **Examples**
 
@@ -1318,7 +1318,7 @@ Ensures `operation` is only called once every `interval` milliseconds.
 **Parameters**
 
 -   `interval` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** of milliseconds
--   `operation` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
+-   `operation` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)**
 
 Returns **any** the most recent result of `operation`
 
@@ -1342,9 +1342,9 @@ Converts `subject` to a `Seq` if possible.
 
 **Parameters**
 
--   `subject` **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) | Iterable | [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) \| [String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String))** 
+-   `subject` **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) | Iterable | [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) \| [String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String))**
 
-Returns **Seq** 
+Returns **Seq**
 
 ### toString
 
@@ -1354,7 +1354,7 @@ Returns the value converted to a string.
 
 **Parameters**
 
--   `value` **any** 
+-   `value` **any**
 
 ### uniqueId
 
@@ -1382,9 +1382,9 @@ Sets the value at `key` to the result of `updater`.
 
 **Parameters**
 
--   `key` **any** 
--   `updater` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
--   `subject` **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) | Iterable | [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object))** 
+-   `key` **any**
+-   `updater` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)**
+-   `subject` **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) | Iterable | [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object))**
 
 **Examples**
 
@@ -1394,7 +1394,7 @@ incrementCount({count: 1});
 // returns {count: 2}
 ```
 
-Returns **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) | Iterable | [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object))** 
+Returns **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) | Iterable | [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object))**
 
 ### updateIn
 
@@ -1427,7 +1427,7 @@ incrementUserCount(Map());
 // returns Map { users => Map { count => 1 } }
 ```
 
-Returns **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) | Iterable | [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object))** 
+Returns **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) | Iterable | [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object))**
 
 ### where
 
@@ -1437,8 +1437,8 @@ Takes items in `subject` that match `pattern`.
 
 **Parameters**
 
--   `pattern` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
--   `subject` **Iterable** 
+-   `pattern` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)**
+-   `subject` **Iterable**
 
 **Examples**
 
@@ -1452,7 +1452,7 @@ where({name: 'Jack'}, users);
 // returns Map { 123: {id: '123', name: 'Jack'} }
 ```
 
-Returns **Iterable** 
+Returns **Iterable**
 
 ### without
 
@@ -1462,8 +1462,8 @@ Removes values in `unwanted` from `subject`.
 
 **Parameters**
 
--   `unwanted` **Iterable** 
--   `subject` **Iterable** 
+-   `unwanted` **Iterable**
+-   `subject` **Iterable**
 
 **Examples**
 
@@ -1473,4 +1473,4 @@ const removeOne = without(Set.of(1));
 removeOne(Set.of(1, 2, 3)) // returns Set { 2, 3 }
 ```
 
-Returns **Iterable** 
+Returns **Iterable**

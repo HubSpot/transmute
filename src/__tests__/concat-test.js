@@ -61,7 +61,7 @@ describe('transmute/concat', () => {
       expect(concat(LIST_2, LIST_1)).toEqual(LIST_1);
     });
 
-    it('uses the subject List as the return value type', () => {
+    it('uses the subject type as the return value type', () => {
       expect(concat(['test'], List(['test']))).toEqual(List(['test', 'test']));
       expect(concat(List(['test']), ['test'])).toEqual(['test', 'test']);
     });
@@ -95,7 +95,7 @@ describe('transmute/concat', () => {
       expect(concat(SEQ_2, SEQ_1)).toEqual(SEQ_1);
     });
 
-    it('uses the subject Seq as the return value type', () => {
+    it('uses the subject type as the return value type', () => {
       // https://github.com/facebook/jest/issues/5998
       expect(concat(['test'], Seq('test')).toJS()).toEqual([
         't',
