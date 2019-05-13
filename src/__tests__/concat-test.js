@@ -54,7 +54,7 @@ describe('transmute/concat', () => {
       expect(concat(LIST_2, LIST_1)).toEqual(List());
     });
 
-    it('returns the original list if the concat is empty', () => {
+    it('returns the original list if the update is empty', () => {
       const LIST_1 = List(['a', 'b']);
       const LIST_2 = List();
 
