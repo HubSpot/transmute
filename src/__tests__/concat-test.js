@@ -4,7 +4,9 @@ import { List, Map, Seq, Set } from 'immutable';
 describe('transmute/concat', () => {
   it('throws an error when subject is `null` or `undefined`', () => {
     expect(() => concat(List(), null)).toThrow();
+    expect(() => concat(List(), undefined)).toThrow();
     expect(() => concat(Seq(), null)).toThrow();
+    expect(() => concat(Seq(), undefined)).toThrow();
   });
 
   it('throws an error when attempting to concatenate non-indexed iterables', () => {
