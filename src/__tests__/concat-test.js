@@ -38,7 +38,7 @@ describe('transmute/concat', () => {
       expect(concat(List([null]), List([null]))).toEqual(List([null, null]));
     });
 
-    it('joins List objects', () => {
+    it('joins Lists of Lists', () => {
       const LIST_1 = List();
       const LIST_2 = List();
 
