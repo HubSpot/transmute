@@ -65,7 +65,7 @@ export default function protocol({ args, name, fallback }: ProtocolDefinition) {
     const key = getValueKey(id, value);
     const implementation = (key && implementations[key]) || fallback;
     if (!implementation) {
-      throw new Error(`${name}: not implmented for type \`${value}\``);
+      throw new Error(`${name}: not implemented for type \`${value}\``);
     }
     return implementation(...argValues);
   });
