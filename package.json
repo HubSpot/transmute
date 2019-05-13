@@ -1,6 +1,6 @@
 {
   "name": "@hs/transmute",
-  "version": "2.0.6",
+  "version": "2.1.0",
   "description": "kind of like lodash but works with Immutable",
   "license": "MIT",
   "keywords": [
