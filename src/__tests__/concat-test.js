@@ -88,7 +88,7 @@ describe('transmute/concat', () => {
       expect(concat(SEQ_2, SEQ_1)).toEqual(Seq());
     });
 
-    it('returns the original Seq if the concat is empty', () => {
+    it('returns the original Seq if the update is empty', () => {
       const SEQ_1 = Seq(['a', 'b']);
       const SEQ_2 = Seq();
 
