@@ -76,9 +76,5 @@
       "git add"
     ]
   },
-  "repository": {
-    "type": "git",
-    "url": "git@git.hubteam.com:HubSpot/transmute.git"
-  },
   "author": "Colby Rabideau<crabideau@hubspot.com>"
 }
