@@ -23,3 +23,9 @@ Object {
   "three": 3,
 }
 `;
+
+exports[`transmute/getIn gets a keyPath from an Object with no constructor 1`] = `
+Object {
+  "three": 3,
+}
+`;

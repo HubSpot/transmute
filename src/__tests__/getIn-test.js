@@ -30,6 +30,22 @@ describe('transmute/getIn', () => {
     ).toMatchSnapshot();
   });
 
+  it('gets a keyPath from an Object with no constructor', () => {
+    expect(
+      getter(
+        Object.create(null, {
+          one: {
+            value: {
+              two: {
+                three: 3,
+              },
+            },
+          },
+        })
+      )
+    ).toMatchSnapshot();
+  });
+
   it('gets a keyPath from an Error', () => {
     const error = new Error();
     error.foo = {
