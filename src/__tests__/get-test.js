@@ -52,6 +52,18 @@ describe('transmute/get', () => {
       expect(getTwo({ one: 1, two: 2, three: 3 })).toEqual(2);
     });
 
+    it('gets a property from an Object with no constructor', () => {
+      expect(
+        getTwo(
+          Object.create(null, {
+            one: { value: 1 },
+            two: { value: 2 },
+            three: { value: 3 },
+          })
+        )
+      ).toEqual(2);
+    });
+
     it('gets a property from a Seq', () => {
       expect(getTwo(Seq({ one: 1, two: 2, three: 3 }))).toEqual(2);
     });

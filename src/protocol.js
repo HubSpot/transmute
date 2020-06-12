@@ -17,7 +17,7 @@ function getValueKey(id, value) {
     case undefined:
       return `${value}`;
     default:
-      return value.constructor[id] || value[id];
+      return (value.constructor && value.constructor[id]) || value[id];
   }
 }
 
