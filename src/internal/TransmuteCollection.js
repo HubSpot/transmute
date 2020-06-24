@@ -193,6 +193,23 @@ export const reduce = protocol({
 
 /**
  * @private
+ * Returns a list of new values by applying `mapper` to each item in `subject`.
+ *
+ * @param {Function} mapper
+ * @param {TYPE} subject
+ * @return {TYPE}
+ */
+export const scan = protocol({
+  args: [
+    isAnyValue, // accumulator
+    isFunction, // reducer
+    protocol.TYPE, // subject
+  ],
+  name: 'scan',
+});
+
+/**
+ * @private
  * Set the `value` of `key` in `subject`.
  *
  * @param {any} value
