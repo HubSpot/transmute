@@ -248,6 +248,17 @@ Returns **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Ref
 
 Returns **any** the most recent result of `operation`
 
+**Examples**
+
+```javascript
+const sayHello = (first, last) => console.log(`Hello ${first} ${last}!`);
+
+// Second param is just the function name even if the function takes arguments
+const debouncedSayHello = debounce(300, sayHello);
+
+debouncedSayHello('hs', 'transmute'); // logs "Hello hs transmute!" after 300 milliseconds
+```
+
 ### debounceImmediate
 
 [src/debounceImmediate.js:52-52](https://github.com/HubSpot/transmute/blob/ddf170dd577610935b648d330255d9ceccfe75b2/src/debounceImmediate.js#L52-L52 "Source code on GitHub")
