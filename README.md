@@ -248,7 +248,7 @@ Returns **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Ref
 
 Returns **any** the most recent result of `operation`
 
-**Examples**
+**Example**
 
 ```javascript
 const sayHello = (first, last) => console.log(`Hello ${first} ${last}!`);
