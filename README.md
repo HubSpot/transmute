@@ -246,9 +246,7 @@ Returns **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Ref
 -   `interval` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** of milliseconds
 -   `operation` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)**
 
-Returns **any** the most recent result of `operation`
-
-**Example**
+**Examples**
 
 ```javascript
 const sayHello = (first, last) => console.log(`Hello ${first} ${last}!`);
@@ -258,6 +256,8 @@ const debouncedSayHello = debounce(300, sayHello);
 
 debouncedSayHello('hs', 'transmute'); // logs "Hello hs transmute!" after 300 milliseconds
 ```
+
+Returns **any** the most recent result of `operation`
 
 ### debounceImmediate
 
